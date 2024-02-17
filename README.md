@@ -228,17 +228,31 @@ Amazon S3 (Simple Storage Service) is a scalable object storage service offered 
 
 # Create Bucket, Set Public Access Block, and Upload File Using AWS CLI
 
-## 1. Create Bucket:
+## Create Bucket:
 ```bash
 aws s3api create-bucket --bucket my-example-bucket --region us-west-2
 ```
-## 2. Set Public Access Block:
+## Set Public Access Block:
 ```bash
 aws s3api put-public-access-block --bucket my-example-bucket --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
 ```
-## 3. upload file:
+## Upload file:
 ```bash
 aws s3api put-object --bucket my-example-bucket --content-type image/jpeg --key myImage.jpg --body /mnt/c/aws/myImage.jpg
+```
+## Allow Public Read
+```bash
+aws s3api delete-public-access-block --bucket my-example-bucket
+
+aws s3api put-object-acl --bucket my-example-bucket --key myImage.jpg --acl public-read
+```
+## Delete File
+```bash
+aws s3api delete-object --bucket my-example-bucket --key myImage.jpg
+```
+## Delete Bucket
+```bash
+aws s3api delete-bucket --bucket my-example-bucket --region us-west-2
 ```
 
 # Security and Permissions on an Amazon S3 Bucket
