@@ -52,7 +52,7 @@ IAM (Identity and Access Management) is a crucial service in AWS that helps you 
     }
   ]
 }
-
+```
 # IAM Resources
 ## Users
 
