@@ -290,8 +290,8 @@ Amazon S3 provides several mechanisms to control access to your buckets and obje
 }
 
 #cli
-aws s3api put-bucket-policy --bucket my-example-bucket --policy file://polic
-y.json
+
+aws s3api put-bucket-policy --bucket my-example-bucket --policy file://policy.json
 ```
 
 ## Access Control Lists (ACLs):
