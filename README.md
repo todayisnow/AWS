@@ -117,3 +117,21 @@ IAM identity providers enable you to federate access to AWS resources by using e
 - **Integration with Existing Systems:** IdPs integrate with existing identity systems like Active Directory, simplifying user management and access control.
 - **Centralized Identity Management:** IdPs provide centralized identity management across multiple applications and platforms, improving security and user experience.
 
+# IAM Request Handling and Authorization Logic
+
+IAM (Identity and Access Management) serves as the gatekeeper for all access requests to AWS resources, whether initiated by users, applications, or machines. This section outlines the fundamental principles of IAM request handling and authorization logic:
+
+- **Principal:** The principal refers to the user, application, or machine seeking access to an AWS resource. Requests can be made through API calls or the AWS Management Console.
+- **Request Flow:** Any access request to an AWS resource is intercepted by IAM first. The request includes information about the principal, the action being requested, and the target resource.
+- **Authentication and Authorization:** IAM performs both authentication and authorization checks on the incoming request. Authentication verifies the identity of the principal, while authorization determines whether the principal is allowed to perform the requested action on the specified resource.
+- **Request Handling:** If a request involves multiple actions and at least one action is denied by IAM policies, the entire request is denied.
+- **Default Denial:** By default, all resource access is denied. Unless there is a specific IAM policy granting permission for the requested action, access will be prohibited. The only exception is for the root account, which has full access by default.
+- **Policy Evaluation:** If a principal is associated with multiple policies, IAM follows a "deny by default" logic. If there is at least one policy denying the action, regardless of any allowing policies, access will be denied.
+
+This framework ensures that access to AWS resources is tightly controlled and follows a strict authorization logic governed by IAM policies. It emphasizes the importance of defining precise policies to grant or restrict access based on the specific needs of the organization.
+---
+
+
+
+
+
