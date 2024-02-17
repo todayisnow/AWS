@@ -18,7 +18,7 @@ Amazon Web Services (AWS) is a comprehensive and widely adopted cloud computing 
 - **Analytics Services:** AWS provides analytics services like Amazon Athena for interactive query analysis, Amazon EMR for big data processing, and Amazon QuickSight for business intelligence.
 
 
-[Setup AWS CLI – Prerequisites and Environment]("cli.md")
+[Setup AWS CLI – Prerequisites and Environment](cli.md)
 
 [IAM (Identity and Access Management)](iam.md)
 
