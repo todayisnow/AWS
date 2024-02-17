@@ -149,7 +149,7 @@ This framework ensures that access to AWS resources is tightly controlled and fo
 2. **Configure AWS CLI:**
    Run the following command in your terminal and provide the access key ID, secret access key, default region, and output format when prompted:
    Example:
-   ``` json
+   ``` 
    aws configure
    
     AWS Access Key ID [None]: YOUR_ACCESS_KEY_ID
