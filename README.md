@@ -289,7 +289,7 @@ Amazon S3 provides several mechanisms to control access to your buckets and obje
     ]
 }
 
---cli
+//cli
 
 aws s3api put-bucket-policy --bucket my-example-bucket --policy file://policy.json
 ```
@@ -314,6 +314,85 @@ aws s3api put-bucket-policy --bucket my-example-bucket --policy file://policy.js
 
 ## Block Public Access:
 - **Restrict Public Access:** Amazon S3 offers settings to block public access to your buckets and objects by default. You can enable block public access settings at the account level or individual bucket level to prevent accidental exposure of sensitive data to the public internet.
+
+# Amazon S3 Storage Classes by Category
+
+Amazon S3 offers a variety of storage classes designed to meet different performance, durability, and cost requirements. These storage classes are categorized into three main categories: Standard, Infrequent Access, and Glacier.
+
+## Standard Storage Classes:
+- **S3 Standard**: The default storage class designed for frequently accessed data with high availability, durability, and low latency. Ideal for frequently accessed data such as active workloads, multimedia content, and data analytics. $0.023 GB/Month
+
+- **S3 Intelligent-Tiering**: A storage class designed for data with unknown or changing access patterns. Automatically moves data between two access tiers: frequent access and infrequent access, optimizing costs based on access patterns. object monitoring cost $0.00025 per 1000 objects
+
+## Infrequent Access Storage Classes:
+- **S3 Standard-IA (Infrequent Access)**: Designed for data that is accessed less frequently but requires rapid access when needed. Offers the same availability and durability as S3 Standard but with lower storage costs and higher retrieval fees. $0.0125 GB/Month - min storage duration 30 days - >= 3 AZ - 99.9% - retrieval $0.01 GB
+
+- **S3 One Zone-IA**: Similar to S3 Standard-IA but stores data in a single Availability Zone, offering lower storage costs than S3 Standard-IA but with slightly less durability.$0.01 GB/Month - min storage duration 30 days - 1 AZ - 99.5% - retrieval $0.01 GB
+
+## Glacier Storage Classes:
+- **Amazon S3 Glacier**: A low-cost storage class designed for long-term data archiving with retrieval times ranging from minutes to hours. Suitable for data archiving, compliance, and regulatory requirements where access times are less critical. $0.004 GB/Month - min storage duration 90 days - $0.03 GB retrieval - ms access time
+
+- **Amazon S3 Glacier Flexible Retrieval**: A storage class designed to provide the flexibility to choose between three retrieval options: Expedited, Standard, and Bulk. Each retrieval option has different pricing and availability characteristics, allowing you to tailor retrieval times and costs based on your specific needs. $0.0036 GB/Month - min storage duration 90 days - $0.01 to $0.03 GB retrieval - minutes to hours access time
+
+- **Amazon S3 Glacier Deep Archive**: The lowest-cost storage class designed for long-term data retention and archiving with retrieval times ranging from hours to days. Ideal for data that is accessed rarely and has strict compliance and regulatory requirements. $0.00099 GB/Month - min storage duration 180 days - $0.02 GB retrieval - hours access time
+
+## Other Storage Classes:
+- **S3 Outposts**: A storage class designed for data stored on AWS Outposts, offering the same features and performance as S3 Standard but within the customer's data center.
+
+- **S3 Object Lock**: A feature that allows you to apply retention periods and legal holds to objects, ensuring they remain immutable and protected against deletion or modification for a specified duration.
+
+These storage classes provide flexibility in managing data based on access patterns, performance requirements, and cost considerations, allowing you to optimize storage costs while meeting your specific needs.
+
+
+# Amazon S3 Lifecycle Policies
+
+Amazon S3 lifecycle policies allow you to define rules to automatically manage the lifecycle of your objects stored in S3 buckets. With lifecycle policies, you can define actions such as transitioning objects to different storage classes, deleting objects after a specified period, or archiving objects to Amazon S3 Glacier or Glacier Deep Archive.
+
+## Benefits of S3 Lifecycle Policies:
+- **Cost Optimization**: Automatically move objects to less expensive storage classes as they age or delete them when they're no longer needed to optimize storage costs.
+- **Data Management**: Simplify data management by automatically managing the lifecycle of objects without manual intervention.
+- **Compliance and Retention**: Ensure compliance with regulatory requirements by automatically archiving or deleting objects based on retention policies.
+
+## Components of S3 Lifecycle Policies:
+- **Rules**: Define rules to specify the conditions and actions for managing the lifecycle of objects.
+- **Transitions**: Specify when to transition objects to a different storage class based on their age or other criteria.
+- **Expiration**: Define expiration actions to automatically delete objects after a specified period.
+
+## Example Lifecycle Policy:
+```json
+{
+    "Rules": [
+        {
+            "ID": "MoveToGlacier",
+            "Status": "Enabled",
+            "Filter": {
+                "Prefix": "logs/"
+            },
+            "Transitions": [
+                {
+                    "Days": 30,
+                    "StorageClass": "GLACIER"
+                },
+                {
+                    "Days": 365,
+                    "StorageClass": "DEEP_ARCHIVE"
+                }
+            ],
+            "Expiration": {
+                "Days": 3650
+            }
+        }
+    ]
+}
+```
+## In this example:
+- The rule with the ID "MoveToGlacier" is enabled and applies to objects with the prefix "logs/".
+- Objects matching the filter are transitioned to the GLACIER storage class after 30 days and to the DEEP_ARCHIVE storage class after 365 days.
+- Objects are automatically deleted after 3650 days (10 years)
+
+## Notes:
+- You can define multiple rules in a lifecycle policy to apply different lifecycle actions to different sets of objects.
+- Lifecycle policies can be applied at the bucket level and are automatically applied to all objects within the bucket that match the rule criteria.
 
 ---
 
