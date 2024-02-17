@@ -289,7 +289,7 @@ Amazon S3 provides several mechanisms to control access to your buckets and obje
     ]
 }
 
-#cli
+--cli
 
 aws s3api put-bucket-policy --bucket my-example-bucket --policy file://policy.json
 ```
@@ -314,4 +314,7 @@ aws s3api put-bucket-policy --bucket my-example-bucket --policy file://policy.js
 
 ## Block Public Access:
 - **Restrict Public Access:** Amazon S3 offers settings to block public access to your buckets and objects by default. You can enable block public access settings at the account level or individual bucket level to prevent accidental exposure of sensitive data to the public internet.
+
+---
+
 
