@@ -268,16 +268,30 @@ Amazon S3 provides several mechanisms to control access to your buckets and obje
 ```json
 {
     "Version": "2012-10-17",
+    "Id": "ExamplePolicy01",
     "Statement": [
         {
-            "Sid": "PublicReadGetObject",
+            "Sid": "ExampleStatement01",
             "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::example-bucket/*"
+            "Principal": {
+                "AWS": "arn:aws:iam::123456789012:user/Dave"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::awsexamplebucket1/*",
+                "arn:aws:s3:::awsexamplebucket1"
+            ]
         }
     ]
 }
+
+#cli
+aws s3api put-bucket-policy --bucket my-example-bucket --policy file://polic
+y.json
 ```
 
 ## Access Control Lists (ACLs):
