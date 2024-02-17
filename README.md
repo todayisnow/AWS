@@ -254,7 +254,36 @@ aws s3api delete-object --bucket my-example-bucket --key myImage.jpg
 ```bash
 aws s3api delete-bucket --bucket my-example-bucket --region us-west-2
 ```
+# Bucket Policy Overview
 
+## Purpose:
+A bucket policy is a JSON document that defines permissions for an Amazon S3 bucket. It allows you to control access to the bucket and its objects at a granular level.
+
+## Scope:
+Bucket policies apply to the entire bucket and can define permissions for various operations, including list, upload, download, delete, and more.
+
+## Syntax:
+Bucket policies consist of one or more statements, each containing a set of conditions and actions. You can specify which principals (users, roles, or AWS services) are allowed or denied access to the bucket and its objects.
+
+## Evaluation:
+Bucket policies are evaluated before any other access control mechanisms, such as IAM policies or ACLs. They provide a centralized way to manage access control for all objects within the bucket.
+
+# Example Bucket Policy
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+    ]
+}
+```
 # Security and Permissions on an Amazon S3 Bucket
 
 Amazon S3 provides several mechanisms to control access to your buckets and objects, ensuring that only authorized users or applications can interact with your data. Here are some key aspects of security and permissions in Amazon S3:
