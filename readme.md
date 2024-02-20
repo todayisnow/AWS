@@ -5,7 +5,7 @@ Amazon Web Services (AWS) is a comprehensive and widely adopted cloud computing 
 ## Topics:
 
 ### [Introduction](intro.md)
-overview of the platform and its key concepts and benefits.
+Overview of the platform and its key concepts and benefits.
 
 ### [Setup AWS CLI – Prerequisites and Environment](cli.md)
 Learn how to set up the AWS Command Line Interface (CLI), including prerequisites and configuring your environment.
@@ -18,6 +18,9 @@ Discover Amazon Simple Storage Service (S3), a scalable object storage service d
 
 ### [Amazon EC2 (Elastic Compute Cloud)](ec2.md)
 Get started with Amazon Elastic Compute Cloud (EC2), a web service that provides resizable compute capacity in the cloud.
+
+## [CodeCommit](cc.md)
+Version control service hosted by Amazon Web Services that you can use to privately store and manage assets 
 
 ### [Amazon Route 53](route53.md)
 Learn about Amazon Route 53, a scalable and highly available Domain Name System (DNS) web service.
