@@ -179,6 +179,11 @@ aws ec2 run-instances --image-id <AMI-ID> --count 1 --instance-type t2.micro --k
 
 # Amazon EC2 Instance Families and Features
 
+Amazon EC2 offers a wide range of instance families optimized for various workloads, including general-purpose computing, high-performance computing (HPC), memory-intensive applications, accelerated computing with GPUs, and storage-optimized workloads. Each instance family is designed to provide specific combinations of compute, memory, storage, and networking resources to meet the diverse needs of different applications and use cases.
+
+For more detailed information on EC2 instance types and families, including specific features, performance characteristics, and pricing details, visit the [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/) page.
+
+
 ## General Purpose Instances
 
 General Purpose instances provide a balance of compute, memory, and networking resources. They are suitable for a wide range of workloads, including web servers, development environments, and small databases.
@@ -269,3 +274,16 @@ Storage Optimized instances are designed for workloads that require high storage
   - Dense storage instances with high storage capacity and high disk throughput.
   - Suitable for big data processing, distributed file systems, and data analytics workloads.
 
+## HPC Optimized Instances
+
+HPC (High Performance Computing) Optimized instances are designed for computationally intensive workloads that require high-performance computing resources.
+
+### Family: H1
+- **Features**:
+  - High-performance computing instances with high CPU performance and low-latency networking.
+  - Suitable for parallel processing, computational fluid dynamics, financial modeling, and other HPC workloads.
+
+### Family: HPC6g
+- **Features**:
+  - HPC-optimized instances powered by AWS Graviton2 processors.
+  - Provides improved performance and efficiency for HPC workloads, including simulations, modeling, and scientific computing.
