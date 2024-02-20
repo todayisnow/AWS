@@ -19,7 +19,7 @@ Discover Amazon Simple Storage Service (S3), a scalable object storage service d
 ### [Amazon EC2 (Elastic Compute Cloud)](ec2.md)
 Get started with Amazon Elastic Compute Cloud (EC2), a web service that provides resizable compute capacity in the cloud.
 
-## [CodeCommit](cc.md)
+### [CodeCommit](cc.md)
 Version control service hosted by Amazon Web Services that you can use to privately store and manage assets 
 
 ### [Amazon Route 53](route53.md)
