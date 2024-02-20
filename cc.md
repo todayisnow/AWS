@@ -130,12 +130,12 @@ To access AWS CodeCommit repositories over SSH, follow these steps:
         ```
     - Follow the prompts to save the key pair to a specific location (e.g., `~/.ssh/id_rsa`).
 2. **Configure SSH Config**:
-   Add the following configuration to your ~/.ssh/config file to specify the SSH key and CodeCommit host:
-   ```bash
-    Host git-codecommit.*.amazonaws.com
-    User Your-IAM-SSH-Key-ID
-    IdentityFile <private key location>
-   ```
+   - Add the following configuration to your ~/.ssh/config file to specify the SSH key and CodeCommit host:
+       ```bash
+        Host git-codecommit.*.amazonaws.com
+        User Your-IAM-SSH-Key-ID
+        IdentityFile <private key location>
+       ```
    
 3. **Add Public Key to AWS CodeCommit**:
     - Navigate to IAM in the AWS Management Console and select the IAM user.
