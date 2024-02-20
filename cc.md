@@ -105,6 +105,11 @@ git config --global credential.UseHttpPath true
 - If you have the AWS CLI installed and configured with IAM credentials, Git can use these credentials automatically.
 - Ensure that the AWS CLI is configured with the necessary IAM credentials using the `aws configure` command.
 
+### HTTPS Git Credentials
+- If you prefer not to use IAM user credentials or want to generate specific HTTPS Git credentials, you can do so from the AWS Management Console.
+- Navigate to IAM in the AWS Management Console, select the IAM user, and choose "Security credentials."
+- Under the "HTTPS Git credentials for AWS CodeCommit" section, choose "Generate."
+
 ## 3. Get the HTTPS Git URL
 
 - In the AWS CodeCommit console, navigate to your repository and copy the HTTPS Git URL provided.
