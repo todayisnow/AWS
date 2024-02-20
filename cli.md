@@ -32,7 +32,7 @@ This command will display the installed version of AWS CLI.
 - **Profiles:** If you have multiple IAM users or roles, you can configure AWS CLI profiles to switch between them easily.
 - **Environment Variables:** You can set environment variables to specify AWS credentials and configurations instead of using `aws configure` every time.
 
-[Back to Main](readme.md)
-
 5. **Access AWS Services:**
 Once AWS CLI is installed and configured, you can start using it to interact with various AWS services and resources from the command line. For example, you can list S3 buckets, create EC2 instances, manage IAM users, etc.
+
+[Back to Main](readme.md)
