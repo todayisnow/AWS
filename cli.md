@@ -23,7 +23,6 @@
        Default output format [None]: json
     ```
 
-
 3. **Verify Installation:**
    - After configuring AWS CLI, you can verify the installation by running the following command in your terminal:
      ```
