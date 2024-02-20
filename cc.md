@@ -130,7 +130,7 @@ To access AWS CodeCommit repositories over SSH, follow these steps:
         ```
     - Follow the prompts to save the key pair to a specific location (e.g., `~/.ssh/id_rsa`).
 2. **Add SSH Key to SSH Agent**:
-    Start the SSH agent and add your SSH private key to it using the following commands:
+    - Start the SSH agent and add your SSH private key to it using the following commands:
    ```bash
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
