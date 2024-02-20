@@ -131,5 +131,83 @@ git clone <HTTPS_GIT_URL>
 - If you encounter any authentication issues, ensure that Git is configured correctly with the appropriate credentials and that IAM users/roles have the necessary permissions to access the CodeCommit repository.
 
 
+# Setting Up HTTPS and SSH Access for AWS CodeCommit
+
+## HTTPS Access
+
+To access AWS CodeCommit repositories over HTTPS, follow these steps:
+
+1. **Install Git**: If you haven't already, install Git on your local machine. You can download Git from the official website: [Git Downloads](https://git-scm.com/downloads).
+
+2. **Configure Git Credentials**:
+
+    - **Option 1: Use IAM Credentials**:
+        - Generate Git credentials for IAM users or IAM roles using the AWS Management Console or AWS CLI.
+        - Configure Git to use these credentials by running the following commands in your terminal:
+            ```bash
+            git config --global credential.helper '!aws codecommit credential-helper $@'
+            git config --global credential.UseHttpPath true
+            ```
+
+    - **Option 2: Use AWS CLI Configuration**:
+        - If you have the AWS CLI installed and configured with IAM credentials, Git can use these credentials automatically.
+        - Ensure that the AWS CLI is configured with the necessary IAM credentials using the `aws configure` command.
+
+3. **Get the HTTPS Git URL**:
+    - In the AWS CodeCommit console, navigate to your repository and copy the HTTPS Git URL provided.
+
+4. **Clone the Repository**:
+    - Open a terminal or command prompt and navigate to the directory where you want to clone the repository.
+    - Run the following command, replacing `<HTTPS_GIT_URL>` with the URL copied from the CodeCommit console:
+        ```bash
+        git clone <HTTPS_GIT_URL>
+        ```
+
+5. **Authenticate and Push Changes**:
+    - When prompted, enter your Git credentials (username and password) or allow Git to use IAM credentials configured in step 2.
+    - After authentication, you can push changes to the CodeCommit repository using HTTPS.
+
+## SSH Access
+
+To access AWS CodeCommit repositories over SSH, follow these steps:
+
+1. **Generate SSH Key Pair**:
+    - Generate an SSH key pair using the following command:
+        ```bash
+        ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+        ```
+    - Follow the prompts to save the key pair to a specific location (e.g., `~/.ssh/id_rsa`).
+
+2. **Add Public Key to AWS CodeCommit**:
+    - Navigate to IAM in the AWS Management Console and select the IAM user.
+    - Under the "Security credentials" tab, choose "SSH keys for AWS CodeCommit" and upload the public key (`id_rsa.pub`).
+
+3. **Configure Git to Use SSH**:
+    - Configure Git to use SSH by running the following commands in your terminal:
+        ```bash
+        git config --global user.name "Your Name"
+        git config --global user.email "your_email@example.com"
+        ```
+
+4. **Clone the Repository Using SSH**:
+    - In the AWS CodeCommit console, navigate to your repository and copy the SSH Git URL provided.
+    - Open a terminal or command prompt and navigate to the directory where you want to clone the repository.
+    - Run the following command, replacing `<SSH_GIT_URL>` with the URL copied from the CodeCommit console:
+        ```bash
+        git clone <SSH_GIT_URL>
+        ```
+
+5. **Authenticate and Push Changes**:
+    - When prompted, use SSH authentication to access the CodeCommit repository.
+
+## Note:
+- Ensure that IAM users/roles have the necessary permissions to access the CodeCommit repository.
+- HTTPS and SSH access provide secure ways to access AWS CodeCommit repositories, with HTTPS suitable for environments where SSH is not an option.
+
+
+
+
+
+
 
 [Back to Main](readme.md)
