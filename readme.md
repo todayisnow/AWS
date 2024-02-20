@@ -59,13 +59,32 @@ Amazon Web Services (AWS) is a comprehensive and widely adopted cloud computing 
 ---
 
 
-[Setup AWS CLI – Prerequisites and Environment](cli.md)
+## Topics:
 
-[IAM (Identity and Access Management)](iam.md)
+### Setup AWS CLI – Prerequisites and Environment
+Learn how to set up the AWS Command Line Interface (CLI), including prerequisites and configuring your environment.
 
-[Amazon S3 (Simple Storage Service)](s3.md)
+[View Topic](cli.md)
 
-[Amazon EC2](ec2.md)
+### IAM (Identity and Access Management)
+Explore AWS Identity and Access Management (IAM), which enables you to manage access to AWS services and resources securely.
 
-[Amazon Route53](route53.md)
+[View Topic](iam.md)
+
+### Amazon S3 (Simple Storage Service)
+Discover Amazon Simple Storage Service (S3), a scalable object storage service designed to store and retrieve any amount of data from anywhere on the web.
+
+[View Topic](s3.md)
+
+### Amazon EC2 (Elastic Compute Cloud)
+Get started with Amazon Elastic Compute Cloud (EC2), a web service that provides resizable compute capacity in the cloud.
+
+[View Topic](ec2.md)
+
+### Amazon Route 53
+Learn about Amazon Route 53, a scalable and highly available Domain Name System (DNS) web service.
+
+[View Topic](route53.md)
+
+
 
