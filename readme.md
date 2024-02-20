@@ -5,6 +5,7 @@ Amazon Web Services (AWS) is a comprehensive and widely adopted cloud computing 
 ## Topics:
 
 ### [Introduction](intro.md)
+overview of the platform and its key concepts and benefits.
 
 ### [Setup AWS CLI – Prerequisites and Environment](cli.md)
 Learn how to set up the AWS Command Line Interface (CLI), including prerequisites and configuring your environment.
