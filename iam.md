@@ -109,3 +109,5 @@ IAM (Identity and Access Management) serves as the gatekeeper for all access req
 - **Policy Evaluation:** If a principal is associated with multiple policies, IAM follows a "deny by default" logic. If there is at least one policy denying the action, regardless of any allowing policies, access will be denied.
 
 This framework ensures that access to AWS resources is tightly controlled and follows a strict authorization logic governed by IAM policies. It emphasizes the importance of defining precise policies to grant or restrict access based on the specific needs of the organization.
+
+[Back to main](readme.md)
