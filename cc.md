@@ -129,19 +129,26 @@ To access AWS CodeCommit repositories over SSH, follow these steps:
         ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
         ```
     - Follow the prompts to save the key pair to a specific location (e.g., `~/.ssh/id_rsa`).
-
-2. **Add Public Key to AWS CodeCommit**:
+2. **Configure SSH Config**:
+   Add the following configuration to your ~/.ssh/config file to specify the SSH key and CodeCommit host:
+   ```bash
+    Host git-codecommit.*.amazonaws.com
+    User Your-IAM-SSH-Key-ID
+    IdentityFile <private key location>
+   ```
+   
+3. **Add Public Key to AWS CodeCommit**:
     - Navigate to IAM in the AWS Management Console and select the IAM user.
     - Under the "Security credentials" tab, choose "SSH keys for AWS CodeCommit" and upload the public key (`id_rsa.pub`).
 
-3. **Configure Git to Use SSH**:
+4. **Configure Git to Use SSH**:
     - Configure Git to use SSH by running the following commands in your terminal:
         ```bash
         git config --global user.name "Your Name"
         git config --global user.email "your_email@example.com"
         ```
 
-4. **Clone the Repository Using SSH**:
+5. **Clone the Repository Using SSH**:
     - In the AWS CodeCommit console, navigate to your repository and copy the SSH Git URL provided.
     - Open a terminal or command prompt and navigate to the directory where you want to clone the repository.
     - Run the following command, replacing `<SSH_GIT_URL>` with the URL copied from the CodeCommit console:
@@ -149,7 +156,7 @@ To access AWS CodeCommit repositories over SSH, follow these steps:
         git clone <SSH_GIT_URL>
         ```
 
-5. **Authenticate and Push Changes**:
+6. **Authenticate and Push Changes**:
     - When prompted, use SSH authentication to access the CodeCommit repository.
 
 ## Note:
