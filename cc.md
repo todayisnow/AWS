@@ -99,7 +99,7 @@ If you haven't already, install Git on your local machine. You can download Git 
 ```
 git config --global credential.helper '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath true
-
+```
 
 ### Option 2: Use AWS CLI Configuration
 - If you have the AWS CLI installed and configured with IAM credentials, Git can use these credentials automatically.
@@ -115,7 +115,7 @@ git config --global credential.UseHttpPath true
 - Run the following command, replacing `<HTTPS_GIT_URL>` with the URL copied from the CodeCommit console:
 ```
 git clone <HTTPS_GIT_URL>
-
+```
 
 ## 5. Authenticate and Push Changes
 
