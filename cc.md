@@ -79,7 +79,7 @@ AWS CodeCommit offers a simple and flexible pricing model based on the number of
 - For detailed pricing information, including current pricing rates, tiered pricing options, and regional pricing variations, refer to the [AWS CodeCommit Pricing](https://aws.amazon.com/codecommit/pricing/) page.
 
 ## Cost Estimation
-- You can estimate the cost of using AWS CodeCommit using the [AWS Pricing Calculator](https://calculator.aws.amazon.com/).
+- You can estimate the cost of using AWS CodeCommit using the [AWS Pricing Calculator](https://calculator.aws/).
 - The pricing calculator allows you to input your usage requirements and estimate the monthly cost based on your specific usage patterns.
 
 
