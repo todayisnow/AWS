@@ -14,20 +14,20 @@
 
 2. **Configure AWS CLI:**
    - Run the following command in your terminal and provide the access key ID, secret access key, default region, and output format when prompted:
-     ``` 
-    aws configure
+     ```
+       aws configure
    
-    AWS Access Key ID [None]: YOUR_ACCESS_KEY_ID
-    AWS Secret Access Key [None]: YOUR_SECRET_ACCESS_KEY
-    Default region name [None]: YOUR_DEFAULT_REGION
-    Default output format [None]: json
+       AWS Access Key ID [None]: YOUR_ACCESS_KEY_ID
+       AWS Secret Access Key [None]: YOUR_SECRET_ACCESS_KEY
+       Default region name [None]: YOUR_DEFAULT_REGION
+       Default output format [None]: json
     ```
 
 
 3. **Verify Installation:**
    - After configuring AWS CLI, you can verify the installation by running the following command in your terminal:
      ```
-     aws --version
+        aws --version
      ```
 
 
