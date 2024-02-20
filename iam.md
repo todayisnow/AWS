@@ -110,4 +110,36 @@ IAM (Identity and Access Management) serves as the gatekeeper for all access req
 
 This framework ensures that access to AWS resources is tightly controlled and follows a strict authorization logic governed by IAM policies. It emphasizes the importance of defining precise policies to grant or restrict access based on the specific needs of the organization.
 
+## AWS IAM Account Alias
+
+In AWS Identity and Access Management (IAM), an account alias is a customizable name for your AWS account. It allows you to replace the unique account ID assigned by AWS with a more user-friendly name. Account aliases are helpful for managing multiple AWS accounts or for providing a recognizable name for your organization's AWS resources.
+
+### Benefits of Using Account Alias:
+
+- **Improved Usability:** Account aliases make it easier to identify and remember your AWS accounts, especially when working with multiple accounts.
+- **Enhanced Security:** By replacing the account ID with an alias, you can reduce the risk of exposing sensitive information, as account aliases are easier to communicate and share.
+- **Simplified Resource Management:** Account aliases provide a more intuitive way to reference AWS resources and services associated with your account.
+
+### How to Set Up an Account Alias:
+
+1. **Sign in to the AWS Management Console:** Navigate to the IAM dashboard.
+
+2. **Choose the Account Alias Section:** In the navigation pane, select "Account Alias."
+
+3. **Enter Your Desired Alias:** Enter a unique alias for your AWS account. The alias must be unique within the AWS region.
+
+4. **Save Your Changes:** Click on the "Save changes" button to confirm your account alias.
+
+### Considerations:
+
+- **Uniqueness:** Each AWS account alias must be unique within the AWS region. If you attempt to create an alias that is already in use by another account, you will receive an error message.
+- **Length and Valid Characters:** Account aliases can contain alphanumeric characters, hyphens, and underscores. They must be between 3 and 63 characters long.
+
+### Example:
+
+Suppose your AWS account ID is "123456789012" and you set the account alias to "mycompany-dev." After setting up the account alias, you can use "mycompany-dev" to reference your AWS resources instead of the longer account ID.
+
+By using account aliases, you can enhance the usability and security of your AWS accounts while simplifying resource management.
+
+
 [Back to main](readme.md)
