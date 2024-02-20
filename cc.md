@@ -52,4 +52,36 @@ To get started with AWS CodeCommit, you can:
 
 For more information, refer to the [AWS CodeCommit Documentation](https://docs.aws.amazon.com/codecommit).
 
+
+# AWS CodeCommit Pricing
+
+AWS CodeCommit offers a simple and flexible pricing model based on the number of active users, the storage used for your repositories, and data transfer.
+
+## Pricing Components
+
+### Active Users
+- AWS CodeCommit pricing is based on the number of active users accessing your repositories each month.
+- Active users are defined as unique AWS identities (IAM users, federated users, or roles) that perform at least one Git-based interaction in a month, such as cloning, pushing, pulling, or merging code.
+
+### Storage
+- CodeCommit pricing includes storage costs for the Git repositories hosted in the service.
+- Storage is billed based on the total size of repositories, including all branches and objects stored in Git.
+
+### Data Transfer
+- CodeCommit pricing includes data transfer costs for network traffic between AWS CodeCommit and other AWS services or external networks.
+- Data transfer is measured in gigabytes (GB) and includes both inbound and outbound data transfer.
+
+## Free Tier
+- AWS CodeCommit offers a generous free tier for new customers and existing customers who meet certain criteria.
+- The free tier includes a monthly allotment of active users, storage, and data transfer, allowing users to get started with CodeCommit at no additional cost.
+
+## Pricing Details
+- For detailed pricing information, including current pricing rates, tiered pricing options, and regional pricing variations, refer to the [AWS CodeCommit Pricing](https://aws.amazon.com/codecommit/pricing/) page.
+
+## Cost Estimation
+- You can estimate the cost of using AWS CodeCommit using the [AWS Pricing Calculator](https://calculator.aws.amazon.com/).
+- The pricing calculator allows you to input your usage requirements and estimate the monthly cost based on your specific usage patterns.
+
+
+
 [Back to Main](readme.md)
