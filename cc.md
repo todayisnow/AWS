@@ -83,5 +83,48 @@ AWS CodeCommit offers a simple and flexible pricing model based on the number of
 - The pricing calculator allows you to input your usage requirements and estimate the monthly cost based on your specific usage patterns.
 
 
+# Setting Up HTTPS Access for AWS CodeCommit
+
+To access AWS CodeCommit repositories over HTTPS, you need to configure Git credentials and use HTTPS Git URLs. Follow these steps to set up HTTPS access:
+
+## 1. Install Git
+
+If you haven't already, install Git on your local machine. You can download Git from the official website: [Git Downloads](https://git-scm.com/downloads).
+
+## 2. Configure Git Credentials
+
+### Option 1: Use IAM Credentials
+- Generate Git credentials for IAM users or IAM roles using the AWS Management Console or AWS CLI.
+- Configure Git to use these credentials by running the following commands in your terminal:
+```
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+
+### Option 2: Use AWS CLI Configuration
+- If you have the AWS CLI installed and configured with IAM credentials, Git can use these credentials automatically.
+- Ensure that the AWS CLI is configured with the necessary IAM credentials using the `aws configure` command.
+
+## 3. Get the HTTPS Git URL
+
+- In the AWS CodeCommit console, navigate to your repository and copy the HTTPS Git URL provided.
+
+## 4. Clone the Repository
+
+- Open a terminal or command prompt and navigate to the directory where you want to clone the repository.
+- Run the following command, replacing `<HTTPS_GIT_URL>` with the URL copied from the CodeCommit console:
+```
+git clone <HTTPS_GIT_URL>
+
+
+## 5. Authenticate and Push Changes
+
+- When prompted, enter your Git credentials (username and password) or allow Git to use IAM credentials configured in step 2.
+- After authentication, you can push changes to the CodeCommit repository using HTTPS.
+
+## Note:
+- If you encounter any authentication issues, ensure that Git is configured correctly with the appropriate credentials and that IAM users/roles have the necessary permissions to access the CodeCommit repository.
+
+
 
 [Back to Main](readme.md)
