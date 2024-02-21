@@ -22,7 +22,7 @@ Get started with Amazon Elastic Compute Cloud (EC2), a web service that provides
 ### [AWS CodeCommit](cc.md)
 AWS CodeCommit is a fully-managed source control service that makes it easy for companies to host secure and highly scalable private Git repositories.
 
-### [Amazon Elastic Block Store (EBS)](ebs.md)
+### [Amazon EBS (Elastic Block Store)](ebs.md)
 Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance that is in the same Availability Zone.
 
 ### [Amazon Route 53](route53.md)
