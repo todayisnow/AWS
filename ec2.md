@@ -79,6 +79,29 @@ Amazon EC2 offers a flexible and cost-effective solution for running virtual ser
 
 Creating an EC2 instance involves selecting an AMI, choosing an instance type, configuring instance details, adding storage, configuring security groups, reviewing and launching the instance, connecting to the instance, and additional configuration as needed. Follow these steps to launch an EC2 instance tailored to your specific requirements.
 
+# Create EC2 Instance Using AWS CLI
+
+## Step 1: Create SSH Key Pair (if not already created)
+
+```bash
+aws ec2 create-key-pair --key-name MyKeyPair --key-format ppk --query 'KeyMaterial' --output text > MyKeyPair.ppk
+```
+
+## Step 2: Create Security Groups
+
+```bash
+aws ec2 create-security-group --group-name SSHAccess --description "Security group for SSH access"
+aws ec2 authorize-security-group-ingress --group-name SSHAccess --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name HTTPAccess --protocol tcp --port 80 --cidr 0.0.0.0/0
+```
+
+## Step 3: Launch EC2 Instance
+
+```bash
+aws ec2 run-instances --image-id <AMI-ID> --count 1 --instance-type t2.micro --key-name MyKeyPair --security-groups SSHAccess HTTPAccess
+```
+
+
 # Connect to EC2 Instance Using PuTTY
 
 ## Step 1: Convert PEM Key to PPK Format
@@ -116,27 +139,6 @@ Creating an EC2 instance involves selecting an AMI, choosing an instance type, c
 
 By following these steps, you can convert your PEM key to PPK format using PuTTYgen, configure a PuTTY session with the converted private key, and establish an SSH connection to your EC2 instance using PuTTY.
 
-# Create EC2 Instance Using AWS CLI
-
-## Step 1: Create SSH Key Pair (if not already created)
-
-```bash
-aws ec2 create-key-pair --key-name MyKeyPair --key-format ppk --query 'KeyMaterial' --output text > MyKeyPair.ppk
-```
-
-## Step 2: Create Security Groups
-
-```bash
-aws ec2 create-security-group --group-name SSHAccess --description "Security group for SSH access"
-aws ec2 authorize-security-group-ingress --group-name SSHAccess --protocol tcp --port 22 --cidr 0.0.0.0/0
-aws ec2 authorize-security-group-ingress --group-name HTTPAccess --protocol tcp --port 80 --cidr 0.0.0.0/0
-```
-
-## Step 3: Launch EC2 Instance
-
-```bash
-aws ec2 run-instances --image-id <AMI-ID> --count 1 --instance-type t2.micro --key-name MyKeyPair --security-groups SSHAccess HTTPAccess
-```
 
 # Amazon EC2 Instance Specifications
 
