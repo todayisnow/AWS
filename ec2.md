@@ -259,11 +259,11 @@ Amazon Elastic Compute Cloud (EC2) provides various options for IP addressing to
 
 | Feature            | Private IP       | Public IP                 | Elastic IP                     |
 |--------------------|------------------|---------------------------|--------------------------------|
-| Reachability       | Within VPC       | Internet                  | Internet                       |
-| Persistence        | Yes              | No (dynamic)              | Yes                            |
-| Reassignment       | Automatic        | Automatic (on stop/start) | Manual (on association)        |
-| Association to the instance| Directly on the ENI | Configure on IGW and mapped through NAT | Configure on IGW and mapped through NAT |
-| Cost               | Free             | Included (dynamic)        | Additional (when unassociated) |
+| **Reachability**       | Within VPC       | Internet                  | Internet                       |
+| **Persistence**      | Yes              | No (dynamic)              | Yes                            |
+| **Reassignment**       | Automatic        | Automatic (on stop/start) | Manual (on association)        |
+| **Association to the instance** | Directly on the ENI | Configure on IGW and mapped through NAT | Configure on IGW and mapped through NAT |
+| **Cost**               | Free             | Included (dynamic)        | Additional (when unassociated) |
 
 ## Conclusion
 
