@@ -179,6 +179,100 @@ By following these steps, you can convert your PEM key to PPK format using PuTTY
 - **Additional Software**: Users are responsible for installing and managing any additional software, applications, or services needed on the EC2 instances.
 - **Data Transfer Costs**: Data transfer costs between EC2 instances and other AWS services or the internet are not included in the instance pricing and are billed separately.
 
+
+# Storage Options for EC2 Instances
+
+Amazon Elastic Compute Cloud (EC2) instances offer two main storage options: EBS-backed instances and instance-store-backed instances. Each option has its own characteristics and considerations, which should be taken into account based on your specific use case and requirements.
+
+## EBS-Backed EC2 Instances
+
+### Description:
+- EBS-backed EC2 instances use Amazon Elastic Block Store (EBS) volumes as their root device storage.
+- EBS volumes provide persistent block-level storage that persists independently from the lifecycle of the EC2 instance.
+- The root volume of an EBS-backed EC2 instance is typically an EBS volume that can be detached and reattached to different instances.
+
+### Considerations:
+- **Persistence**: EBS volumes retain data even if the associated EC2 instance is stopped or terminated, making them suitable for long-term storage requirements.
+- **Snapshots**: You can create snapshots of EBS volumes for backup, replication, and disaster recovery purposes.
+- **Flexible Size**: EBS volumes can be resized dynamically without requiring instance restarts, providing flexibility in storage capacity management.
+- **Performance**: EBS volumes offer various performance options (e.g., provisioned IOPS, General Purpose SSD, Throughput Optimized HDD) to meet different performance requirements.
+
+## Instance-Store-Backed EC2 Instances
+
+### Description:
+- Instance-store-backed EC2 instances use temporary block storage that is directly attached to the host computer (the instance).
+- Instance-store volumes are ephemeral and are deleted when the associated EC2 instance is stopped or terminated.
+- The root volume of an instance-store-backed EC2 instance is typically an instance-store volume that cannot be detached or persisted beyond the lifecycle of the instance.
+
+### Considerations:
+- **Temporary Storage**: Instance-store volumes are temporary and are lost if the associated EC2 instance is stopped or terminated, making them unsuitable for long-term storage or data persistence.
+- **Performance**: Instance-store volumes offer high-performance local storage, making them suitable for temporary storage and caching requirements.
+- **Cost**: Instance-store volumes do not incur additional storage costs beyond the instance usage costs, but data loss is a risk if instances are stopped or terminated.
+
+## Conclusion
+
+When choosing storage for EC2 instances, consider the trade-offs between EBS-backed and instance-store-backed instances based on your specific requirements for data persistence, performance, flexibility, and cost. EBS-backed instances provide persistent block storage with flexibility and data persistence, while instance-store-backed instances offer high-performance local storage but are limited to temporary data storage needs.
+
+Select the storage option that best aligns with your workload requirements and data management strategy to optimize performance, reliability, and cost-effectiveness.
+
+For more information on EC2 instance storage options, refer to the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html).
+
+
+# Private, Public, and Elastic IPs in Amazon EC2
+
+Amazon Elastic Compute Cloud (EC2) provides various options for IP addressing to meet different networking requirements. Understanding the differences between private, public, and Elastic IPs is essential for effectively managing communication and access within your EC2 instances.
+
+## Private IP Addresses
+
+### Features
+- Private IP addresses are IPv4 addresses assigned to instances within a Virtual Private Cloud (VPC).
+- They are used for communication within the VPC and are not reachable from the internet.
+- Every EC2 instance is assigned a private IP address by default when launched in a VPC.
+
+### Use Cases
+- Internal communication between instances within the same VPC.
+- Establishing private networks for applications, databases, and services within the VPC.
+
+## Public IP Addresses
+
+### Features
+- Public IP addresses are IPv4 addresses assigned to instances for internet communication.
+- They are dynamically assigned by AWS when an instance is launched unless explicitly disabled.
+- Public IP addresses are reachable from the internet and allow inbound and outbound communication.
+
+### Use Cases
+- Hosting web servers, applications, or services that require internet accessibility.
+- Accessing instances remotely over the internet using protocols such as SSH or RDP.
+
+## Elastic IP Addresses (EIPs)
+
+### Features
+- Elastic IP addresses (EIPs) are static IPv4 addresses designed for dynamic cloud computing.
+- They are persistent and can be associated with EC2 instances, network interfaces, or NAT gateways.
+- EIPs provide a static IP address that remains associated with your account until explicitly released.
+
+### Use Cases
+- Hosting services that require a static IP address, such as DNS servers or email servers.
+- Implementing failover solutions or high availability architectures by associating EIPs with instances.
+
+## Comparison
+
+| Feature            | Private IP       | Public IP                 | Elastic IP                     |
+|--------------------|------------------|---------------------------|--------------------------------|
+| Reachability       | Within VPC       | Internet                  | Internet                       |
+| Persistence        | Yes              | No (dynamic)              | Yes                            |
+| Reassignment       | Automatic        | Automatic (on stop/start) | Manual (on association)        |
+| Cost               | Free             | Included (dynamic)        | Additional (when unassociated) |
+
+## Conclusion
+
+Understanding the differences between private, public, and Elastic IPs in Amazon EC2 is crucial for designing and managing your EC2 instances effectively. Private IPs are used for internal communication within a VPC, public IPs provide internet accessibility, and Elastic IPs offer static addressing for dynamic cloud environments.
+
+For more information on IP addressing in Amazon EC2, refer to the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html).
+
+
+
+
 # Amazon EC2 Instance Families and Features
 
 Amazon EC2 offers a wide range of instance families optimized for various workloads, including general-purpose computing, high-performance computing (HPC), memory-intensive applications, accelerated computing with GPUs, and storage-optimized workloads. Each instance family is designed to provide specific combinations of compute, memory, storage, and networking resources to meet the diverse needs of different applications and use cases.
