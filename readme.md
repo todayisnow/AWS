@@ -10,6 +10,9 @@ Overview of the platform and its key concepts and benefits.
 ### [Setup AWS CLI – Prerequisites and Environment](cli.md)
 Learn how to set up the AWS Command Line Interface (CLI), including prerequisites and configuring your environment.
 
+### [AWS Budgets](budget.md)
+With AWS Budgets, set custom budgets to track your costs and usage, and respond quickly to alerts received from email or SNS notifications if you exceed your threshold.
+
 ### [IAM (Identity and Access Management)](iam.md)
 Explore AWS Identity and Access Management (IAM), which enables you to manage access to AWS services and resources securely.
 
