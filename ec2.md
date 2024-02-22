@@ -218,6 +218,56 @@ Select the storage option that best aligns with your workload requirements and d
 For more information on EC2 instance storage options, refer to the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html).
 
 
+# EC2 Security Groups
+
+Amazon EC2 security groups act as virtual firewalls for controlling inbound and outbound traffic to your EC2 instances. By configuring security groups, you can define rules that control traffic based on protocol, port, and source/destination IP addresses, providing granular control over network access to your instances.
+
+## Features
+
+### Inbound Rules
+- Inbound rules define the allowed incoming traffic to your EC2 instances.
+- You can specify rules based on protocol (e.g., TCP, UDP, ICMP), port range, and source IP addresses or security groups.
+
+### Outbound Rules
+- Outbound rules define the allowed outgoing traffic from your EC2 instances.
+- Similar to inbound rules, you can specify rules based on protocol, port range, and destination IP addresses or security groups.
+
+### Stateful Filtering
+- EC2 security groups operate at the instance level and provide stateful filtering of traffic.
+- When an inbound rule allows traffic, the corresponding outbound traffic is automatically allowed, regardless of outbound rules.
+
+### Dynamic Updates
+- Security group rules can be dynamically updated to allow traffic from changing sources, making them flexible and adaptable to evolving network requirements.
+
+## Use Cases
+
+### Web Servers
+- Configure security groups to allow inbound HTTP (port 80) and HTTPS (port 443) traffic for web servers.
+- Limit SSH (port 22) access to specific IP addresses or ranges for secure remote administration.
+
+### Database Servers
+- Restrict inbound traffic to specific database ports (e.g., MySQL port 3306) for database servers.
+- Allow outbound traffic to specific application servers or services required for database operations.
+
+### Application Servers
+- Define security group rules to allow inbound traffic for application-specific ports and protocols required by your applications.
+- Implement strict outbound rules to restrict unnecessary communication from application servers.
+
+## Best Practices
+
+- **Least Privilege**: Apply the principle of least privilege by restricting access to only necessary ports and protocols.
+- **Security Group Separation**: Use separate security groups for different tiers of your application (e.g., web, app, database) to enforce stricter access controls.
+- **Regular Review**: Regularly review and audit security group rules to ensure they align with your security policies and requirements.
+- **Dynamic Updates**: Utilize dynamic updates to security group rules for maintaining flexibility and responsiveness to changing network configurations.
+
+## Conclusion
+
+EC2 security groups are essential for controlling network traffic to your EC2 instances in a flexible and secure manner. By configuring inbound and outbound rules based on specific requirements and best practices, you can enforce strict access controls and enhance the security posture of your AWS infrastructure.
+
+For more information on EC2 security groups, refer to the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html).
+
+
+
 # Private, Public, and Elastic IPs in Amazon EC2
 
 Amazon Elastic Compute Cloud (EC2) provides various options for IP addressing to meet different networking requirements. Understanding the differences between private, public, and Elastic IPs is essential for effectively managing communication and access within your EC2 instances.
