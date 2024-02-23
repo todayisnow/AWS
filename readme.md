@@ -13,6 +13,9 @@ Learn how to set up the AWS Command Line Interface (CLI), including prerequisite
 ### [AWS Budgets](budget.md)
 With AWS Budgets, set custom budgets to track your costs and usage, and respond quickly to alerts received from email or SNS notifications if you exceed your threshold.
 
+### [AWS Storage Solutions](store.md)
+AWS storage components and services 
+
 ### [IAM (Identity and Access Management)](iam.md)
 Explore AWS Identity and Access Management (IAM), which enables you to manage access to AWS services and resources securely.
 
