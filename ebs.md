@@ -57,7 +57,8 @@ To get started with Amazon EBS, you can:
    ```bash
       sudo apt update
       sudo apt install fio
-      sudo fio --name=write_iops --size=4G --time_based --runtime=60s --ramp_time=2s --ioengine=libaio --direct=1 --verify=0 --bs=16K --iodepth=256 --rw=randwrite --       group_reporting=1 --iodepth_batch_submit=256 --iodepth_batch_complete_max=256
+      sudo fio --name=write_iops --size=4G --time_based --runtime=60s --ramp_time=2s --ioengine=libaio --direct=1 --verify=0 --bs=16K --iodepth=256 --rw=randwrite
+      --group_reporting=1 --iodepth_batch_submit=256 --iodepth_batch_complete_max=256
       
    ```
 
