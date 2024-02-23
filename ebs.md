@@ -56,12 +56,16 @@ To get started with Amazon EBS, you can:
 6. To test volume preformance
    ```bash
       sudo apt update
+   
       sudo apt install fio
-      sudo fio --name=write_iops --size=4G --time_based --runtime=60s --ramp_time=2s --ioengine=libaio --direct=1 --verify=0 --bs=16K --iodepth=256 --rw=randwrite
-      --group_reporting=1 --iodepth_batch_submit=256 --iodepth_batch_complete_max=256
+   
+      sudo fio --name=write_iops --size=4G --time_based --runtime=60s --ramp_time=2s --ioengine=libaio --direct=1
+      --verify=0 --bs=16K --iodepth=256 --rw=randwrite  --group_reporting=1 --iodepth_batch_submit=256
+      --iodepth_batch_complete_max=256
+   
       
    ```
-
+   `--bs block size -> small will give us high iops but low BW (throughput) if we make it --bs=1M -> large chunks will give low iops but high`
 For more information, refer to the [Amazon EBS Documentation](https://docs.aws.amazon.com/ebs).
 
 
