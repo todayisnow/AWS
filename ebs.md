@@ -101,6 +101,7 @@ Amazon Elastic Block Store (EBS) provides a range of volume types designed to me
 | Throughput        | Up to 4,750 MB/s       | Up to 250 MB/s             | Up to 256,000 IOPS, 4,000 MB/s | Up to 64,000 IOPS, 1,000 MB/s | Up to 64,000 IOPS, 1,000 MB/s |
 | IOPS              | Up to 3,000             | Baseline + Burst IOPS      | Up to 4,000 IOPS          | Up to 64,000 IOPS         | Up to 64,000 IOPS         |
 | Cost-effectiveness| Lower cost per GB      | Balanced cost and performance | High-performance storage with sub-millisecond latency and high throughput | High-performance storage with high throughput and low latency | High-performance storage with high throughput and low latency |
+| Pricing           | Lower cost per GB      | Lower cost per GB           | Variable based on volume size and IOPS provisioned | Variable based on volume size and IOPS provisioned | Variable based on volume size and IOPS provisioned |
 
 
 
