@@ -49,6 +49,10 @@ To get started with Amazon EBS, you can:
 2. Create a new EBS volume and specify the volume type, size, and configuration.
 3. Attach the EBS volume to an existing EC2 instance or create a new EC2 instance and attach the volume during instance launch.
 4. Use the EBS volume as storage for your EC2 instance, database, or file system.
+5. To show volume specs after connecting to EC2 instance
+   ```
+   lsblk
+   ```
 
 For more information, refer to the [Amazon EBS Documentation](https://docs.aws.amazon.com/ebs).
 
