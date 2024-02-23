@@ -62,6 +62,9 @@ Amazon Elastic Block Store (EBS) provides a range of volume types designed to me
 ### General Purpose SSD (gp2)
 - General Purpose SSD volumes offer a balance of price and performance for a wide variety of workloads, including boot volumes and low-latency interactive applications. They deliver a baseline of 3 IOPS (Input/Output Operations Per Second) per GB with the ability to burst to higher levels for short periods.
 
+### gp3
+- gp3 volumes are the next-generation General Purpose SSD volumes that provide a higher baseline performance level and a lower cost per gigabyte compared to gp2 volumes. They offer a baseline performance level that is configurable based on the volume size, allowing you to tailor performance and cost to your application's needs.
+
 ### Provisioned IOPS SSD (io1/io2)
 - Provisioned IOPS SSD volumes are designed for I/O-intensive workloads that require predictable and consistent performance, such as database workloads. They allow you to provision a specific level of IOPS (Input/Output Operations Per Second) based on your application's requirements, offering the highest performance and lowest latency among EBS volumes.
 
