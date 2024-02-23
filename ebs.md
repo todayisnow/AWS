@@ -53,6 +53,12 @@ To get started with Amazon EBS, you can:
    ```
    lsblk
    ```
+6. to test preformance
+   ```bash
+      sudo apt update
+      sudo apt install fio
+   
+   ```
 
 For more information, refer to the [Amazon EBS Documentation](https://docs.aws.amazon.com/ebs).
 
