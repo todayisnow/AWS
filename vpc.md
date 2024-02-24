@@ -222,5 +222,41 @@ CIDR (Classless Inter-Domain Routing) notation is a standard method used to repr
 For more information, refer to the [CIDR Wikipedia page](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 
+# VPC CIDR Blocks
+
+A CIDR (Classless Inter-Domain Routing) block is a range of IP addresses that define the address space for your Amazon Virtual Private Cloud (VPC). When creating a VPC, you must specify a CIDR block, which determines the range of IP addresses available for resources within the VPC. Here's a guide on VPC CIDR blocks:
+
+## CIDR Notation
+
+CIDR notation is used to represent IP address ranges in a compact format. It consists of an IP address followed by a forward slash (/) and a number indicating the number of bits in the network prefix. For example, "10.0.0.0/16" represents the CIDR block with the IP address range from 10.0.0.0 to 10.0.255.255, where the first 16 bits represent the network portion of the address.
+
+## Choosing CIDR Blocks
+
+When choosing a CIDR block for your VPC, consider the following factors:
+- **Size**: Choose a CIDR block that provides enough IP addresses for your resources while allowing for future growth.
+- **Isolation**: Divide the CIDR block into smaller subnets to isolate different types of resources and control traffic flow.
+- **Overlap**: Avoid overlapping CIDR blocks with existing networks to prevent conflicts and ensure seamless connectivity.
+
+## Reserved CIDR Blocks
+
+Some CIDR blocks are reserved by AWS and cannot be used for VPCs. These reserved CIDR blocks include:
+- **10.0.0.0/8**: The entire 10.0.0.0/8 CIDR block is reserved for private use and cannot be used for VPCs.
+- **100.64.0.0/10**: The 100.64.0.0/10 CIDR block is reserved for carrier-grade NAT (CGN) and cannot be used for VPCs.
+
+## Example CIDR Blocks
+
+Here are some example CIDR blocks commonly used for VPCs:
+- **10.0.0.0/16**: Provides 65,536 IP addresses for resources within the VPC.
+- **172.16.0.0/16**: Provides 65,536 IP addresses for resources within the VPC.
+- **192.168.0.0/16**: Provides 65,536 IP addresses for resources within the VPC.
+
+![cidr](./images/vpc2.png)
+
+## Conclusion
+
+Choosing the right CIDR block is essential when creating a VPC, as it determines the range of IP addresses available for your resources. By considering factors such as size, isolation, and reserved blocks, you can select a CIDR block that meets your specific requirements for your Amazon VPC.
+
+For more information, refer to the [AWS documentation on Amazon VPC CIDR Blocks](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html).
+
 
 [Back to Main](readme.md)
