@@ -173,7 +173,8 @@ To create an EC2 launch template, follow these steps:
           systemctl start httpd              # Start Apache web server
           systemctl enable httpd             # Enable Apache to start on boot
           ```
-         - Another Example
+
+        - Another Example
           ``` bash
            #!/bin/bash
            sudo mkdir /srv-02
