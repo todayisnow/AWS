@@ -25,5 +25,55 @@ Amazon Virtual Private Cloud (VPC) is a powerful networking service offered by A
 For more information, refer to the [AWS documentation on Amazon VPC](https://docs.aws.amazon.com/vpc/).
 
 
+# Components of Amazon Virtual Private Cloud (VPC)
+
+Amazon Virtual Private Cloud (VPC) consists of several key components that allow you to create a virtual network in the cloud and control the networking environment for your AWS resources. Here are the main components of VPC and how they work:
+
+![vpc](./images/vpc.png)
+
+## 1. CIDR Block
+- The CIDR (Classless Inter-Domain Routing) block is the IP address range that you specify for your VPC.
+- It determines the range of IP addresses that can be assigned to resources within your VPC.
+
+## 2. Subnets
+- Subnets are subdivisions of the CIDR block that you define within your VPC.
+- Each subnet is associated with a specific Availability Zone (AZ) and can contain a range of IP addresses from the parent CIDR block.
+- Subnets provide a way to organize and isolate resources within your VPC and enable high availability and fault tolerance by distributing resources across multiple AZs.
+
+## 3. Route Tables
+- Route tables are used to define the routing rules for traffic within your VPC.
+- Each subnet is associated with a route table, which determines how traffic is routed to and from resources within the subnet.
+- Route tables contain entries that specify the destination CIDR blocks and the target (e.g., an internet gateway or virtual private gateway) for traffic destined for those CIDR blocks.
+
+## 4. Internet Gateway (IGW)
+- An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet.
+- It provides a target for internet-bound traffic from resources within your VPC.
+- To enable internet access for resources within your VPC, you attach an internet gateway to your VPC and update the route table to route traffic destined for the internet to the internet gateway.
+
+## 5. Virtual Private Gateway (VGW)
+- A virtual private gateway is a VPC component that represents the VPN (Virtual Private Network) endpoint on the AWS side of a VPN connection.
+- It enables secure communication between your VPC and your on-premises network or other remote networks via VPN connections.
+
+## 6. NAT Gateway
+- A NAT (Network Address Translation) gateway is a managed service that allows instances within a private subnet to initiate outbound internet traffic while preventing inbound traffic from reaching those instances.
+- It enables instances within private subnets to access the internet for software updates, package downloads, and other external services.
+
+## 7. Security Groups
+- Security groups act as virtual firewalls for your instances, controlling inbound and outbound traffic at the instance level.
+- You can specify rules in a security group to allow or deny traffic based on IP protocol, port number, and source or destination IP address.
+- Each instance in your VPC is associated with one or more security groups, and you can modify the security group rules at any time.
+
+## 8. Network Access Control Lists (NACLs)
+- Network Access Control Lists (NACLs) act as stateless firewalls for controlling traffic at the subnet level.
+- Unlike security groups, NACLs operate at the subnet level and evaluate traffic based on subnet-level rules.
+- You can specify rules in a NACL to allow or deny traffic based on IP protocol, port number, and source or destination IP address.
+
+## How It Works
+- When you create a VPC, you define the CIDR block for the VPC and create subnets within that CIDR block.
+- You configure route tables to determine how traffic is routed within the VPC, including routing traffic to the internet via internet gateways or to remote networks via virtual private gateways.
+- You can use security groups to control inbound and outbound traffic at the instance level and NACLs to control traffic at the subnet level.
+- By configuring these components, you can create a customized and secure networking environment for your AWS resources within your VPC.
+
+
 
 [Back to Main](readme.md)
