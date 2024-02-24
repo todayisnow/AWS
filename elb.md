@@ -30,7 +30,7 @@ AWS offers several types of load balancers to suit different use cases:
 
 Listeners and target groups are essential components of AWS Elastic Load Balancing (ELB) that enable you to route incoming traffic to specific destinations based on rules and criteria.
 
-  - **Listeners**:  Configured on the load balancer and define how the load balancer should handle incoming traffic. Each listener is associated with a protocol (such as HTTP, HTTPS, TCP, or UDP) and a port number. When a request is received on a specific port, the listener forwards the request to one or more target groups based on the rules defined for that listener.
+- **Listeners**:  Configured on the load balancer and define how the load balancer should handle incoming traffic. Each listener is associated with a protocol (such as HTTP, HTTPS, TCP, or UDP) and a port number. When a request is received on a specific port, the listener forwards the request to one or more target groups based on the rules defined for that listener.
 
       - Example of Listener Configuration: For example, you can configure an HTTP listener on port 80 to forward traffic to a target group that contains web servers running on EC2 instances. Similarly, you can configure an HTTPS listener on port 443 to forward encrypted traffic to a different target group that contains secure web servers.
 
