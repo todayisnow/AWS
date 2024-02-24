@@ -49,7 +49,7 @@ To get started with Amazon EBS, you can:
 2. Create a new EBS volume and specify the volume type, size, and configuration.
 3. Attach the EBS volume to an existing EC2 instance or create a new EC2 instance and attach the volume during instance launch.
 4. Use the EBS volume as storage for your EC2 instance, database, or file system.
-5. To show volume specs after connecting to EC2 instance
+5. To list devices after connecting to EC2 instance
    ```
    lsblk
    ```
@@ -69,6 +69,44 @@ To get started with Amazon EBS, you can:
    - Large block sizes generally result in lower IOPS but potentially higher bandwidth.
    
 For more information, refer to the [Amazon EBS Documentation](https://docs.aws.amazon.com/ebs).
+
+
+# Create Volume and Attach to EC2 Instance Using AWS CLI
+
+## Step 1: Create Volume
+```bash
+aws ec2 create-volume --availability-zone us-east-1b --size 12 --iops 6000 --volume-type io2 --tag-specifications 'ResourceType=volume,Tags=[{Key=Name,Value=MyVolume}]'
+```
+
+## Step 2: Retrieve Instance ID and Volume ID
+```bash
+INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=Ebs-Test" --query "Reservations[*].Instances[*].InstanceId" --output text)
+VOL_ID=$(aws ec2 describe-volumes --filters "Name=tag:Name,Values=MyVolume" --query "Volumes[*].VolumeId" --output text)
+```
+
+## Step 3: Attach Volume to Instance
+```bash
+aws ec2 attach-volume --volume-id $VOL_ID --instance-id $INSTANCE_ID --device /dev/sdf
+```
+## Step 4: Make volume available for use on linux
+- Format the Volume
+  ```
+  sudo mkfs -t ext4 /dev/xvdf
+  ```
+- Create a Mount Point
+  ```
+  sudo mkdir /data
+  ```
+- Mount the Volume
+  ```
+  sudo mount /dev/xvdf /data
+  ```
+- Automatically Mount the Volume on Boot (Optional):
+  ```
+  sudo nano /etc/fstab
+  ```
+  - add the following entry `/dev/xvdf   /data   ext4   defaults,nofail   0   2`
+
 
 
 # Amazon EBS Volume Types and Categories
