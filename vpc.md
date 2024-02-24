@@ -187,6 +187,8 @@ Here's an example subnet layout for a VPC with a CIDR block of 10.0.0.0/16:
 - **DMZ Subnets**:
   - Subnet 5: 10.0.5.0/24
 
+![subnet](./images/vpc3.png)
+
 ## Conclusion
 
 Designing a VPC subnet layout involves careful planning and consideration of various factors such as IP addressing, subnet types, routing, and security requirements. By following best practices and adhering to your specific requirements, you can create an efficient and secure subnet layout for your Amazon VPC.
