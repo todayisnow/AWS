@@ -38,11 +38,6 @@ Listeners and target groups are essential components of AWS Elastic Load Balanci
 
       - **Example of Target Group Configuration**:  For example, you can create a target group for your web servers running on EC2 instances and specify that incoming HTTP traffic on port 80 should be routed to this target group. The load balancer will then distribute incoming requests among the registered EC2 instances in the target group.
 
-- **Benefits of Listeners and Target Groups**
-   - **Flexible Routing**: Listeners and target groups allow you to route traffic to different destinations based on criteria such as protocol, port, path, host, and query parameters.
-   - **Scalability**: By distributing traffic across multiple target groups, you can scale your application horizontally and handle varying levels of traffic.
-   - **Fault Tolerance**: Target groups perform health checks on the registered targets and route traffic only to healthy targets, ensuring high availability and fault tolerance.
-   - **Integration**: Target groups can be integrated with other AWS services such as Auto Scaling, AWS Lambda, and AWS CloudFormation, allowing you to automate and scale your infrastructure.
 
 ## Conclusion
 
