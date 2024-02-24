@@ -260,5 +260,43 @@ Choosing the right CIDR block is essential when creating a VPC, as it determines
 
 For more information, refer to the [AWS documentation on Amazon VPC CIDR Blocks](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html).
 
+---
+
+# Create VPC, Subnets, Internet Gateway, and Route Table from AWS Console
+
+Follow these steps to create a VPC, subnets, internet gateway, and route table from the AWS Management Console:
+
+![design](./images/vpc4.png)
+
+## 1. Create VPC:
+- Go to the AWS Management Console and navigate to the VPC dashboard.
+- Click on "Create VPC" and provide the necessary details such as VPC name, CIDR block, and other optional settings.
+- Click on "Create" to create the VPC.
+
+## 2. Create Subnets:
+- After creating the VPC, navigate to the "Subnets" section in the VPC dashboard.
+- Click on "Create subnet" and select the VPC created in the previous step.
+- Provide the subnet details including name, CIDR block, availability zone, and other settings.
+- Repeat this process to create multiple subnets for different purposes (e.g., public, private).
+
+## 3. Create Internet Gateway (IGW):
+- In the VPC dashboard, navigate to the "Internet Gateways" section.
+- Click on "Create internet gateway" and provide a name for the IGW.
+- Select the newly created IGW and attach it to the VPC by clicking on "Attach to VPC" and selecting the VPC.
+
+## 4. Create Route Table:
+- In the VPC dashboard, navigate to the "Route Tables" section.
+- Click on "Create route table" and provide a name for the route table.
+- Select the newly created route table and associate it with the VPC by clicking on "Edit routes" and adding a route to the internet gateway.
+
+## 5. Associate Subnets:
+- After creating the route table, select it and navigate to the "Subnet associations" tab.
+- Click on "Edit subnet associations" and select the subnets created earlier to associate them with the route table.
+
+## Conclusion:
+By following these steps, you can create a VPC, subnets, internet gateway, and route table from the AWS Management Console. This setup provides the foundation for hosting your AWS resources in a secure and isolated network environment.
+
+For detailed instructions and additional options, refer to the [AWS documentation on Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/).
+
 
 [Back to Main](readme.md)
