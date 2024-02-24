@@ -31,5 +31,8 @@ AWS CodeCommit is a fully-managed source control service that makes it easy for 
 ### [Amazon EBS (Elastic Block Store)](ebs.md)
 Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance that is in the same Availability Zone.
 
+### [Amazon ELB (Elastic Load Balancing)](elb.md)
+Automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones
+
 ### [Amazon Route 53](route53.md)
 Learn about Amazon Route 53, a scalable and highly available Domain Name System (DNS) web service.
