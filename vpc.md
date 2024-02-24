@@ -301,4 +301,44 @@ By following these steps, you can create a VPC, subnets, internet gateway, and r
 For detailed instructions and additional options, refer to the [AWS documentation on Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/).
 
 
+# Create VPC, Subnets, Internet Gateway, and Route Table Using AWS CLI
+
+Follow these steps to create a VPC, subnets, internet gateway, and route table using the AWS Command Line Interface (CLI):
+
+## 1. Create VPC:
+```bash
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+```
+
+## 2. Create Subnets:
+```bash
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.0.1.0/24 --availability-zone <AZ>
+aws ec2 create-subnet --vpc-id <VPC_ID> --cidr-block 10.0.2.0/24 --availability-zone <AZ>
+```
+
+## 3. Create Internet Gateway (IGW):
+```bash
+aws ec2 create-internet-gateway
+```
+
+## 4. Attach Internet Gateway to VPC:
+```bash
+aws ec2 attach-internet-gateway --vpc-id <VPC_ID> --internet-gateway-id <IGW_ID>
+```
+
+## 5. Create Route Table:
+```bash
+aws ec2 create-route-table --vpc-id <VPC_ID>
+```
+
+## 6. Add Route to Internet Gateway:
+```bash
+aws ec2 create-route --route-table-id <ROUTE_TABLE_ID> --destination-cidr-block 0.0.0.0/0 --gateway-id <IGW_ID>
+```
+
+## 7. Associate Subnets with Route Table:
+```bash
+aws ec2 associate-route-table --subnet-id <SUBNET_ID> --route-table-id <ROUT
+```
+
 [Back to Main](readme.md)
