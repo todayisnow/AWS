@@ -174,7 +174,7 @@ To create an EC2 launch template, follow these steps:
           systemctl enable httpd             # Enable Apache to start on boot
           ```
 
-        - Another Example
+        - Another Example to update ubuntu instance and install .net core runtime and sdk
           ``` bash
            #!/bin/bash
            sudo mkdir /srv-02
