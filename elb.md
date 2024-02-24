@@ -25,16 +25,16 @@ AWS offers several types of load balancers to suit different use cases:
 - **Integration with AWS Services**: ALB can be integrated with other AWS services such as AWS WAF (Web Application Firewall), AWS Auto Scaling, and AWS Lambda, allowing you to build scalable and secure applications.
 - **Containerized Applications**: ALB supports routing traffic to targets running in ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service), making it suitable for containerized applications deployed in Docker containers or Kubernetes clusters.
 
-### Use Cases for Application Load Balancer
+#### Use Cases for Application Load Balancer
 
 - **Web Applications**: ALB is well-suited for web applications that require advanced routing capabilities, SSL termination, and support for multiple protocols such as HTTP, HTTPS, and WebSocket.
 - **Microservices Architecture**: ALB can be used to route traffic to microservices deployed in containers or virtual machines, providing scalable and flexible communication between services.
 - **API Gateway**: ALB can serve as an API gateway for RESTful APIs and web services, allowing you to route requests to different backend services based on the request path or method.
 
-## Network Load Balancer (NLB):
+### Network Load Balancer (NLB):
 The Network Load Balancer (NLB) is a type of load balancer offered by AWS that operates at the transport layer (Layer 4) of the OSI model. It is designed to handle large volumes of traffic with ultra-low latency and high throughput, making it suitable for use cases that require extreme performance and scalability.
 
-### Features of Network Load Balancer
+#### Features of Network Load Balancer
 
 - **Ultra-Low Latency**: NLB provides ultra-low latency for TCP, UDP, and TLS traffic, making it ideal for applications that require real-time communication and low-latency responses.
 - **High Throughput**: NLB can handle millions of requests per second and support tens of millions of concurrent connections, making it suitable for high-throughput workloads such as gaming, streaming, and real-time analytics.
@@ -43,23 +43,23 @@ The Network Load Balancer (NLB) is a type of load balancer offered by AWS that o
 - **Health Checks**: NLB performs health checks on the targets and automatically routes traffic only to healthy targets, ensuring optimal application availability.
 - **Static IP Addresses**: NLB provides static IP addresses that remain constant even if the load balancer is deleted and recreated, making it easier to manage DNS configurations and network traffic routing.
 
-### Use Cases for Network Load Balancer
+#### Use Cases for Network Load Balancer
 
 - **High-Performance Applications**: NLB is well-suited for applications that require extreme performance and low-latency communication, such as gaming, streaming, and real-time communication applications.
 - **Microservices Architecture**: NLB can be used to load balance traffic across microservices deployed in containers or virtual machines, providing scalable and high-performance communication between services.
 - **Internet-Facing Applications**: NLB can handle internet-facing workloads with high volumes of traffic, such as web servers, APIs, and content delivery networks (CDNs).
 
-## Gateway Load Balancer (GWLB):
+### Gateway Load Balancer (GWLB):
    The Gateway Load Balancer (GWLB) is a type of load balancer offered by AWS that is designed to load balance traffic across multiple virtual appliances, such as firewalls, intrusion detection systems (IDS), and deep packet inspection (DPI) systems. GWLB operates at the network layer (Layer 3) of the OSI model and is ideal for architectures that require scalable and high-performance traffic inspection.
 
-### Features of Gateway Load Balancer
+#### Features of Gateway Load Balancer
 
 - **Traffic Inspection**: GWLB allows you to route traffic to multiple virtual appliances for inspection and filtering, enabling you to enforce security policies, monitor network traffic, and perform deep packet inspection (DPI) for threat detection and prevention.
 - **Scalability**: GWLB is designed to handle large volumes of traffic and can scale to support thousands of virtual appliances, making it suitable for high-throughput workloads that require extensive traffic inspection.
 - **High Availability**: GWLB provides built-in redundancy and automatic failover to ensure high availability and fault tolerance for your network architecture.
 - **Integration with AWS Services**: GWLB can be integrated with other AWS services such as AWS Transit Gateway, VPC (Virtual Private Cloud) peering, and VPC endpoints, allowing you to build scalable and secure network architectures in the cloud.
 
-### Use Cases for Gateway Load Balancer
+#### Use Cases for Gateway Load Balancer
 
 - **Security and Compliance**: GWLB can be used to route traffic through virtual appliances such as firewalls and IDS to enforce security policies, monitor network traffic for threats, and maintain compliance with regulatory requirements.
 - **Network Monitoring and Analysis**: GWLB can route traffic to virtual appliances that perform deep packet inspection (DPI) and network analysis, allowing you to monitor network traffic, detect anomalies, and troubleshoot network issues.
