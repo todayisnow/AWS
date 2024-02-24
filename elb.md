@@ -14,10 +14,10 @@ AWS Elastic Load Balancing (ELB) automatically distributes incoming application 
 
 AWS offers several types of load balancers to suit different use cases:
 
-1. **Application Load Balancer (ALB)**:
+### Application Load Balancer (ALB):
   The Application Load Balancer (ALB) is a type of load balancer offered by AWS that operates at the application layer (Layer 7) of the OSI model. It is designed to handle HTTP, HTTPS, and WebSocket traffic and provides advanced routing capabilities, content-based routing, and support for multiple protocols.
 
-### Features of Application Load Balancer
+#### Features of Application Load Balancer
 
 - **Advanced Routing**: ALB supports advanced routing features such as path-based routing, host-based routing, and content-based routing, allowing you to route traffic to different target groups based on the request path, host header, or content.
 - **TLS Termination**: ALB supports SSL termination, allowing it to terminate SSL/TLS connections from clients and forward decrypted traffic to the targets, reducing the computational overhead on the targets.
@@ -31,7 +31,7 @@ AWS offers several types of load balancers to suit different use cases:
 - **Microservices Architecture**: ALB can be used to route traffic to microservices deployed in containers or virtual machines, providing scalable and flexible communication between services.
 - **API Gateway**: ALB can serve as an API gateway for RESTful APIs and web services, allowing you to route requests to different backend services based on the request path or method.
 
-2. **Network Load Balancer (NLB)**:
+## Network Load Balancer (NLB):
 The Network Load Balancer (NLB) is a type of load balancer offered by AWS that operates at the transport layer (Layer 4) of the OSI model. It is designed to handle large volumes of traffic with ultra-low latency and high throughput, making it suitable for use cases that require extreme performance and scalability.
 
 ### Features of Network Load Balancer
@@ -49,7 +49,7 @@ The Network Load Balancer (NLB) is a type of load balancer offered by AWS that o
 - **Microservices Architecture**: NLB can be used to load balance traffic across microservices deployed in containers or virtual machines, providing scalable and high-performance communication between services.
 - **Internet-Facing Applications**: NLB can handle internet-facing workloads with high volumes of traffic, such as web servers, APIs, and content delivery networks (CDNs).
 
-3. **Gateway Load Balancer (GWLB)**:
+## Gateway Load Balancer (GWLB):
    The Gateway Load Balancer (GWLB) is a type of load balancer offered by AWS that is designed to load balance traffic across multiple virtual appliances, such as firewalls, intrusion detection systems (IDS), and deep packet inspection (DPI) systems. GWLB operates at the network layer (Layer 3) of the OSI model and is ideal for architectures that require scalable and high-performance traffic inspection.
 
 ### Features of Gateway Load Balancer
