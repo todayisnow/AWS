@@ -270,13 +270,13 @@ Follow these steps to create a VPC, subnets, internet gateway, and route table f
 
 ## 1. Create VPC:
 - Go to the AWS Management Console and navigate to the VPC dashboard.
-- Click on "Create VPC" and provide the necessary details such as VPC name, CIDR block, and other optional settings.
+- Click on "Create VPC" and provide the necessary details such as VPC name, CIDR block `10.0.0.0/16`, and other optional settings.
 - Click on "Create" to create the VPC.
 
 ## 2. Create Subnets:
 - After creating the VPC, navigate to the "Subnets" section in the VPC dashboard.
 - Click on "Create subnet" and select the VPC created in the previous step.
-- Provide the subnet details including name, CIDR block, availability zone, and other settings.
+- Provide the subnet details including name, CIDR block `10.0.1.0/24`, availability zone "subnets in same vpc can be in different availability zone", and other settings.
 - Repeat this process to create multiple subnets for different purposes (e.g., public, private).
 
 ## 3. Create Internet Gateway (IGW):
@@ -286,8 +286,10 @@ Follow these steps to create a VPC, subnets, internet gateway, and route table f
 
 ## 4. Create Route Table:
 - In the VPC dashboard, navigate to the "Route Tables" section.
-- Click on "Create route table" and provide a name for the route table.
+- Click on "Create route table" and provide a name for the route table."one created by default"
 - Select the newly created route table and associate it with the VPC by clicking on "Edit routes" and adding a route to the internet gateway.
+  - 10.0.0.0/16 -> local
+  - 0.0.0.0/0   -> IGW-xxxx
 
 ## 5. Associate Subnets:
 - After creating the route table, select it and navigate to the "Subnet associations" tab.
