@@ -165,7 +165,7 @@ To create an EC2 launch template, follow these steps:
    - **Storage**: Configure the storage settings for your instance.
    - **Tags**: Add any tags to your instance for easy identification.
    - **User data**: is a script or commands that are executed when an EC2 instance is launched. It allows you to customize the configuration of your instance during startup. User data can be used to install software, configure settings, and perform various tasks to prepare the instance for its intended purpose.
-        - Here's an example of user data script that installs Apache web server and starts it on an EC2 instance running a Linux-based operating system:
+        - Example of user data script that installs Apache web server and starts it on an EC2 instance running a Linux-based operating system:
           ```bash
           #!/bin/bash
           yum update -y                      # Update package repositories
@@ -174,7 +174,7 @@ To create an EC2 launch template, follow these steps:
           systemctl enable httpd             # Enable Apache to start on boot
           ```
 
-        - Another Example to update ubuntu instance and install .net core runtime and sdk
+        - Example to update ubuntu instance and install .net core runtime and sdk
           ``` bash
            #!/bin/bash
            sudo mkdir /srv-02
@@ -182,6 +182,71 @@ To create an EC2 launch template, follow these steps:
            sudo apt install -y aspnetcore-runtime-6.0
            sudo apt install -y dotnet-sdk-6.0
           ```
+
+        - Example for connecting to `codecommit` build application and host it as a service
+          ```bash
+#!/bin/bash
+apt update
+echo "install dotnet"
+apt install -y aspnetcore-runtime-6.0
+apt install -y dotnet-sdk-6.0
+
+#install git
+echo "install git"
+apt install git
+apt install unzip
+
+#install aws cli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip -qq awscliv2.zip
+./aws/install
+aws --version
+
+#configure git
+sudo -u ubuntu git config --global credential.helper '!aws codecommit credential-helper $@'
+sudo -u ubuntu git config --global credential.UseHttpPath true
+
+
+#clone repo from code commit
+cd /home/ubuntu
+echo "git clone"
+sudo -u ubuntu git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/srv-02
+cd srv-02
+
+#build the dot net service
+echo "dotnet build"
+echo 'DOTNET_CLI_HOME=/temp' >> /etc/environment
+export DOTNET_CLI_HOME=/temp
+dotnet publish -c Release --self-contained=false --runtime linux-x64
+
+
+cat >/etc/systemd/system/srv-02.service <<EOL
+[Unit]
+Description=Dotnet S3 info service
+
+[Service]
+ExecStart=/usr/bin/dotnet /home/ubuntu/srv-02/bin/Release/netcoreapp6/linux-x64/srv02.dll
+SyslogIdentifier=srv-02
+
+Environment=DOTNET_CLI_HOME=/temp
+
+[Install]
+WantedBy=multi-user.target
+EOL
+
+systemctl daemon-reload
+
+#run it
+systemctl start srv-02
+          ```
+
+             - To watch the logs of the service inside ec2 instance
+             ```bash
+                sudo -i
+                cd /var/log
+                journalctl -f -u ser-02
+            ```
+                
      
 
 6. Click on **Create launch template** to create your launch template.
