@@ -89,5 +89,45 @@ For more information, refer to the [AWS documentation on Elastic Load Balancing]
 
 
 
+# Example Usage of Elastic Load Balancer (ELB) with Two Instances
+
+## Scenario:
+You have a web application deployed on two Amazon EC2 instances and you want to distribute incoming traffic between these instances using an Elastic Load Balancer (ELB).
+
+## Steps:
+
+1. **Create EC2 Instances**:
+   - Launch two EC2 instances in your preferred AWS region.
+   - Configure the instances with the necessary software and settings for your web application.
+
+2. **Create a Target Group**:
+   - Navigate to the Amazon EC2 console and create a target group.
+   - Specify the protocol and port that the instances will listen on (e.g., HTTP on port 80).
+   - Register the EC2 instances with the target group.
+
+3. **Create a Load Balancer**:
+   - Navigate to the Amazon EC2 console and create a new load balancer.
+   - Choose the appropriate load balancer type (e.g., Application Load Balancer or Network Load Balancer).
+   - Configure the listeners (e.g., HTTP on port 80).
+   - Specify the target group created in the previous step.
+
+4. **Configure Health Checks**:
+   - Configure health checks for the target group to monitor the health of the EC2 instances.
+   - Define the health check settings (e.g., protocol, port, path, timeout, interval, etc.).
+
+5. **Update DNS Records**:
+   - Update your DNS records to point to the DNS name of the load balancer.
+   - This allows incoming traffic to be directed to the load balancer, which in turn distributes it to the registered instances.
+
+6. **Testing**:
+   - Access your web application using the DNS name of the load balancer.
+   - Verify that the traffic is evenly distributed between the two EC2 instances.
+
+## Conclusion:
+By using Elastic Load Balancer (ELB) with two instances, you can achieve improved availability, fault tolerance, and scalability for your web application. The load balancer distributes incoming traffic across multiple instances, ensuring that your application can handle varying levels of traffic and remain responsive to user requests.
+
+For more information, refer to the [AWS documentation on Elastic Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/).
+
+
 
 [Back to Main](readme.md)
