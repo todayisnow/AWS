@@ -107,6 +107,11 @@ aws ec2 attach-volume --volume-id $VOL_ID --instance-id $INSTANCE_ID --device /d
   ```
   - add the following entry `/dev/xvdf   /data   ext4   defaults,nofail   0   2`
 
+- Delete volume
+  ```
+  aws ec2 delete-volume --volume-id $VOL_ID
+  ```
+
 
 
 # Amazon EBS Volume Types and Categories
