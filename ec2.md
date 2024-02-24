@@ -140,6 +140,53 @@ aws ec2 run-instances --image-id <AMI-ID> --count 1 --instance-type t2.micro --k
 By following these steps, you can convert your PEM key to PPK format using PuTTYgen, configure a PuTTY session with the converted private key, and establish an SSH connection to your EC2 instance using PuTTY.
 
 
+# EC2 Launch Template
+
+An EC2 launch template is a configuration template that provides the necessary information to launch an instance. It contains parameters such as instance type, AMI, security groups, key pair, and other settings.
+
+## Creating a Launch Template
+
+To create an EC2 launch template, follow these steps:
+
+1. **Sign in to the AWS Management Console** and open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+2. In the navigation pane, choose **Launch Templates** under **Instances**.
+
+3. Click on **Create launch template**.
+
+4. Enter a name for your launch template and optionally, provide a description.
+
+5. Configure the launch template settings, including:
+   - **AMI**: Select the Amazon Machine Image (AMI) for your instance.
+   - **Instance type**: Choose the instance type for your instance.
+   - **Key pair**: Specify the key pair for SSH access to your instance.
+   - **Security groups**: Choose the security groups that will be applied to your instance.
+   - **Networking**: Configure the networking settings for your instance.
+   - **Storage**: Configure the storage settings for your instance.
+   - **Tags**: Add any tags to your instance for easy identification.
+
+6. Click on **Create launch template** to create your launch template.
+
+## Launching Instances from a Launch Template
+
+Once you have created a launch template, you can use it to launch instances. Here's how:
+
+1. In the Amazon EC2 console, navigate to **Instances** and click on **Launch Instance**.
+
+2. Select **Launch from template** and choose the launch template you created.
+
+3. Review the instance details and click on **Launch instances**.
+
+4. Your instances will be launched based on the configuration specified in the launch template.
+
+## Conclusion
+
+EC2 launch templates provide a convenient way to specify the configuration for launching instances. By creating a launch template, you can easily launch instances with consistent settings, making it easier to manage your infrastructure.
+
+For more information, refer to the [AWS documentation on EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html).
+
+
+
 # Amazon EC2 Instance Specifications
 
 ## CPU (Central Processing Unit)
