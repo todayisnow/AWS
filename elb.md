@@ -168,16 +168,16 @@ LS_ARN=$(aws elbv2 create-listener --load-balancer-arn $LB_ARN --protocol HTTP -
 echo "$LS_ARN"
 
 
-#Describe the load balancer to get its DNS name
+# Describe the load balancer to get its DNS name
 aws elbv2 describe-load-balancers     --load-balancer-arns $LB_ARN    --query 'LoadBalancers[*].DNSName'
 
-#  Update DNS records to point to the load balancer's DNS name
+# Update DNS records to point to the load balancer's DNS name
 # Update the DNS records in your DNS management console to point to the DNS name obtained in the previous step.
 
 
+#aws elbv2 delete-listener --listener-arn $LS_ARN
 #aws elbv2 delete-load-balancer --load-balancer-arn $LB_ARN
 #aws elbv2 delete-target-group --target-group-arn $TG_ARN
-#aws elbv2 delete-listener --listener-arn LS_ARN
 
 ```
 
