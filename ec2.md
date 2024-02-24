@@ -164,6 +164,24 @@ To create an EC2 launch template, follow these steps:
    - **Networking**: Configure the networking settings for your instance.
    - **Storage**: Configure the storage settings for your instance.
    - **Tags**: Add any tags to your instance for easy identification.
+   - **User data**: is a script or commands that are executed when an EC2 instance is launched. It allows you to customize the configuration of your instance during startup. User data can be used to install software, configure settings, and perform various tasks to prepare the instance for its intended purpose.
+        - Here's an example of user data script that installs Apache web server and starts it on an EC2 instance running a Linux-based operating system:
+          ```bash
+          #!/bin/bash
+          yum update -y                      # Update package repositories
+          yum install -y httpd               # Install Apache web server
+          systemctl start httpd              # Start Apache web server
+          systemctl enable httpd             # Enable Apache to start on boot
+          ```
+         - Another Example
+          ``` bash
+           #!/bin/bash
+           sudo mkdir /srv-02
+           sudo apt update
+           sudo apt install -y aspnetcore-runtime-6.0
+           sudo apt install -y dotnet-sdk-6.0
+          ```
+     
 
 6. Click on **Create launch template** to create your launch template.
 
