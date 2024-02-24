@@ -126,6 +126,62 @@ You have a web application deployed on two Amazon EC2 instances and you want to 
 ## Conclusion:
 By using Elastic Load Balancer (ELB) with two instances, you can achieve improved availability, fault tolerance, and scalability for your web application. The load balancer distributes incoming traffic across multiple instances, ensuring that your application can handle varying levels of traffic and remain responsive to user requests.
 
+# Creating a load balancer using the AWS Command Line Interface (CLI) 
+```bash
+#!/bin/bash
+
+# Get List of vpcs
+aws ec2 describe-vpcs --query 'Vpcs[*].[VpcId, CidrBlock]'
+
+# Get List of Subnets:
+
+aws ec2 describe-subnets --query 'Subnets[*].[SubnetId, VpcId, CidrBlock]'
+
+# Get List of Security Groups:
+
+aws ec2 describe-security-groups --query 'SecurityGroups[*].[GroupId, GroupName, VpcId]'
+
+# Get List of Instances:
+
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId, InstanceType, State.Name, PrivateIpAddress, PublicIpAddress]'
+
+
+# Create NLB
+LB_ARN=$(aws elbv2 create-load-balancer --name devops-alb --type application --subnets subnet-0557a7c0a25ed45bb subnet-08b524372d20503c8 --security-groups sg-0f42cec4178d21881 | grep -oP '(?<="LoadBalancerArn": ")[^"]*' )
+
+
+echo "$LB_ARN"
+ 
+# Create Target Group
+TG_ARN=$(aws elbv2 create-target-group --name devops-tg --protocol HTTP --port 8002 --vpc-id vpc-0163c5e3c877c7ea2 | grep -oP '(?<="TargetGroupArn": ")[^"]*')
+
+
+echo "$TG_ARN"
+
+# Register targets (EC2 instances) with the target group
+aws elbv2 register-targets --target-group-arn $TG_ARN --targets Id=i-0e50f0d8dc174f767 Id=i-0f6506dc106e1b428
+
+# Create a listener for the load balancer
+LS_ARN=$(aws elbv2 create-listener --load-balancer-arn $LB_ARN --protocol HTTP --port 8002  --default-actions Type=forward,TargetGroupArn=$TG_ARN | grep -oP '(?<="ListenerArn": ")[^"]*')
+
+
+echo "$LS_ARN"
+
+
+#Describe the load balancer to get its DNS name
+aws elbv2 describe-load-balancers     --load-balancer-arns $LB_ARN    --query 'LoadBalancers[*].DNSName'
+
+#  Update DNS records to point to the load balancer's DNS name
+# Update the DNS records in your DNS management console to point to the DNS name obtained in the previous step.
+
+
+#aws elbv2 delete-load-balancer --load-balancer-arn $LB_ARN
+#aws elbv2 delete-target-group --target-group-arn $TG_ARN
+#aws elbv2 delete-listener --listener-arn LS_ARN
+
+```
+
+
 For more information, refer to the [AWS documentation on Elastic Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/).
 
 
