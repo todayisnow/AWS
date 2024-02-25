@@ -303,6 +303,10 @@ Replace `your-key.pem` with the path to your private key file and `private-ec2-p
 - Ensure that only authorized users have access to the Bastion Host by managing SSH key pairs and restricting access through security group rules.
 - Regularly review and update security configurations to align with security best practices and compliance requirements.
 
+## Access Internet from private EC2 Instance
+- Create NAT Gateway
+- Add it to Route table that is conneted to the subnet of the EC2 private instance
+  
 ## Conclusion
 
 Setting up a Bastion Host in an Amazon VPC provides a secure way to remotely connect to private EC2 instances located in private subnets. By following best practices for access control and security configuration, you can establish a secure and manageable environment for accessing private resources within your VPC.
