@@ -56,10 +56,17 @@ Amazon Virtual Private Cloud (VPC) consists of several key components that allow
 
 ## 6. NAT Gateway
 - A NAT (Network Address Translation) gateway is a managed service that allows instances within a private subnet to initiate outbound internet traffic while preventing inbound traffic from reaching those instances.
+- Supports `TCP`, `UDP` and `ICMP`
+- Bandwidth start from 5Gbps up to 100 Gbps
+- 1M packet/sec up to 10M
+- 
 - It enables instances within private subnets to access the internet for software updates, package downloads, and other external services.
   ![public](./images/vpc5.png)
 - Also it can be used to access on-premises network.
   ![private](./images/vpc6.png)
+- Enable communication between overlapping networks (private networks with the same CIDR)
+  ![overlapping](./images/vpc7.png)
+  
 
 ## 7. Security Groups
 - Security groups act as virtual firewalls for your instances, controlling inbound and outbound traffic at the instance level.
