@@ -356,6 +356,23 @@ VPC Security Groups are virtual firewalls that control inbound and outbound traf
 - **Inbound Rules**: Inbound rules define the traffic allowed to reach instances. You can specify rules based on protocols, ports, and IP addresses of the source.
 - **Outbound Rules**: Outbound rules define the traffic allowed to leave instances. You can specify rules based on protocols, ports, and IP addresses of the destination.
 
+## Sources
+
+- **IP Addresses**: You can specify individual IP addresses or ranges of IP addresses (CIDR blocks) as the source of inbound or outbound traffic.
+- **Security Group References**: You can reference other Security Groups as the source of inbound traffic. This allows you to allow traffic from instances associated with specific Security Groups.
+- **EC2 Classic Link**: If your VPC is linked to an EC2-Classic instance using ClassicLink, you can specify the ID of the EC2-Classic instance as the source of inbound traffic.
+
+## Destinations
+
+- **IP Addresses**: Similar to sources, you can specify individual IP addresses or ranges of IP addresses (CIDR blocks) as the destination of outbound traffic.
+- **Security Group References**: You can reference other Security Groups as the destination of outbound traffic. This allows you to allow traffic to instances associated with specific Security Groups.
+- **Prefix Lists**: You can reference AWS-managed or custom prefix lists as the destination of outbound traffic. Prefix lists provide a way to specify multiple CIDR blocks as a single rule.
+
+## Example Rules
+
+- **Allow SSH Access**: To allow SSH access to instances in a Security Group, you can create an inbound rule that allows traffic from the source IP address range 0.0.0.0/0 (anywhere) on port 22 (SSH).
+- **Allow Web Traffic**: To allow web traffic to instances in a Security Group, you can create an inbound rule that allows traffic from the source IP address range 0.0.0.0/0 (anywhere) on port 80 (HTTP) or port 443 (HTTPS).
+
 ## Use Cases
 
 - **Access Control**: Security Groups allow you to control access to instances by defining specific rules for inbound and outbound traffic.
