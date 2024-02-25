@@ -339,6 +339,77 @@ Firewall layers, including Network Access Control Lists (NACLs) and Security Gro
 For more information, refer to the [AWS documentation on VPC Security](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html).
 
 
+# VPC Security Groups
+
+VPC Security Groups are virtual firewalls that control inbound and outbound traffic at the instance level within an Amazon Virtual Private Cloud (VPC). Security Groups act as the first line of defense for instances, allowing you to define rules that dictate which traffic is allowed or denied based on specified criteria. Here's an overview of VPC Security Groups:
+
+## Key Features
+
+- **Stateful Filtering**: Security Groups are stateful, meaning they automatically track the state of connections and allow return traffic for established connections without the need for explicit rules.
+- **Instance-Level Protection**: Security Groups are associated with instances, allowing you to define granular security policies at the instance level.
+- **Dynamic Updates**: Security Group rules can be dynamically updated to allow or deny traffic based on changing security requirements.
+- **Default Deny All**: By default, Security Groups deny all inbound and outbound traffic until explicitly configured rules are added.
+- **Layered Security**: Security Groups complement other VPC security measures such as Network Access Control Lists (NACLs) by providing additional instance-level protection.
+
+## Inbound and Outbound Rules
+
+- **Inbound Rules**: Inbound rules define the traffic allowed to reach instances. You can specify rules based on protocols, ports, and IP addresses of the source.
+- **Outbound Rules**: Outbound rules define the traffic allowed to leave instances. You can specify rules based on protocols, ports, and IP addresses of the destination.
+
+## Use Cases
+
+- **Access Control**: Security Groups allow you to control access to instances by defining specific rules for inbound and outbound traffic.
+- **Defense in Depth**: Security Groups provide an additional layer of defense by enforcing security policies at the instance level.
+- **Micro-Segmentation**: Security Groups enable micro-segmentation by allowing you to create distinct security policies for different types of instances within a VPC.
+
+## Best Practices
+
+- **Least Privilege**: Follow the principle of least privilege by only allowing necessary traffic and restricting unnecessary access.
+- **Regular Review**: Regularly review and update Security Group rules to align with changing security requirements.
+- **Logging and Monitoring**: Enable logging and monitoring of Security Group activity to detect and respond to potential security incidents.
+
+## Conclusion
+
+VPC Security Groups are essential for enforcing security policies and controlling traffic at the instance level within an Amazon Virtual Private Cloud (VPC). By defining granular rules for inbound and outbound traffic, Security Groups help protect instances from unauthorized access and ensure a secure computing environment.
+
+For more information, refer to the [AWS documentation on VPC Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html).
+
+# VPC Network Access Control Lists (NACLs)
+
+VPC Network Access Control Lists (NACLs) are stateless firewall-like rules that control traffic entering and exiting subnets within an Amazon Virtual Private Cloud (VPC). NACLs provide an additional layer of security by allowing you to define rules that explicitly allow or deny traffic based on IP addresses, ports, and protocols. Here's an overview of VPC NACLs:
+
+## Key Features
+
+- **Stateless Filtering**: NACLs operate at the subnet level and are stateless, meaning they do not track the state of connections. Each inbound and outbound rule must be explicitly defined.
+- **Numbered Rules**: NACLs have numbered rules that determine the order in which they are evaluated. Lower-numbered rules take precedence over higher-numbered rules.
+- **Ingress and Egress Rules**: NACLs have separate sets of rules for inbound and outbound traffic, allowing you to control traffic entering and exiting subnets independently.
+
+## Inbound and Outbound Rules
+
+- **Inbound Rules**: Inbound rules define the traffic allowed to enter the subnet from external sources. You can specify rules based on protocols, ports, and IP addresses of the source.
+- **Outbound Rules**: Outbound rules define the traffic allowed to leave the subnet and reach external destinations. You can specify rules based on protocols, ports, and IP addresses of the destination.
+
+## Use Cases
+
+- **Traffic Control**: NACLs allow you to control the flow of traffic entering and exiting subnets, providing an additional layer of security for resources within the VPC.
+- **Subnet Isolation**: NACLs enable you to isolate subnets by defining specific rules for inbound and outbound traffic, restricting access to resources within the subnet.
+- **Defense in Depth**: NACLs complement other VPC security measures such as Security Groups by providing an additional layer of defense against unauthorized access.
+
+## Best Practices
+
+- **Default Deny All**: Start with a default "deny all" rule and only allow necessary traffic by adding explicit allow rules.
+- **Regular Review**: Regularly review and update NACL rules to align with changing security requirements and traffic patterns.
+- **Logging and Monitoring**: Enable logging and monitoring of NACL activity to detect and respond to potential security incidents.
+
+## Conclusion
+
+VPC Network Access Control Lists (NACLs) are essential for controlling traffic entering and exiting subnets within an Amazon Virtual Private Cloud (VPC). By defining granular rules for inbound and outbound traffic, NACLs help enforce security policies and protect resources from unauthorized access.
+
+For more information, refer to the [AWS documentation on VPC Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html).
+
+
+
+
 ---
 
 # Create VPC, Subnets, Internet Gateway, and Route Table from AWS Console
