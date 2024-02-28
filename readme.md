@@ -13,6 +13,9 @@ Learn how to set up the AWS Command Line Interface (CLI), including prerequisite
 ### [AWS Budgets](budget.md)
 With AWS Budgets, set custom budgets to track your costs and usage, and respond quickly to alerts received from email or SNS notifications if you exceed your threshold.
 
+### [AWS KMS (Key Management Service)](kms.md)
+managed service that makes it easy for you to create and manage keys and control the use of encryption across a wide range of AWS services. KMS is a secure and resilient service that uses FIPS 140-2 validated hardware security modules to isolate and protect your keys.
+
 ### [AWS Storage Solutions](store.md)
 AWS storage components and services 
 
