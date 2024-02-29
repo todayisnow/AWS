@@ -431,6 +431,33 @@ VPC Network Access Control Lists (NACLs) are essential for controlling traffic e
 
 For more information, refer to the [AWS documentation on VPC Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html).
 
+# VPC Implied Router
+
+In Amazon Virtual Private Cloud (VPC), the implied router is a fundamental component that facilitates communication between subnets within the VPC and between the VPC and other network resources. The implied router is automatically created when you create a VPC and plays a crucial role in routing traffic between subnets and managing network connectivity. Here's an overview of the VPC implied router:
+
+## Key Functions
+
+- **Subnet Routing**: The implied router manages routing tables for each subnet within the VPC, enabling communication between instances in different subnets.
+- **Internet Gateway Integration**: The implied router integrates with Internet Gateways (IGWs) to facilitate internet connectivity for instances in public subnets, allowing outbound traffic to reach the internet and inbound traffic to reach instances from the internet.
+- **VPC Peering and VPN Connections**: The implied router manages routing between VPCs in a VPC peering connection and VPN connections, enabling private communication between connected VPCs and on-premises networks.
+- **Route Table Management**: The implied router maintains route tables that define how traffic is routed within the VPC and to external destinations, ensuring efficient and secure routing of network traffic.
+
+## Subnet Routing
+
+- **Intra-VPC Communication**: The implied router enables communication between instances in different subnets within the same VPC by routing traffic internally based on subnet associations and routing table configurations.
+- **Inter-VPC Communication**: For VPC peering connections and VPN connections, the implied router facilitates communication between instances in different VPCs and on-premises networks by managing route tables and forwarding traffic appropriately.
+
+## Internet Connectivity
+
+- **Public Subnets**: Instances in public subnets with a route to an Internet Gateway (IGW) can communicate with the internet, while instances in private subnets rely on Network Address Translation (NAT) gateways or instances in public subnets acting as NAT gateways to access the internet.
+- **Egress and Ingress Traffic**: The implied router ensures that outbound traffic from instances in public subnets is routed to the internet and that inbound traffic from the internet reaches instances based on their associated public IP addresses and routing configurations.
+
+## Conclusion
+
+The VPC implied router is a critical component of Amazon Virtual Private Cloud (VPC) networking that facilitates communication between subnets within the VPC and with external network resources. By managing routing tables, integrating with Internet Gateways (IGWs), and facilitating VPC peering and VPN connections, the implied router enables secure and efficient network connectivity within the VPC environment.
+
+For more information, refer to the [AWS documentation on VPC Networking](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
+
 
 
 
@@ -702,6 +729,44 @@ aws ec2 associate-route-table --route-table-id $private_rtb_id --subnet-id $sub4
 # ----------------------------------------------------------------------------
 
 ```
+
+# VPC Bastion Host: Remotely Connect to a Private EC2
+
+A Bastion Host, also known as a jump server, is a special-purpose instance within a VPC that allows secure access to private instances located in private subnets. By using a Bastion Host, you can establish a secure connection to private instances without exposing them directly to the internet. Here's how to set up a Bastion Host to remotely connect to a private EC2 instance:
+
+## Step 1: Launch Bastion Host Instance
+
+- Launch an EC2 instance in a public subnet of your VPC to serve as the Bastion Host.
+- Assign a public IP address or Elastic IP (EIP) to the Bastion Host instance for external access.
+- Ensure that the security group associated with the Bastion Host allows inbound SSH (port 22) access from your IP address or a restricted range of IP addresses.
+
+## Step 2: Configure Bastion Host Security Group
+
+- Create a security group for the Bastion Host that allows inbound SSH access from your IP address or a restricted range of IP addresses.
+- Create outbound rules that allow necessary communication from the Bastion Host to private instances, such as SSH (port 22) access to private EC2 instances.
+
+## Step 3: Connect to Bastion Host
+
+- Use SSH to connect to the Bastion Host from your local machine using the following command:
+`ssh -i your-key.pem ec2-user@bastion-host-public-ip`
+Replace `your-key.pem` with the path to your private key file and `bastion-host-public-ip` with the public IP address or EIP of the Bastion Host.
+
+## Step 4: Connect to Private EC2 Instance
+
+- Once connected to the Bastion Host, use SSH to connect to the private EC2 instance located in a private subnet using its private IP address:
+`ssh -i your-key.pem ec2-user@private-ec2-private-ip`
+Replace `your-key.pem` with the path to your private key file and `private-ec2-private-ip` with the private IP address of the private EC2 instance.
+
+## Step 5: Secure Access
+
+- Ensure that only authorized users have access to the Bastion Host by managing SSH key pairs and restricting access through security group rules.
+- Regularly review and update security configurations to align with security best practices and compliance requirements.
+
+## Conclusion
+
+Setting up a Bastion Host in an Amazon VPC provides a secure way to remotely connect to private EC2 instances located in private subnets. By following best practices for access control and security configuration, you can establish a secure and manageable environment for accessing private resources within your VPC.
+
+For more information, refer to the [AWS documentation on Bastion Hosts](https://docs.aws.amazon.com/quickstart/latest/linux-bastion/architecture.html).
 
 
 
