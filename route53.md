@@ -65,6 +65,8 @@ For more information, refer to the [AWS documentation on Hosted Zones in Route 5
 
 Amazon Route 53 supports various types of DNS records, each serving a specific purpose in directing traffic and resolving domain names to IP addresses. Understanding the different types of DNS records and when to use them is essential for configuring DNS settings in Route 53 effectively. Here are the common types of DNS records and their use cases:
 
+![types](./images/r53.png)
+
 ## A (Address) Record
 
 - **Use Case**: Maps a domain name to an IPv4 address.
