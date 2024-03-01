@@ -397,7 +397,7 @@ Amazon Route 53 offers several routing policies that you can use to control how 
 - **Description**: Directs traffic to different resources based on the geographic location of the end user.
 - **Use Case**: Suitable for serving localized content or complying with regional regulations.
 
-## 6. Geoproximity Routing Policy
+## 6. IP-based (Geoproximity Routing Policy)
 
 - **Description**: Routes traffic based on the geographic location of the end user and the health of your resources.
 - **Use Case**: Ideal for distributing traffic to resources based on proximity and health considerations.
