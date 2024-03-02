@@ -48,6 +48,67 @@ Amazon Simple Notification Service (SNS) is a flexible and fully managed messagi
 For detailed information on using Amazon SNS, refer to the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/welcome.html).
 
 
+# Amazon SNS Message Filtering
+
+Amazon Simple Notification Service (SNS) supports message filtering, allowing you to filter messages published to a topic based on message attributes. Message filtering enables you to control which subscribers receive specific messages, reducing the volume of messages delivered to subscribers and improving message relevancy.
+
+## Key Features
+
+- **Message Attributes**: SNS supports message attributes, which are key-value pairs attached to messages for additional context or metadata. Message attributes can be used to filter messages based on specific criteria.
+- **Subscription Filter Policies**: SNS allows you to define subscription filter policies, which are rules that specify the conditions under which messages should be delivered to subscribers. Subscription filter policies are based on message attributes and determine whether a message matches the criteria defined by the policy.
+- **Filtering Operators**: SNS supports various filtering operators such as string matching, numeric comparison, and JSON path matching, allowing you to define complex filtering conditions for message attributes.
+- **Multiple Filter Policies**: SNS allows you to define multiple subscription filter policies for a single subscription, enabling you to route messages to different endpoints or subscribers based on different criteria.
+- **Message Delivery Filtering**: SNS filters messages based on the subscription filter policies associated with each subscriber, ensuring that only messages that match the filtering criteria are delivered to subscribers.
+
+## Use Cases
+
+- **Targeted Message Delivery**: Message filtering enables targeted message delivery by allowing you to specify the criteria for message delivery based on subscriber preferences or requirements.
+- **Content-Based Routing**: Message filtering facilitates content-based routing of messages, where messages are routed to different subscribers or endpoints based on specific attributes or content within the messages.
+- **Selective Subscription**: Message filtering enables selective subscription, where subscribers receive only the messages that match their filtering criteria, reducing unnecessary message traffic and improving message relevancy.
+
+## Benefits
+
+- **Improved Message Relevancy**: Message filtering improves message relevancy by delivering only the messages that match specific criteria or preferences defined by subscribers.
+- **Reduced Message Volume**: Message filtering reduces the volume of messages delivered to subscribers by filtering out irrelevant messages, resulting in more efficient use of resources and improved scalability.
+- **Selective Subscription**: Message filtering enables selective subscription, allowing subscribers to receive only the messages that are relevant to their interests or requirements, improving overall subscriber satisfaction.
+
+## Conclusion
+
+Amazon Simple Notification Service (SNS) provides message filtering capabilities, allowing you to filter messages based on message attributes and define subscription filter policies for targeted message delivery. By using message filtering, you can improve message relevancy, reduce message volume, and enable selective subscription, enhancing the overall efficiency and effectiveness of message delivery in SNS.
+
+For detailed information on message filtering in Amazon SNS, refer to the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html).
+
+
+# Amazon SNS Message Security
+
+Amazon Simple Notification Service (SNS) provides various features and mechanisms to ensure the security of messages transmitted through the service. These security features help protect the confidentiality, integrity, and authenticity of messages, ensuring that they are delivered securely to subscribers.
+
+## 1. Message Encryption
+
+- **Description**: SNS supports message encryption using AWS Key Management Service (KMS), allowing you to encrypt the content of messages before they are transmitted over the network. Message encryption ensures that sensitive data is protected from unauthorized access during transit.
+- **Encryption at Rest**: SNS encrypts messages at rest using server-side encryption (SSE) with AWS-managed keys (SSE-S3) or customer-managed keys (SSE-KMS), providing an additional layer of security for stored messages.
+
+## 2. Message Signing
+
+- **Description**: SNS supports message signing using digital signatures to ensure the integrity and authenticity of messages. Message signing allows subscribers to verify that messages have not been tampered with during transit and originated from a trusted source.
+- **Message Authentication**: SNS uses digital signatures to authenticate messages, ensuring that only messages signed with valid credentials are delivered to subscribers.
+
+## 3. Access Control
+
+- **Description**: SNS provides access control mechanisms to restrict access to topics, subscriptions, and messages based on AWS Identity and Access Management (IAM) policies. Access control policies allow you to define fine-grained permissions for managing and accessing SNS resources, ensuring that only authorized users and applications can interact with SNS.
+- **IAM Policies**: SNS allows you to define IAM policies to control access to topics and subscriptions, including permissions for publishing messages, subscribing to topics, and managing SNS resources.
+
+## 4. Transport Layer Security (TLS)
+
+- **Description**: SNS encrypts messages in transit using Transport Layer Security (TLS) to protect data transmitted over the network. TLS encryption ensures that messages are securely transmitted between SNS endpoints and subscribers, preventing eavesdropping and man-in-the-middle attacks.
+- **Secure Communication**: SNS uses TLS encryption to establish secure communication channels between publishers, subscribers, and SNS endpoints, ensuring the confidentiality and integrity of messages during transit.
+
+## Conclusion
+
+Amazon Simple Notification Service (SNS) provides various security features and mechanisms to ensure the security of messages transmitted through the service. By leveraging message encryption, signing, access control, and transport layer security, SNS helps protect the confidentiality, integrity, and authenticity of messages, ensuring secure communication between publishers, subscribers, and SNS endpoints.
+
+For detailed information on message security in Amazon SNS, refer to the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/welcome.html).
+
 
 
 [Back to main](readme.md)
