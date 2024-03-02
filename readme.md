@@ -45,3 +45,6 @@ Learn about Amazon Route 53, a scalable and highly available Domain Name System 
 
 ### [Amazon Cloud Watch](watch.md)
 Monitors applications, responds to performance changes, optimizes resource use, and provides insights into operational health. By collecting data across AWS resources, CloudWatch gives visibility into system-wide performance and allows users to set alarms, automatically react to changes, and gain a unified view of operational health.
+
+### [Amazon DynamoDB](ddb.md)
+Amazon DynamoDB is a fully managed NoSQL database service provided by AWS
