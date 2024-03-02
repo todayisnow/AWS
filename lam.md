@@ -123,5 +123,43 @@ Firecracker is an innovative virtualization technology that provides lightweight
 For more information on Firecracker and how to get started, refer to the [Firecracker documentation](https://firecracker-microvm.github.io/).
 
 
+# AWS Lambda Pricing
+
+AWS Lambda pricing is based on two main factors: the number of requests processed by your functions and the duration of the execution time for each function invocation.
+
+## 1. Request Pricing
+
+- **First 1 million requests per month**: Free
+- **$0.20 per 1 million requests thereafter**
+
+Requests are counted each time your function is invoked, including retries on asynchronous invocations.
+
+## 2. Duration Pricing
+
+- **Duration is calculated from the time your code begins executing until it returns or otherwise terminates**, rounded up to the nearest 100ms.
+- **Billed in increments of 100ms**.
+- **Charged based on the amount of memory allocated to your function**.
+
+### Memory Pricing
+
+- **Memory allocation**: You choose the amount of memory allocated to your function (in increments of 64MB), ranging from 128MB to 10,240MB (10GB).
+- **Price per GB-second**: $0.00001667 per GB-second.
+- **Minimum execution time**: 100ms.
+
+### Example:
+
+- If your function runs for 500ms and is allocated 1GB of memory, the total duration is 500ms (rounded up to the nearest 100ms).
+- The price for this execution would be calculated as follows:
+  - Duration (in seconds): 500ms / 1000ms = 0.5 seconds
+  - Memory allocation (in GB): 1GB
+  - Price per GB-second: $0.00001667
+  - Total price: 0.5 seconds * 1GB * $0.00001667 = $0.000008335
+
+## Conclusion
+
+AWS Lambda offers a pay-per-use pricing model, where you only pay for the compute time and resources consumed by your functions. By leveraging Lambda, you can build scalable, event-driven applications without the overhead of managing servers or infrastructure.
+
+For more detailed information on AWS Lambda pricing, including pricing calculators and examples, refer to the [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/) page.
+
 
 [Back to main](readme.md)
