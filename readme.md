@@ -10,17 +10,11 @@ Overview of the platform and its key concepts and benefits.
 ### [Setup AWS CLI – Prerequisites and Environment](cli.md)
 Learn how to set up the AWS Command Line Interface (CLI), including prerequisites and configuring your environment.
 
-### [AWS Budgets](budget.md)
-With AWS Budgets, set custom budgets to track your costs and usage, and respond quickly to alerts received from email or SNS notifications if you exceed your threshold.
-
-### [AWS KMS (Key Management Service)](kms.md)
-managed service that makes it easy for you to create and manage keys and control the use of encryption across a wide range of AWS services. KMS is a secure and resilient service that uses FIPS 140-2 validated hardware security modules to isolate and protect your keys.
-
-### [AWS Storage Solutions](store.md)
-AWS storage components and services 
-
 ### [IAM (Identity and Access Management)](iam.md)
 Explore AWS Identity and Access Management (IAM), which enables you to manage access to AWS services and resources securely.
+
+### [AWS Budgets](budget.md)
+With AWS Budgets, set custom budgets to track your costs and usage, and respond quickly to alerts received from email or SNS notifications if you exceed your threshold.
 
 ### [Amazon S3 (Simple Storage Service)](s3.md)
 Discover Amazon Simple Storage Service (S3), a scalable object storage service designed to store and retrieve any amount of data from anywhere on the web.
@@ -38,27 +32,31 @@ Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for
 Automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones.
 
 ### [Amazon VPC (Virtual Private Cloud)](vpc.md)
-Gives you full control over your virtual networking environment, including resource placement, connectivity, and security. Get started by setting up your VPC in the AWS service console
+Gives you full control over your virtual networking environment, including resource placement, connectivity, and security. Get started by setting up your VPC in the AWS service console.
 
 ### [Amazon Route 53](route53.md)
 Learn about Amazon Route 53, a scalable and highly available Domain Name System (DNS) web service.
 
-### [Amazon Cloud Watch](watch.md)
+### [Amazon CloudWatch](watch.md)
 Monitors applications, responds to performance changes, optimizes resource use, and provides insights into operational health. By collecting data across AWS resources, CloudWatch gives visibility into system-wide performance and allows users to set alarms, automatically react to changes, and gain a unified view of operational health.
 
 ### [Amazon DynamoDB](ddb.md)
-Amazon DynamoDB is a fully managed NoSQL database service provided by AWS
+Amazon DynamoDB is a fully managed NoSQL database service provided by AWS.
 
 ### [Amazon SNS (Simple Notification Service)](sns.md)
-Fully managed Pub/Sub service for A2A and A2P messaging
+Fully managed Pub/Sub service for A2A and A2P messaging.
 
-### [API GateWay](api.md)
-Create, maintain, and secure APIs at any scale
+### [API Gateway](api.md)
+Create, maintain, and secure APIs at any scale.
 
 ### [Lambda](lam.md)
 Run code without thinking about servers or clusters. Only pay for what you use.
 
-### [Cloud Front](cf.md)
-Securely deliver content with low latency and high transfer speeds
+### [CloudFront](cf.md)
+Securely deliver content with low latency and high transfer speeds.
 
+### [AWS KMS (Key Management Service)](kms.md)
+A managed service that makes it easy for you to create and manage keys and control the use of encryption across a wide range of AWS services. KMS is a secure and resilient service that uses FIPS 140-2 validated hardware security modules to isolate and protect your keys.
 
+### [AWS Storage Solutions](store.md)
+Explore various AWS storage components and services.
