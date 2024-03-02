@@ -73,4 +73,87 @@ The components of Amazon DynamoDB, including tables, items, attributes, primary 
 For detailed information on DynamoDB components and best practices, refer to the [AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html).
 
 
+# DynamoDB Streams
+
+DynamoDB Streams is a feature of Amazon DynamoDB that captures a time-ordered sequence of item-level modifications made to DynamoDB tables. It provides a near-real-time stream of data changes, allowing you to capture and process changes to your DynamoDB tables and react to them in real-time.
+
+## Key Features
+
+- **Real-time Data Changes**: DynamoDB Streams captures changes to items in DynamoDB tables in near-real-time, providing a continuous stream of data modifications as they occur.
+- **Time-Ordered Sequence**: Changes captured by DynamoDB Streams are stored in a time-ordered sequence, ensuring that data changes are processed in the order they occurred.
+- **Data Retention**: DynamoDB Streams retains data for up to 24 hours, allowing you to access and process historical data changes within the retention period.
+- **Integration with AWS Services**: DynamoDB Streams integrates with other AWS services such as AWS Lambda, Amazon Kinesis, and Amazon S3, allowing you to build real-time data processing pipelines, trigger automated workflows, and perform data analytics on streaming data.
+- **Change Data Capture**: DynamoDB Streams captures different types of data changes, including inserts, updates, and deletes, allowing you to track changes to individual items and maintain a complete audit trail of data modifications.
+
+## Use Cases
+
+- **Real-Time Data Processing**: DynamoDB Streams is used for building real-time data processing pipelines that react to changes in DynamoDB tables and trigger automated workflows, notifications, and alerts in response to data modifications.
+- **Change Data Capture**: DynamoDB Streams is used for capturing changes to DynamoDB tables and maintaining a complete audit trail of data modifications for compliance, auditing, and forensic analysis purposes.
+- **Data Synchronization**: DynamoDB Streams is used for replicating data changes across multiple DynamoDB tables or other data stores, ensuring data consistency and synchronization across distributed systems.
+- **Event-Driven Architectures**: DynamoDB Streams is used for building event-driven architectures that respond to data changes in DynamoDB tables and trigger downstream processes, such as data enrichment, transformation, and aggregation.
+
+## Benefits
+
+- **Real-Time Data Processing**: DynamoDB Streams enables real-time data processing by capturing changes to DynamoDB tables in near-real-time and triggering automated workflows and processes in response to data modifications.
+- **Data Consistency and Synchronization**: DynamoDB Streams ensures data consistency and synchronization by capturing and replicating data changes across multiple DynamoDB tables or other data stores, maintaining a consistent view of data across distributed systems.
+- **Event-Driven Architectures**: DynamoDB Streams facilitates the implementation of event-driven architectures by providing a continuous stream of data changes that can be processed and reacted to in real-time, enabling scalable and responsive applications.
+
+## Conclusion
+
+DynamoDB Streams is a powerful feature of Amazon DynamoDB that enables real-time data processing, change data capture, data synchronization, and event-driven architectures. By capturing and processing changes to DynamoDB tables in near-real-time, DynamoDB Streams enables you to build scalable, responsive, and event-driven applications that react to data modifications as they occur.
+
+For detailed information on using DynamoDB Streams, refer to the [AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html).
+
+
+# DynamoDB Read Consistency
+
+Amazon DynamoDB provides two types of read consistency options for accessing data from DynamoDB tables: eventually consistent reads and strongly consistent reads. These options allow you to choose the level of consistency you require for your read operations based on your application's requirements.
+
+## 1. Eventually Consistent Reads
+
+- **Description**: Eventually consistent reads (also known as eventually consistent reads) offer the highest read throughput and lowest latency, but they may not reflect the latest data changes made to a table. Eventually consistent reads provide consistency across all copies of data within a region within a second, making them suitable for applications where the most recent data is not critical.
+- **Consistency**: Eventually consistent reads may return data that is inconsistent or stale, as they read data from one of the replicas in the DynamoDB global table. The data may reflect changes that have not been replicated across all replicas yet.
+- **Usage**: Eventually consistent reads are suitable for read-heavy workloads, where low-latency access to data and high read throughput are more important than ensuring the most up-to-date data.
+
+## 2. Strongly Consistent Reads
+
+- **Description**: Strongly consistent reads (also known as strong reads) offer read-after-write consistency, ensuring that read operations always return the most up-to-date data. Strongly consistent reads are slower and have higher latency compared to eventually consistent reads, but they provide the highest level of data consistency.
+- **Consistency**: Strongly consistent reads guarantee that read operations reflect all prior write operations that were successful at the time of the read, making them suitable for applications that require the most up-to-date and consistent data.
+- **Usage**: Strongly consistent reads are suitable for applications where data consistency is critical, such as financial applications, real-time analytics, and systems that require accurate reporting and auditing.
+
+## Conclusion
+
+DynamoDB provides two types of read consistency options: eventually consistent reads and strongly consistent reads, allowing you to choose the level of consistency that best fits your application's requirements. Eventually consistent reads offer higher throughput and lower latency but may return stale data, while strongly consistent reads provide read-after-write consistency but have higher latency. Understanding these read consistency options is essential for designing DynamoDB applications that meet your consistency and performance requirements.
+
+For detailed information on DynamoDB read consistency and best practices, refer to the [AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html).
+
+
+# Amazon DynamoDB Read and Write Capacity Units (RCUs and WCUs)
+
+Amazon DynamoDB is a fully managed NoSQL database service that offers provisioned throughput capacity to handle read and write operations on tables. Provisioned throughput capacity in DynamoDB is measured in Read Capacity Units (RCUs) for read operations and Write Capacity Units (WCUs) for write operations.
+
+## 1. Read Capacity Units (RCUs)
+
+- **Description**: Read Capacity Units (RCUs) represent the read throughput capacity of a DynamoDB table and are used to measure the number of strongly consistent reads per second or the number of eventually consistent reads per second that a table can support.
+- **Consistency**: RCUs are used to provision read capacity for strongly consistent reads or eventually consistent reads. One RCU represents one strongly consistent read per second, or two eventually consistent reads per second for items up to 4KB in size. Read per second = RCU / Celling of(itemSize/4KB)
+- **Usage**: Provisioning RCUs allows you to specify the maximum number of reads per second that your DynamoDB table can handle, ensuring that your application can meet the required read throughput demands.
+
+## 2. Write Capacity Units (WCUs)
+
+- **Description**: Write Capacity Units (WCUs) represent the write throughput capacity of a DynamoDB table and are used to measure the number of writes per second that a table can support.
+- **Consistency**: WCUs are used to provision write capacity for write operations to the table. One WCU represents one write per second for items up to 1KB in size. Write per second = WCU / Celling of(itemSize/4KB)
+- **Usage**: Provisioning WCUs allows you to specify the maximum number of writes per second that your DynamoDB table can handle, ensuring that your application can meet the required write throughput demands.
+
+## Scaling Capacity
+
+- **Auto Scaling**: DynamoDB offers Auto Scaling, a feature that automatically adjusts provisioned capacity for tables in response to changes in traffic patterns. Auto Scaling allows you to define scaling policies based on metrics such as consumed capacity or request latency, ensuring that your tables can scale up or down dynamically to handle varying workloads.
+
+## Conclusion
+
+Amazon DynamoDB uses Read Capacity Units (RCUs) and Write Capacity Units (WCUs) to provision read and write throughput capacity for tables, allowing you to specify the maximum number of reads and writes per second that your tables can handle. Understanding RCUs and WCUs is essential for optimizing the performance and cost-effectiveness of your DynamoDB tables and ensuring that your applications can meet their throughput requirements.
+
+For detailed information on provisioning capacity for DynamoDB tables and optimizing throughput, refer to the [AWS documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html).
+
+
+
 [Back to Main](readme.md)
