@@ -48,3 +48,17 @@ Monitors applications, responds to performance changes, optimizes resource use, 
 
 ### [Amazon DynamoDB](ddb.md)
 Amazon DynamoDB is a fully managed NoSQL database service provided by AWS
+
+### [Amazon SNS (Simple Notification Service)](sns.md)
+Fully managed Pub/Sub service for A2A and A2P messaging
+
+### [API GateWay](api.md)
+Create, maintain, and secure APIs at any scale
+
+### [Lambda](lam.md)
+Run code without thinking about servers or clusters. Only pay for what you use.
+
+### [Cloud Front](cf.md)
+Securely deliver content with low latency and high transfer speeds
+
+
