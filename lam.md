@@ -127,6 +127,9 @@ For more information on Firecracker and how to get started, refer to the [Firecr
 
 AWS Lambda pricing is based on two main factors: the number of requests processed by your functions and the duration of the execution time for each function invocation.
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/54330ae0-6dce-4776-b425-cb019135d03a)
+
+
 ## 1. Request Pricing
 
 - **First 1 million requests per month**: Free
