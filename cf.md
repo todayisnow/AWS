@@ -30,6 +30,71 @@ Amazon CloudFront is a powerful content delivery network (CDN) service provided 
 For more information on Amazon CloudFront and how to get started, refer to the [Amazon CloudFront documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/).
 
 
+# Amazon CloudFront Caching
+
+Amazon CloudFront caching is a key feature of its content delivery network (CDN) service, allowing you to cache content at edge locations close to your users to improve performance and reduce latency.
+
+## Key Features
+
+- **Edge Caching**: CloudFront caches content at edge locations worldwide, reducing the load on your origin servers and improving response times for users.
+- **Default TTL (Time-to-Live)**: CloudFront allows you to specify a default TTL for objects in the cache, controlling how long they remain in the cache before being refreshed from the origin server.
+- **Custom TTL**: You can set custom TTL values for specific objects or paths using cache control headers or CloudFront cache behaviors, allowing you to control caching behavior at a granular level.
+- **Cache Control Headers**: CloudFront supports standard HTTP cache control headers, such as `Cache-Control` and `Expires`, allowing you to specify caching directives for objects.
+- **Invalidation**: CloudFront provides invalidation capabilities, allowing you to remove objects from the cache before they expire based on specific paths or object URLs.
+
+## Use Cases
+
+- **Static Content**: Caching static assets such as images, CSS files, and JavaScript files at edge locations to reduce latency and improve performance for users.
+- **Dynamic Content**: Caching dynamic content such as API responses and database query results at edge locations to offload processing from origin servers and improve responsiveness.
+- **Personalized Content**: Implementing caching strategies for personalized content based on user attributes or session data to improve user experience and reduce server load.
+- **Content Distribution**: Distributing content such as software updates, media files, and large datasets globally using CloudFront edge caching to optimize delivery speed and reliability.
+
+## Best Practices
+
+- **Use Cache Control Headers**: Leverage standard HTTP cache control headers to control caching behavior for objects and specify appropriate TTL values.
+- **Cache Behavior Configuration**: Configure cache behaviors in CloudFront distributions to control caching behavior for different types of content based on URL patterns and request headers.
+- **Invalidation Strategy**: Develop an invalidation strategy to manage cache invalidation efficiently, considering the frequency of updates and the impact on user experience.
+
+## Conclusion
+
+Amazon CloudFront caching is a powerful feature that allows you to cache content at edge locations worldwide to improve performance, reduce latency, and optimize content delivery for your web applications. By leveraging CloudFront caching features and best practices, you can create efficient caching strategies that enhance user experience and reduce server load.
+
+For more information on Amazon CloudFront caching and best practices, refer to the [Amazon CloudFront documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/).
+
+
+
+
+# Lambda@Edge
+
+Lambda@Edge is a feature of Amazon CloudFront that allows you to run custom code in response to CloudFront events at AWS edge locations, enabling you to customize content delivery and enhance the user experience.
+
+## Key Features
+
+- **Serverless Compute**: Lambda@Edge allows you to run serverless compute functions in response to CloudFront events without provisioning or managing servers.
+- **Global Execution**: Lambda@Edge functions run at AWS edge locations closest to your users, reducing latency and improving performance.
+- **Event-Driven Architecture**: Lambda@Edge functions can be triggered by various CloudFront events, including viewer requests, origin requests, origin responses, and viewer responses.
+- **Content Customization**: Lambda@Edge enables you to customize content delivery based on user characteristics, geographic location, device type, and other factors.
+- **Real-Time Processing**: Lambda@Edge functions execute in real-time, allowing you to modify requests and responses on the fly to deliver personalized or dynamically generated content.
+
+## Use Cases
+
+- **Content Personalization**: Customize content delivery based on user preferences, geographic location, device type, and other attributes.
+- **Dynamic Content Generation**: Generate dynamic content at the edge in response to viewer requests, reducing latency and offloading processing from origin servers.
+- **Security and Compliance**: Implement security and compliance policies at the edge to protect against threats and ensure data privacy and integrity.
+- **A/B Testing**: Conduct A/B testing by serving different content variations to users and measuring performance and user engagement.
+
+## Getting Started
+
+To get started with Lambda@Edge, you can create Lambda functions using the AWS Lambda console or AWS CLI and associate them with CloudFront distributions. Lambda@Edge functions can be written in supported programming languages such as Node.js, Python, and Java.
+
+## Conclusion
+
+Lambda@Edge is a powerful feature of Amazon CloudFront that enables you to run custom code at AWS edge locations in response to CloudFront events, allowing you to customize content delivery and enhance the user experience without managing additional infrastructure. By leveraging Lambda@Edge, you can create highly personalized and dynamic content delivery solutions that are scalable, secure, and performant.
+
+For more information on Lambda@Edge and how to get started, refer to the [Lambda@Edge documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html).
+
+
+
 # Amazon CloudFront Pricing
 
 Amazon CloudFront pricing is based on several factors, including data transfer out, requests, and additional features such as HTTPS, Lambda@Edge, and Field-Level Encryption.
@@ -63,36 +128,5 @@ Amazon CloudFront pricing is based on several factors, including data transfer o
 Amazon CloudFront offers flexible and transparent pricing based on data transfer out, requests, and additional features. By understanding the pricing model and utilizing the free tier, you can effectively manage and optimize the cost of using CloudFront for content delivery.
 
 For detailed information on Amazon CloudFront pricing, including pricing examples and the AWS Pricing Calculator, refer to the [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/) page.
-
-
-# Lambda@Edge
-
-Lambda@Edge is a feature of Amazon CloudFront that allows you to run custom code in response to CloudFront events at AWS edge locations, enabling you to customize content delivery and enhance the user experience.
-
-## Key Features
-
-- **Serverless Compute**: Lambda@Edge allows you to run serverless compute functions in response to CloudFront events without provisioning or managing servers.
-- **Global Execution**: Lambda@Edge functions run at AWS edge locations closest to your users, reducing latency and improving performance.
-- **Event-Driven Architecture**: Lambda@Edge functions can be triggered by various CloudFront events, including viewer requests, origin requests, origin responses, and viewer responses.
-- **Content Customization**: Lambda@Edge enables you to customize content delivery based on user characteristics, geographic location, device type, and other factors.
-- **Real-Time Processing**: Lambda@Edge functions execute in real-time, allowing you to modify requests and responses on the fly to deliver personalized or dynamically generated content.
-
-## Use Cases
-
-- **Content Personalization**: Customize content delivery based on user preferences, geographic location, device type, and other attributes.
-- **Dynamic Content Generation**: Generate dynamic content at the edge in response to viewer requests, reducing latency and offloading processing from origin servers.
-- **Security and Compliance**: Implement security and compliance policies at the edge to protect against threats and ensure data privacy and integrity.
-- **A/B Testing**: Conduct A/B testing by serving different content variations to users and measuring performance and user engagement.
-
-## Getting Started
-
-To get started with Lambda@Edge, you can create Lambda functions using the AWS Lambda console or AWS CLI and associate them with CloudFront distributions. Lambda@Edge functions can be written in supported programming languages such as Node.js, Python, and Java.
-
-## Conclusion
-
-Lambda@Edge is a powerful feature of Amazon CloudFront that enables you to run custom code at AWS edge locations in response to CloudFront events, allowing you to customize content delivery and enhance the user experience without managing additional infrastructure. By leveraging Lambda@Edge, you can create highly personalized and dynamic content delivery solutions that are scalable, secure, and performant.
-
-For more information on Lambda@Edge and how to get started, refer to the [Lambda@Edge documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html).
-
 
 [Back to main](readme.md)
