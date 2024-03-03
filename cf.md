@@ -34,6 +34,9 @@ For more information on Amazon CloudFront and how to get started, refer to the [
 
 Amazon CloudFront caching is a key feature of its content delivery network (CDN) service, allowing you to cache content at edge locations close to your users to improve performance and reduce latency.
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/85972dfc-3956-4efa-9c50-44a3d51e5d13)
+
+
 ## Key Features
 
 - **Edge Caching**: CloudFront caches content at edge locations worldwide, reducing the load on your origin servers and improving response times for users.
