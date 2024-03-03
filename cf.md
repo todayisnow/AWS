@@ -2,7 +2,7 @@
 
 Amazon CloudFront is a content delivery network (CDN) service provided by AWS that accelerates the delivery of your web content to users worldwide, improving performance, reliability, and scalability.
 
-![image](https://github.com/todayisnow/AWS/assets/22843851/d582b989-ef4c-421d-8435-9094582ecd60)
+![image](https://github.com/todayisnow/AWS/assets/22843851/8b3c0281-1361-4f3a-9a1c-e616ca30874c)
 
 
 ## Key Features
@@ -34,7 +34,7 @@ For more information on Amazon CloudFront and how to get started, refer to the [
 
 Amazon CloudFront caching is a key feature of its content delivery network (CDN) service, allowing you to cache content at edge locations close to your users to improve performance and reduce latency.
 
-![image](https://github.com/todayisnow/AWS/assets/22843851/85972dfc-3956-4efa-9c50-44a3d51e5d13)
+![image](https://github.com/todayisnow/AWS/assets/22843851/d582b989-ef4c-421d-8435-9094582ecd60)
 
 
 ## Key Features
