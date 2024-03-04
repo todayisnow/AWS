@@ -1,20 +1,9 @@
 <details>
 
-<summary>Tips for collapsed sections</summary>
 
-### You can add a header
 
-You can add text within a collapsed section. 
 
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details>
-
-# Disaster Recovery in AWS
+<summary># Disaster Recovery in AWS</summary>
 
 Disaster recovery (DR) in AWS refers to the process of preparing for and recovering from potential disasters or disruptions that could impact the availability or functionality of your applications and data running on AWS infrastructure. AWS offers a variety of services and features to help organizations implement robust disaster recovery strategies that ensure business continuity and minimize downtime in the event of a disaster.
 
@@ -49,7 +38,7 @@ Disaster recovery in AWS involves preparing for and recovering from potential di
 
 For more information on disaster recovery in AWS and best practices, refer to the [AWS Disaster Recovery whitepapers](https://aws.amazon.com/whitepapers/disaster-recovery/).
 
-
+</details>
 
 # AWS Services for Disaster Recovery
 
