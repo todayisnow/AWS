@@ -1,9 +1,6 @@
 <details>
 
-
-
-
-<summary>Disaster Recovery in AWS</summary>
+  <summary>Disaster Recovery in AWS</summary>
 
 # Disaster Recovery in AWS
 Disaster recovery (DR) in AWS refers to the process of preparing for and recovering from potential disasters or disruptions that could impact the availability or functionality of your applications and data running on AWS infrastructure. AWS offers a variety of services and features to help organizations implement robust disaster recovery strategies that ensure business continuity and minimize downtime in the event of a disaster.
@@ -40,7 +37,10 @@ Disaster recovery in AWS involves preparing for and recovering from potential di
 For more information on disaster recovery in AWS and best practices, refer to the [AWS Disaster Recovery whitepapers](https://aws.amazon.com/whitepapers/disaster-recovery/).
 
 </details>
+<details>
 
+  <summary>  AWS Services for Disaster Recovery</summary>
+  
 # AWS Services for Disaster Recovery
 
 Disaster recovery (DR) in AWS involves leveraging a combination of AWS services and best practices to ensure business continuity and minimize downtime in the event of a disaster. AWS offers a range of services that can be used for disaster recovery purposes:
@@ -67,7 +67,11 @@ Disaster recovery (DR) in AWS involves leveraging a combination of AWS services 
 
 By leveraging these AWS services and best practices, organizations can design and implement robust disaster recovery solutions that ensure business continuity and data resilience in the face of disasters. It's essential to evaluate your specific requirements and design a disaster recovery plan that meets your organization's needs for recovery time objectives (RTOs) and recovery point objectives (RPOs).
 
+</details>
 
+<details>
+
+  <summary>  Disaster Recovery Strategies</summary>
 # Disaster Recovery Strategies
 
 Disaster recovery (DR) strategies are essential for ensuring business continuity and minimizing downtime in the event of a disaster. Organizations can implement various DR strategies based on their specific requirements, budget, and risk tolerance. Here are some common disaster recovery strategies:
@@ -110,7 +114,7 @@ Disaster recovery (DR) strategies are essential for ensuring business continuity
 ## Conclusion
 
 Choosing the right disaster recovery strategy depends on factors such as budget, risk tolerance, recovery time objectives (RTOs), and recovery point objectives (RPOs). By evaluating these factors and understanding the capabilities of different DR strategies, organizations can design effective disaster recovery plans to ensure business continuity and data resilience in the face of disasters.
-
+</details>
 
 
 [Back to Main](readme.md)
