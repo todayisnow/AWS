@@ -55,6 +55,9 @@ Run code without thinking about servers or clusters. Only pay for what you use.
 ### [CloudFront](cf.md)
 Securely deliver content with low latency and high transfer speeds.
 
+### [CloudTrail](ct.md)
+Helps you enable operational and risk auditing, governance, and compliance of your AWS account
+
 ### [AWS KMS (Key Management Service)](kms.md)
 A managed service that makes it easy for you to create and manage keys and control the use of encryption across a wide range of AWS services. KMS is a secure and resilient service that uses FIPS 140-2 validated hardware security modules to isolate and protect your keys.
 
