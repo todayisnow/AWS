@@ -5,6 +5,7 @@
      - Object storage.
      - Highly scalable, durable, and cost-effective.
      - Suitable for storing large amounts of unstructured data.
+     - S3 inside the region
    - **Amazon EBS**:
      - Block storage.
      - Low-latency performance for EC2 instances.
@@ -19,9 +20,12 @@
      - Low-cost long-term archival with retrieval times ranging from minutes to hours.
      - Ideal for compliance, regulatory requirements, and disaster recovery.
    - **Amazon RDS**:
-     - Managed relational database service.
+     - Managed relational database service. Customer dont hav root access or OS access for the DB instance
      - Automates administrative tasks like patching, backups, and scaling.
-     - Suitable for hosting relational databases such as MySQL, PostgreSQL, SQL Server, and Oracle.
+     - Suitable for hosting relational databases such as MySQL, PostgreSQL, SQL Server, Oracle, MariaDB and Amazon Aurora.
+     - Inside a VPC and its recommanded to be in private subnet
+     - Security groups can be attached to RDS
+     - Can be launched in standalone mode or Multi-AZ mode (Primary and standby)
    - **Amazon DynamoDB**:
      - Fully managed NoSQL database service.
      - Provides single-digit millisecond latency at any scale.
