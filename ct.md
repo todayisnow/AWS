@@ -154,6 +154,8 @@ Here's an example of a CloudTrail log event in JSON format:
     }
   ]
 }
+```
+
 ## Conclusion
 
 Amazon CloudTrail logs various types of events related to API activity in your AWS account, including management events and data events. By analyzing CloudTrail logs, you can gain valuable insights into changes, actions, and interactions within your AWS environment, enabling governance, compliance, and security monitoring.
