@@ -63,3 +63,6 @@ A managed service that makes it easy for you to create and manage keys and contr
 
 ### [AWS Storage Solutions](store.md)
 Explore various AWS storage components and services.
+
+### [Disaster Recovery](dr.md)
+Process of preparing for and recovering from potential disasters or disruptions that could impact the availability or functionality of your applications and data running on AWS infrastructure
