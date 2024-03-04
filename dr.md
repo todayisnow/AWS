@@ -72,6 +72,7 @@ By leveraging these AWS services and best practices, organizations can design an
 <details>
 
   <summary>  Disaster Recovery Strategies</summary>
+  
 # Disaster Recovery Strategies
 
 Disaster recovery (DR) strategies are essential for ensuring business continuity and minimizing downtime in the event of a disaster. Organizations can implement various DR strategies based on their specific requirements, budget, and risk tolerance. Here are some common disaster recovery strategies:
