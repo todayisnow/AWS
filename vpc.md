@@ -699,7 +699,7 @@ AWS Transit Gateway is a fully managed service that enables organizations to con
 AWS Transit Gateway is a powerful networking service that simplifies network connectivity and management in AWS cloud environments. By providing a centralized hub for routing traffic between VPCs, on-premises networks, and VPN connections, Transit Gateway enables organizations to build scalable, secure, and highly available network architectures.
 
 
-# VPC Endpoints in AWS
+# VPC Endpoints 
 
 VPC endpoints enable private connectivity between your VPC and supported AWS services without requiring internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. This allows you to access AWS services privately from within your VPC, improving security and minimizing exposure to the public internet.
 
@@ -742,6 +742,45 @@ VPC endpoints enable private connectivity between your VPC and supported AWS ser
 ## Conclusion
 
 VPC endpoints are a powerful feature in AWS that enable private connectivity to supported AWS services from within your VPC. By leveraging VPC endpoints, you can improve security, reduce latency, simplify network architecture, and potentially save costs associated with data transfer.
+
+
+# IPv6 Egress-Only Internet Gateway
+
+An IPv6 egress-only internet gateway (EIGW) is a networking component in Amazon Virtual Private Cloud (VPC) that allows IPv6-enabled instances in a VPC to access the internet while preventing incoming IPv6 traffic from reaching those instances (with IPv4 I can use internet gateway because there is private IPv4 but in IPv6 case all IPs are public so i have to use EIGW). It provides outbound internet access for IPv6 traffic without exposing the instances to inbound traffic from the internet.
+
+## Key Features
+
+- **Outbound IPv6 Access**: EIGW enables outbound IPv6 traffic from IPv6-enabled instances in a VPC to access the internet, allowing instances to communicate with IPv6-enabled services and resources on the internet.
+
+- **Security**: EIGW restricts inbound IPv6 traffic to the associated VPC, providing a layer of security by preventing direct inbound access to instances from the internet.
+
+- **Simple Configuration**: EIGW is easy to configure and manage through the AWS Management Console, CLI, or API, making it straightforward to enable outbound IPv6 internet access for instances in a VPC.
+
+## Benefits
+
+- **IPv6 Connectivity**: EIGW enables IPv6-enabled instances in a VPC to communicate with IPv6-enabled resources and services on the internet, ensuring compatibility with IPv6-based networks and services.
+
+- **Security**: By restricting inbound IPv6 traffic, EIGW helps protect instances in the VPC from unauthorized access and potential security threats originating from the internet.
+
+- **Simplified Networking**: EIGW simplifies outbound internet access for IPv6 traffic in a VPC, eliminating the need for complex network configurations or additional security measures to control outbound traffic.
+
+## Use Cases
+
+- **IPv6-Enabled Applications**: Organizations with IPv6-enabled applications or services can use EIGW to provide outbound internet access for instances running these applications in a VPC.
+
+- **Internet Access for IPv6 Instances**: EIGW enables instances with IPv6 addresses to access external resources, services, or repositories on the internet that support IPv6 connectivity.
+
+## Considerations
+
+- **IPv6 Support**: EIGW supports outbound IPv6 traffic only and does not provide inbound IPv6 internet access. Organizations requiring inbound IPv6 traffic should consider alternative solutions such as an internet gateway or NAT gateway with IPv6 support.
+
+- **Route Configuration**: To enable outbound IPv6 internet access for instances in a VPC, organizations must configure the route tables associated with the VPC to route IPv6 traffic to the EIGW.
+
+## Conclusion
+
+IPv6 egress-only internet gateway (EIGW) is a valuable networking component in Amazon VPC that enables outbound IPv6 traffic from instances in a VPC to access the internet while providing security by restricting inbound traffic. By leveraging EIGW, organizations can ensure IPv6 connectivity for their applications and services in AWS while maintaining a secure networking environment.
+
+
 
 
 
