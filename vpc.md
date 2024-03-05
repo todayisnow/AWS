@@ -748,6 +748,10 @@ VPC endpoints are a powerful feature in AWS that enable private connectivity to 
 
 An IPv6 egress-only internet gateway (EIGW) is a networking component in Amazon Virtual Private Cloud (VPC) that allows IPv6-enabled instances in a VPC to access the internet while preventing incoming IPv6 traffic from reaching those instances (with IPv4 I can use internet gateway because there is private IPv4 but in IPv6 case all IPs are public so i have to use EIGW). It provides outbound internet access for IPv6 traffic without exposing the instances to inbound traffic from the internet.
 
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/aca598e7-7e5f-4bae-9305-dd05af4517ab)
+
+
 ## Key Features
 
 - **Outbound IPv6 Access**: EIGW enables outbound IPv6 traffic from IPv6-enabled instances in a VPC to access the internet, allowing instances to communicate with IPv6-enabled services and resources on the internet.
@@ -781,6 +785,47 @@ An IPv6 egress-only internet gateway (EIGW) is a networking component in Amazon 
 IPv6 egress-only internet gateway (EIGW) is a valuable networking component in Amazon VPC that enables outbound IPv6 traffic from instances in a VPC to access the internet while providing security by restricting inbound traffic. By leveraging EIGW, organizations can ensure IPv6 connectivity for their applications and services in AWS while maintaining a secure networking environment.
 
 
+# VPC Flow Logs
+
+VPC Flow Logs is a feature in Amazon Virtual Private Cloud (VPC) that enables you to capture information about the IP traffic flowing in and out of network interfaces in your VPC. It provides detailed visibility into the network traffic within your VPC, allowing you to monitor and analyze network behavior, troubleshoot connectivity issues, and enhance security posture.
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/6ffb8aed-f06d-4f4e-ad66-a6bd6c8e349d)
+
+## Key Features
+
+- **Traffic Visibility**: VPC Flow Logs capture information about the source and destination IP addresses, ports, protocols, and packet counts for each network flow traversing the network interfaces in your VPC.
+
+- **Customization**: You can customize the flow log configuration to capture specific types of traffic or apply filters to include or exclude certain traffic based on criteria such as IP addresses, ports, or protocols.
+
+- **Integration**: Flow logs can be integrated with Amazon CloudWatch Logs or Amazon S3 for storage, enabling you to analyze and visualize the log data using CloudWatch metrics, dashboards, or third-party log analysis tools.
+
+- **Security Analysis**: By analyzing flow log data, you can detect and investigate security threats, anomalies, or unauthorized network activity within your VPC, helping to enhance your overall security posture.
+
+## Benefits
+
+- **Visibility**: VPC Flow Logs provide granular visibility into network traffic within your VPC, allowing you to understand traffic patterns, diagnose connectivity issues, and identify potential security threats.
+
+- **Compliance**: Flow logs can be used to meet compliance requirements by providing detailed records of network activity for auditing, forensics, or regulatory purposes.
+
+- **Troubleshooting**: Flow logs facilitate troubleshooting by providing insights into network traffic behavior, helping you identify and resolve connectivity issues or performance bottlenecks more efficiently.
+
+## Use Cases
+
+- **Security Monitoring**: Organizations use flow logs to monitor network traffic for suspicious activity, unauthorized access attempts, or potential security breaches within their VPCs.
+
+- **Network Troubleshooting**: Flow logs are valuable for diagnosing connectivity issues, analyzing network performance, and identifying misconfigurations or errors in network configurations.
+
+- **Compliance Auditing**: Flow logs serve as a valuable source of data for compliance audits, enabling organizations to demonstrate adherence to security and regulatory requirements.
+
+## Considerations
+
+- **Cost**: Storing flow log data in Amazon S3 or CloudWatch Logs may incur additional costs, so organizations should consider the cost implications when enabling flow logs for their VPCs.
+
+- **Log Retention**: Organizations should define a retention policy for flow log data to ensure compliance with data retention requirements and optimize storage costs.
+
+## Conclusion
+
+VPC Flow Logs is a powerful feature in Amazon VPC that provides detailed visibility into network traffic within your VPC, enabling you to monitor, analyze, and secure your network infrastructure effectively. By leveraging flow logs, organizations can enhance security, troubleshoot connectivity issues, and meet compliance requirements for their VPC environments.
 
 
 
