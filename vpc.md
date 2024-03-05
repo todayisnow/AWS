@@ -312,7 +312,7 @@ A NAT Gateway is a crucial component in enabling outbound internet access for in
 
 For more information, refer to the [AWS documentation on NAT Gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html).
 
-# NAT Instance in AWS VPC
+# NAT Instance 
 
 A Network Address Translation (NAT) instance in AWS Virtual Private Cloud (VPC) is a type of EC2 instance that enables instances in a private subnet to initiate outbound traffic to the internet while preventing inbound traffic from the internet. NAT instances act as intermediaries between instances in private subnets and the internet, allowing them to access resources such as software updates, patches, and external services.
 
@@ -344,6 +344,32 @@ A Network Address Translation (NAT) instance in AWS Virtual Private Cloud (VPC) 
 - **Management Overhead**: Managing and maintaining NAT instances requires additional effort compared to managed services like NAT gateways.
 - **Cost**: While NAT instances may have lower hourly rates compared to NAT gateways, additional costs may be incurred for data transfer and Elastic IP addresses.
 
+## NAT Instance Source/Destination Check
+
+In Amazon Web Services (AWS), NAT instances are often used in Virtual Private Clouds (VPCs) to allow instances in private subnets to access the internet while remaining private and secure. One important aspect of configuring NAT instances is managing their source/destination check.
+
+### Source/Destination Check
+
+By default, source/destination check is enabled for EC2 instances in AWS. This means that the instance must perform source/destination checks on all packets that it sends and receives. If a packet's source or destination IP address doesn't match the instance's network interfaces, the packet is dropped.
+
+### NAT Instance Configuration
+
+For NAT instances, source/destination check must be disabled to allow them to function correctly as gateways for outbound internet traffic from private subnets. When source/destination check is disabled, the NAT instance forwards traffic from private instances to the internet without performing source/destination checks.
+
+### Disabling Source/Destination Check
+
+To disable source/destination check for a NAT instance:
+
+1. Navigate to the AWS Management Console and locate the NAT instance.
+2. Select the instance and choose "Actions" > "Networking" > "Change Source/Dest. Check".
+3. Disable source/destination check for the instance.
+
+### Considerations
+
+- **Security**: Disabling source/destination check for a NAT instance opens it up to potentially malicious traffic. Ensure that appropriate security groups and network ACLs are in place to restrict access to the instance.
+- **Functionality**: Disabling source/destination check is essential for NAT instances to function correctly. Failure to do so will result in dropped packets and connectivity issues for instances in private subnets.
+
+
 ## Conclusion
 
 NAT instances provide a cost-effective solution for enabling outbound internet access from instances in private subnets within an AWS VPC while offering flexibility and control over configuration settings. However, organizations should consider the limitations and performance considerations when choosing between NAT instances and managed services like NAT gateways for their specific use cases.
@@ -372,6 +398,9 @@ NAT instances provide a cost-effective solution for enabling outbound internet a
 # NAT Gateway AZ-Independent Architecture for High Availability
 
 AWS NAT Gateway offers a highly available architecture that is designed to be AZ-independent, providing redundancy and resilience against failures in a single Availability Zone (AZ). This architecture ensures continuous availability of outbound internet traffic from private subnets within an AWS Virtual Private Cloud (VPC).
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/93d19d6b-d91f-416b-954f-db3382122839)
+
 
 ## Architecture Overview
 
