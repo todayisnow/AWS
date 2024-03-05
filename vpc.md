@@ -355,13 +355,18 @@ NAT instances provide a cost-effective solution for enabling outbound internet a
 |--------------------|---------------------------------------|---------------------------------------|
 | **Service Type**   | EC2 Instance running NAT AMI          | Managed AWS Service                   |
 | **Availability**   | Single instance per Availability Zone | Redundant across multiple AZs         |
-| **Performance**    | Limited by instance type               | Scales automatically, higher throughput|
+| **Performance**    | Limited by instance type               | Scales automatically, higher throughput up to 45 Gbps|
 | **High Availability** | Manual setup across AZs            | Built-in redundancy, no manual setup  |
-| **Elastic IP (EIP)**| Requires EIP                          | Automatically assigned                |
+| **Elastic IP (EIP)**| Requires EIP                          | Automatically assigned  or EIP              |
 | **Scaling**        | Manual scaling                        | Auto-scales based on traffic          |
 | **Maintenance**    | Requires regular maintenance          | Fully managed, no maintenance required|
 | **Cost**           | Lower hourly rate, additional costs for data transfer and EIPs | Higher hourly rate, no additional costs |
 | **Use Cases**      | Small-scale deployments, cost-sensitive scenarios | High-throughput workloads, critical production environments |
+| **Security Groups** | Yes  | No |
+| **NACLs** | Yes  | Yes |
+
+
+
 
 
 # NAT Gateway AZ-Independent Architecture for High Availability
