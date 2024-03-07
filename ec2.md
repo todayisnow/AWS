@@ -396,288 +396,6 @@ For more information on EC2 instance storage options, refer to the [AWS Document
 
 
 
-# Amazon EC2 Auto Scaling Groups
-
-Amazon EC2 Auto Scaling Groups is a service provided by AWS that enables you to automatically scale your Amazon EC2 instances based on demand, ensuring that you have the right amount of capacity to handle varying workloads. With Auto Scaling Groups, you can maintain application availability, optimize resource utilization, and improve cost efficiency by dynamically adjusting the number of EC2 instances in response to changing traffic patterns and workload demands.
-
-![scale](./images/scale.png)
-
-## Key Features
-
-- **Automatic Scaling**: Automatically scale the number of EC2 instances in your Auto Scaling Group based on predefined scaling policies, which can be triggered by metrics such as CPU utilization, network traffic, or custom CloudWatch metrics.
-- **Scheduled Scaling**: Schedule scaling actions to occur at specific times or dates, enabling you to accommodate predictable workload fluctuations, such as daily or weekly peaks.
-- **Target Tracking Scaling**: Use target tracking scaling policies to automatically adjust the number of instances to maintain a specific target value for a chosen metric, such as average CPU utilization or request latency.
-- **Predictive Scaling**: Utilize predictive scaling to forecast future workload demand based on historical usage patterns and adjust the number of instances proactively to ensure optimal performance and availability.
-- **Instance Protection**: Protect specific EC2 instances within an Auto Scaling Group from termination during scale-in events, ensuring that critical instances remain operational.
-- **Integration with Elastic Load Balancing**: Integrate Auto Scaling Groups with Elastic Load Balancing (ELB) to distribute incoming traffic across multiple EC2 instances and ensure high availability and fault tolerance.
-
-## Use Cases
-
-- **Application Availability**: Ensure high availability and fault tolerance for your applications by automatically scaling EC2 instances to meet demand and handle traffic spikes.
-- **Cost Optimization**: Optimize resource utilization and reduce costs by scaling EC2 instances dynamically based on workload demand, eliminating over-provisioning and underutilization.
-- **Performance Optimization**: Improve application performance and responsiveness by scaling resources up or down in response to changes in traffic patterns and workload demands.
-- **Capacity Planning**: Automate capacity planning and management by using Auto Scaling Groups to adjust the number of instances dynamically to match changing requirements without manual intervention.
-
-## Benefits
-
-- **Improved Application Availability**: Ensure that your applications remain available and responsive by dynamically adjusting the number of EC2 instances based on demand, traffic patterns, and workload fluctuations.
-- **Cost Efficiency**: Optimize resource utilization and reduce costs by scaling EC2 instances dynamically, eliminating the need for manual intervention and reducing over-provisioning and underutilization.
-- **Simplified Management**: Simplify management and operations by automating the scaling process and reducing the need for manual intervention, enabling you to focus on developing and deploying applications.
-- **Enhanced Scalability**: Scale your applications seamlessly to accommodate changes in workload demand, ensuring that you can handle traffic spikes and meet performance requirements without disruptions.
-
-## Conclusion
-
-Amazon EC2 Auto Scaling Groups is a powerful service that enables you to automatically scale your EC2 instances based on demand, ensuring high availability, optimizing resource utilization, and improving cost efficiency. By leveraging Auto Scaling Groups, you can ensure that your applications remain responsive, reliable, and cost-effective, even under varying workload conditions.
-
-For detailed information on configuring and managing Amazon EC2 Auto Scaling Groups, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html).
-
-# Amazon EC2 Auto Scaling Lifecycle
-
-The Amazon EC2 Auto Scaling Lifecycle defines the stages that an EC2 instance goes through during the auto scaling process, from launch to termination. Understanding the auto scaling lifecycle is essential for effectively managing and automating the scaling of EC2 instances to meet workload demands and optimize resource utilization.
-
-## Lifecycle Stages
-
-1. **Launch**: During the launch stage, Auto Scaling launches new EC2 instances to meet increased demand or replace instances that have been terminated due to failure or scaling activities. Instances are launched based on launch configurations or launch templates defined in the Auto Scaling Group settings.
-
-2. **Configuration**: After the instance is launched, it goes through the configuration stage, where any user-defined configurations, scripts, or initialization actions are applied to prepare the instance for operation. This may include installing software, configuring settings, or joining the instance to a domain.
-
-3. **InService**: Once the instance is fully configured and operational, it enters the InService stage, where it actively serves traffic and performs its intended function. During this stage, the instance is included in the load balancer's target group and participates in handling incoming requests.
-
-4. **Termination**: When scaling activities occur, instances may be terminated to meet desired capacity or scale-in policies. During the termination stage, Auto Scaling prepares the instance for termination by removing it from the load balancer's target group, draining connections, and executing any termination actions defined in the Auto Scaling Group settings.
-
-## Lifecycle Hooks
-
-Amazon EC2 Auto Scaling provides lifecycle hooks that allow you to perform custom actions at key points in the auto scaling lifecycle, such as before instance launch or termination. Lifecycle hooks enable you to integrate with external systems, perform validation checks, or execute custom scripts during auto scaling operations.
-
-- **BeforeInstanceLaunch**: This hook is triggered before an instance is launched, allowing you to perform custom actions such as validating instance configurations, updating external systems, or performing pre-launch checks.
-
-- **AfterInstanceLaunch**: This hook is triggered after an instance is launched and configured, allowing you to perform additional setup tasks or post-launch actions before the instance becomes operational.
-
-- **BeforeInstanceTerminate**: This hook is triggered before an instance is terminated, allowing you to perform cleanup tasks, save state information, or execute custom scripts before the instance is removed from service.
-
-- **AfterInstanceTerminate**: This hook is triggered after an instance is terminated, allowing you to perform final cleanup tasks, update external systems, or log termination events for auditing purposes.
-
-## Conclusion
-
-The Amazon EC2 Auto Scaling Lifecycle defines the stages that an EC2 instance goes through during the auto scaling process, from launch to termination. By understanding the lifecycle stages and utilizing lifecycle hooks, you can effectively manage and automate the scaling of EC2 instances to meet workload demands, optimize resource utilization, and ensure application availability.
-
-For detailed information on configuring lifecycle hooks and managing the auto scaling lifecycle, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html).
-
-
-# Amazon EC2 Auto Scaling Scaling Policies
-
-Amazon EC2 Auto Scaling Scaling Policies allow you to define rules and thresholds for automatically adjusting the number of EC2 instances in your Auto Scaling Group based on demand, workload patterns, and performance metrics. By configuring scaling policies, you can ensure that your application can handle varying traffic loads efficiently, maintain performance, and optimize resource utilization.
-
-## Key Features
-
-- **Dynamic Scaling**: Automatically adjust the number of EC2 instances in response to changing demand and workload patterns, ensuring that your application can handle traffic spikes and fluctuations efficiently.
-- **Scheduled Scaling**: Schedule scaling actions to occur at specific times or dates, allowing you to accommodate predictable workload fluctuations, such as daily or weekly peaks.
-- **Target Tracking Scaling**: Use target tracking scaling policies to maintain a specific target value for a chosen metric, such as average CPU utilization or request latency, by adjusting the number of instances dynamically. Cloud watch alarm will be created on your behalf 
-- **Step Scaling**: Define step scaling policies to scale EC2 instances based on predefined step adjustments, allowing you to scale out or in by a fixed number of instances or a percentage of the current capacity.
-- **Simple Scaling**: Implement simple scaling policies to increase or decrease the desired capacity of your Auto Scaling Group by a fixed number of instances in response to changing demand or workload patterns.
-
-## Use Cases
-
-- **Traffic Spikes**: Automatically scale out your Auto Scaling Group to handle sudden spikes in traffic or demand, ensuring that your application remains responsive and available.
-- **Predictable Workload Fluctuations**: Schedule scaling actions to accommodate predictable workload fluctuations, such as increased traffic during peak hours or seasonal events, without manual intervention.
-- **Performance Optimization**: Maintain optimal performance and resource utilization by adjusting the number of EC2 instances dynamically based on workload metrics such as CPU utilization, memory usage, or network traffic.
-- **Cost Optimization**: Optimize resource utilization and reduce costs by scaling EC2 instances dynamically in response to demand, eliminating over-provisioning and underutilization.
-
-## Benefits
-
-- **Improved Application Availability**: Ensure high availability and responsiveness by dynamically adjusting the number of EC2 instances to match changing demand and workload patterns, minimizing downtime and disruptions.
-- **Cost Efficiency**: Optimize resource utilization and reduce costs by scaling EC2 instances based on demand, eliminating the need for manual intervention and reducing over-provisioning and underutilization.
-- **Automated Scaling**: Automate the scaling process by defining scaling policies based on predefined rules and thresholds, allowing you to focus on developing and deploying applications rather than managing infrastructure.
-- **Flexible Configuration**: Configure scaling policies to meet specific performance and availability requirements, using target tracking, step scaling, or simple scaling policies to adjust capacity dynamically.
-
-## Conclusion
-
-Amazon EC2 Auto Scaling Scaling Policies enable you to automatically adjust the number of EC2 instances in your Auto Scaling Group based on demand, workload patterns, and performance metrics. By configuring scaling policies, you can ensure that your application remains responsive, available, and cost-effective, even under varying traffic loads and workload conditions.
-
-For detailed information on configuring and managing scaling policies in Amazon EC2 Auto Scaling, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html).
-
-
-# Creating an Auto Scaling Group from AWS Management Console
-
-Follow these steps to create an Auto Scaling Group (ASG) using the AWS Management Console:
-
-1. **Sign in to the AWS Management Console**: Navigate to the AWS Management Console and sign in to your AWS account.
-
-2. **Navigate to the Auto Scaling Console**: From the services menu, select "Auto Scaling" under the "Compute" category.
-
-3. **Create a Launch Configuration**: Before creating an Auto Scaling Group, you need to create a launch configuration that specifies the AMI, instance type, key pair, security groups, and other configuration settings for the EC2 instances in the group. Click on "Create launch configuration" and follow the prompts to configure your launch configuration.
-
-4. **Configure Auto Scaling Group**: Once your launch configuration is created, click on "Create Auto Scaling group" to configure your Auto Scaling Group. Provide a name for your group, select the launch configuration you created in the previous step, specify the desired capacity, minimum and maximum size, and configure scaling policies based on your requirements.
-
-5. **Configure Network Settings**: Specify the VPC and subnets where you want your EC2 instances to be launched. You can also configure additional network settings such as load balancer integration, health checks, and placement groups.
-
-6. **Configure Scaling Policies**: Define scaling policies to automatically scale your Auto Scaling Group based on metrics such as CPU utilization, network traffic, or custom CloudWatch metrics. You can choose from target tracking scaling policies, step scaling policies, or simple scaling policies depending on your requirements.
-
-7. **Review and Create**: Review your Auto Scaling Group configuration settings and click on "Create Auto Scaling group" to create your group. AWS will provision the EC2 instances based on your configuration settings, and your Auto Scaling Group will be ready to use.
-
-8. **Monitor and Manage**: Once your Auto Scaling Group is created, you can monitor and manage it from the AWS Management Console. You can view metrics, adjust scaling policies, update configuration settings, and perform other management tasks as needed.
-
-Congratulations! You have successfully created an Auto Scaling Group from the AWS Management Console.
-
-For detailed information on creating and managing Auto Scaling Groups, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html).
-
-
-# Creating an Auto Scaling Group from AWS CLI
-```bash
-#!/bin/bash
-
-get_vpc_id(){
-    vpc_id=$(aws ec2 describe-vpcs --region eu-north-1 --filters Name=tag:Name,Values=devops90-vpc | grep -oP '(?<="VpcId": ")[^"]*')
-    if [ "$vpc_id" == "" ]; then
-        echo "vpc is not exist"
-        exit 1
-    fi
-    echo $vpc_id
-}
-
-get_subnets_ids(){
-    subnet_1a_id=$(aws ec2 describe-subnets --region eu-north-1 --filters Name=tag:Name,Values=sub-public-1-devops90 | grep -oP '(?<="SubnetId": ")[^"]*')
-    if [ "$subnet_1a_id" == "" ]; then
-        echo "subnet 1a not exists!"
-        exit 1
-    fi
-    subnet_2b_id=$(aws ec2 describe-subnets --region eu-north-1 --filters Name=tag:Name,Values=sub-public-2-devops90 | grep -oP '(?<="SubnetId": ")[^"]*')
-    if [ "$subnet_2b_id" == "" ]; then
-        echo "subnet 2b not exists!"
-        exit 1
-    fi
-
-    subnets_ids="${subnet_1a_id},${subnet_2b_id}"
-    subnets_ids_space="${subnet_1a_id} ${subnet_2b_id}"
-
-    echo $subnets_ids
-    echo $subnets_ids_space
-}
-
-get_security_group_id(){
-    sg_id=$(aws ec2 describe-security-groups --filters Name=tag:Name,Values=devops90-sg | grep -oP '(?<="GroupId": ")[^"]*' | uniq)
-    if [ "$sg_id" == "" ]; then
-        echo "security group is not exist"
-        exit 1
-    fi
-    echo $sg_id
-}
-
-create_elb(){
-    check_elb=$(aws elbv2 describe-load-balancers --region eu-north-1 --query "LoadBalancers[?LoadBalancerName == 'autoscaling-nlb']" | grep -oP '(?<="LoadBalancerArn": ")[^"]*')
-
-    if [ "$check_elb" == "" ]; then
-        
-        echo "elb will be created"
-        
-        elb_arn=$(aws elbv2 create-load-balancer --name autoscaling-nlb --type network --subnets $subnets_ids_space --security-groups $sg_id | grep -oP '(?<="LoadBalancerArn": ")[^"]*' )
-        if [ "$elb_arn" == "" ]; then
-            echo "Error in create the elb"
-            exit 1
-        fi
-        echo $elb_arn
-
-    else
-        echo "elb already exist"
-        elb_arn=$check_elb
-        echo $elb_arn
-    fi
-}
-
-create_target_group(){
-    check_tg=$(aws elbv2 describe-target-groups --region eu-north-1 --query "TargetGroups[?TargetGroupName == 'autoscaling-tg']" | grep -oP '(?<="TargetGroupArn": ")[^"]*')
-
-    if [ "$check_tg" == "" ]; then
-        
-        echo "target group will be created"
-
-        tg_arn=$(aws elbv2 create-target-group --name autoscaling-tg \
-            --protocol TCP --port 8002 --vpc-id $vpc_id \
-            --health-check-interval-seconds 30 \
-            --health-check-timeout-seconds 20 \
-            --healthy-threshold-count 2 \
-            --unhealthy-threshold-count 2 \
-            | grep -oP '(?<="TargetGroupArn": ")[^"]*')
-        
-        if [ "$tg_arn" == "" ]; then
-            echo "Error in create the target group"
-            exit 1
-        fi
-    else
-        echo "target group already exist"
-        tg_arn=$check_tg
-    fi
-
-    echo $tg_arn
-}
-
-create_listener(){
-    ls_arn=$(aws elbv2 create-listener --load-balancer-arn "$elb_arn" --protocol TCP --port 80 --default-actions Type=forward,TargetGroupArn="$tg_arn" | grep -oP '(?<="ListenerArn": ")[^"]*')
-    if [ "$ls_arn" == "" ]; then
-        echo "Error in create the listener"
-        exit 1
-    fi
-    echo $ls_arn
-}
-
-create_auto_scaling_group(){
-
-    check_asg=$(aws autoscaling describe-auto-scaling-groups --region eu-north-1 --query "AutoScalingGroups[?AutoScalingGroupName == 'devops-asg']" | grep -oP '(?<="AutoScalingGroupARN": ")[^"]*')
-
-    if [ "$check_asg" == "" ]; then
-        
-        echo "asg will be created!"
-        
-        aws autoscaling create-auto-scaling-group \
-            --auto-scaling-group-name devops-asg \
-            --launch-template LaunchTemplateName=srv02-template \
-            --target-group-arns $tg_arn \
-            --health-check-type ELB \
-            --health-check-grace-period 120 \
-            --min-size 2 \
-            --desired-capacity 2 \
-            --max-size 7 \
-            --vpc-zone-identifier "$subnets_ids"
-
-        echo "asg creation done. kinldy check it from the aws console!"
-
-    else
-        echo "asg already exist"
-        asg_arn=$check_asg
-        echo $asg_name
-    fi
-}
-
-attach_scaling_policy(){
-    config=$(cat << EOF
-{
-    "TargetValue": 50,
-    "PredefinedMetricSpecification": {
-         "PredefinedMetricType": "ASGAverageCPUUtilization"
-    }
-}
-EOF
-)
-    config=$( echo $config | tr -d '\n' | tr -d ' ')
-
-    aws autoscaling put-scaling-policy --auto-scaling-group-name devops-asg \
-  --policy-name cpu50-target-tracking-scaling-policy \
-  --policy-type TargetTrackingScaling \
-  --target-tracking-configuration $config
-}
-
-get_vpc_id
-get_subnets_ids
-get_security_group_id
-
-create_elb
-create_target_group
-create_listener
-
-create_auto_scaling_group
-attach_scaling_policy
-```
-
 
 # EC2 Security Groups
 
@@ -983,6 +701,289 @@ Amazon EC2 offers several pricing models to accommodate different use cases and 
 - It's important to monitor and optimize instance usage to maximize cost efficiency and minimize unnecessary spending.
 - AWS offers tools and services, such as AWS Cost Explorer, AWS Budgets, and AWS Trusted Advisor, to help you analyze, monitor, and manage your EC2 costs effectively.
 
+---
+
+# Amazon EC2 Auto Scaling Groups
+
+Amazon EC2 Auto Scaling Groups is a service provided by AWS that enables you to automatically scale your Amazon EC2 instances based on demand, ensuring that you have the right amount of capacity to handle varying workloads. With Auto Scaling Groups, you can maintain application availability, optimize resource utilization, and improve cost efficiency by dynamically adjusting the number of EC2 instances in response to changing traffic patterns and workload demands.
+
+![scale](./images/scale.png)
+
+## Key Features
+
+- **Automatic Scaling**: Automatically scale the number of EC2 instances in your Auto Scaling Group based on predefined scaling policies, which can be triggered by metrics such as CPU utilization, network traffic, or custom CloudWatch metrics.
+- **Scheduled Scaling**: Schedule scaling actions to occur at specific times or dates, enabling you to accommodate predictable workload fluctuations, such as daily or weekly peaks.
+- **Target Tracking Scaling**: Use target tracking scaling policies to automatically adjust the number of instances to maintain a specific target value for a chosen metric, such as average CPU utilization or request latency.
+- **Predictive Scaling**: Utilize predictive scaling to forecast future workload demand based on historical usage patterns and adjust the number of instances proactively to ensure optimal performance and availability.
+- **Instance Protection**: Protect specific EC2 instances within an Auto Scaling Group from termination during scale-in events, ensuring that critical instances remain operational.
+- **Integration with Elastic Load Balancing**: Integrate Auto Scaling Groups with Elastic Load Balancing (ELB) to distribute incoming traffic across multiple EC2 instances and ensure high availability and fault tolerance.
+
+## Use Cases
+
+- **Application Availability**: Ensure high availability and fault tolerance for your applications by automatically scaling EC2 instances to meet demand and handle traffic spikes.
+- **Cost Optimization**: Optimize resource utilization and reduce costs by scaling EC2 instances dynamically based on workload demand, eliminating over-provisioning and underutilization.
+- **Performance Optimization**: Improve application performance and responsiveness by scaling resources up or down in response to changes in traffic patterns and workload demands.
+- **Capacity Planning**: Automate capacity planning and management by using Auto Scaling Groups to adjust the number of instances dynamically to match changing requirements without manual intervention.
+
+## Benefits
+
+- **Improved Application Availability**: Ensure that your applications remain available and responsive by dynamically adjusting the number of EC2 instances based on demand, traffic patterns, and workload fluctuations.
+- **Cost Efficiency**: Optimize resource utilization and reduce costs by scaling EC2 instances dynamically, eliminating the need for manual intervention and reducing over-provisioning and underutilization.
+- **Simplified Management**: Simplify management and operations by automating the scaling process and reducing the need for manual intervention, enabling you to focus on developing and deploying applications.
+- **Enhanced Scalability**: Scale your applications seamlessly to accommodate changes in workload demand, ensuring that you can handle traffic spikes and meet performance requirements without disruptions.
+
+## Conclusion
+
+Amazon EC2 Auto Scaling Groups is a powerful service that enables you to automatically scale your EC2 instances based on demand, ensuring high availability, optimizing resource utilization, and improving cost efficiency. By leveraging Auto Scaling Groups, you can ensure that your applications remain responsive, reliable, and cost-effective, even under varying workload conditions.
+
+For detailed information on configuring and managing Amazon EC2 Auto Scaling Groups, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html).
+
+# Amazon EC2 Auto Scaling Lifecycle
+
+The Amazon EC2 Auto Scaling Lifecycle defines the stages that an EC2 instance goes through during the auto scaling process, from launch to termination. Understanding the auto scaling lifecycle is essential for effectively managing and automating the scaling of EC2 instances to meet workload demands and optimize resource utilization.
+
+## Lifecycle Stages
+
+1. **Launch**: During the launch stage, Auto Scaling launches new EC2 instances to meet increased demand or replace instances that have been terminated due to failure or scaling activities. Instances are launched based on launch configurations or launch templates defined in the Auto Scaling Group settings.
+
+2. **Configuration**: After the instance is launched, it goes through the configuration stage, where any user-defined configurations, scripts, or initialization actions are applied to prepare the instance for operation. This may include installing software, configuring settings, or joining the instance to a domain.
+
+3. **InService**: Once the instance is fully configured and operational, it enters the InService stage, where it actively serves traffic and performs its intended function. During this stage, the instance is included in the load balancer's target group and participates in handling incoming requests.
+
+4. **Termination**: When scaling activities occur, instances may be terminated to meet desired capacity or scale-in policies. During the termination stage, Auto Scaling prepares the instance for termination by removing it from the load balancer's target group, draining connections, and executing any termination actions defined in the Auto Scaling Group settings.
+
+## Lifecycle Hooks
+
+Amazon EC2 Auto Scaling provides lifecycle hooks that allow you to perform custom actions at key points in the auto scaling lifecycle, such as before instance launch or termination. Lifecycle hooks enable you to integrate with external systems, perform validation checks, or execute custom scripts during auto scaling operations.
+
+- **BeforeInstanceLaunch**: This hook is triggered before an instance is launched, allowing you to perform custom actions such as validating instance configurations, updating external systems, or performing pre-launch checks.
+
+- **AfterInstanceLaunch**: This hook is triggered after an instance is launched and configured, allowing you to perform additional setup tasks or post-launch actions before the instance becomes operational.
+
+- **BeforeInstanceTerminate**: This hook is triggered before an instance is terminated, allowing you to perform cleanup tasks, save state information, or execute custom scripts before the instance is removed from service.
+
+- **AfterInstanceTerminate**: This hook is triggered after an instance is terminated, allowing you to perform final cleanup tasks, update external systems, or log termination events for auditing purposes.
+
+## Conclusion
+
+The Amazon EC2 Auto Scaling Lifecycle defines the stages that an EC2 instance goes through during the auto scaling process, from launch to termination. By understanding the lifecycle stages and utilizing lifecycle hooks, you can effectively manage and automate the scaling of EC2 instances to meet workload demands, optimize resource utilization, and ensure application availability.
+
+For detailed information on configuring lifecycle hooks and managing the auto scaling lifecycle, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html).
+
+
+# Amazon EC2 Auto Scaling Scaling Policies
+
+Amazon EC2 Auto Scaling Scaling Policies allow you to define rules and thresholds for automatically adjusting the number of EC2 instances in your Auto Scaling Group based on demand, workload patterns, and performance metrics. By configuring scaling policies, you can ensure that your application can handle varying traffic loads efficiently, maintain performance, and optimize resource utilization.
+
+## Key Features
+
+- **Dynamic Scaling**: Automatically adjust the number of EC2 instances in response to changing demand and workload patterns, ensuring that your application can handle traffic spikes and fluctuations efficiently.
+- **Scheduled Scaling**: Schedule scaling actions to occur at specific times or dates, allowing you to accommodate predictable workload fluctuations, such as daily or weekly peaks.
+- **Target Tracking Scaling**: Use target tracking scaling policies to maintain a specific target value for a chosen metric, such as average CPU utilization or request latency, by adjusting the number of instances dynamically. Cloud watch alarm will be created on your behalf 
+- **Step Scaling**: Define step scaling policies to scale EC2 instances based on predefined step adjustments, allowing you to scale out or in by a fixed number of instances or a percentage of the current capacity.
+- **Simple Scaling**: Implement simple scaling policies to increase or decrease the desired capacity of your Auto Scaling Group by a fixed number of instances in response to changing demand or workload patterns.
+
+## Use Cases
+
+- **Traffic Spikes**: Automatically scale out your Auto Scaling Group to handle sudden spikes in traffic or demand, ensuring that your application remains responsive and available.
+- **Predictable Workload Fluctuations**: Schedule scaling actions to accommodate predictable workload fluctuations, such as increased traffic during peak hours or seasonal events, without manual intervention.
+- **Performance Optimization**: Maintain optimal performance and resource utilization by adjusting the number of EC2 instances dynamically based on workload metrics such as CPU utilization, memory usage, or network traffic.
+- **Cost Optimization**: Optimize resource utilization and reduce costs by scaling EC2 instances dynamically in response to demand, eliminating over-provisioning and underutilization.
+
+## Benefits
+
+- **Improved Application Availability**: Ensure high availability and responsiveness by dynamically adjusting the number of EC2 instances to match changing demand and workload patterns, minimizing downtime and disruptions.
+- **Cost Efficiency**: Optimize resource utilization and reduce costs by scaling EC2 instances based on demand, eliminating the need for manual intervention and reducing over-provisioning and underutilization.
+- **Automated Scaling**: Automate the scaling process by defining scaling policies based on predefined rules and thresholds, allowing you to focus on developing and deploying applications rather than managing infrastructure.
+- **Flexible Configuration**: Configure scaling policies to meet specific performance and availability requirements, using target tracking, step scaling, or simple scaling policies to adjust capacity dynamically.
+
+## Conclusion
+
+Amazon EC2 Auto Scaling Scaling Policies enable you to automatically adjust the number of EC2 instances in your Auto Scaling Group based on demand, workload patterns, and performance metrics. By configuring scaling policies, you can ensure that your application remains responsive, available, and cost-effective, even under varying traffic loads and workload conditions.
+
+For detailed information on configuring and managing scaling policies in Amazon EC2 Auto Scaling, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html).
+
+
+# Creating an Auto Scaling Group from AWS Management Console
+
+Follow these steps to create an Auto Scaling Group (ASG) using the AWS Management Console:
+
+1. **Sign in to the AWS Management Console**: Navigate to the AWS Management Console and sign in to your AWS account.
+
+2. **Navigate to the Auto Scaling Console**: From the services menu, select "Auto Scaling" under the "Compute" category.
+
+3. **Create a Launch Configuration**: Before creating an Auto Scaling Group, you need to create a launch configuration that specifies the AMI, instance type, key pair, security groups, and other configuration settings for the EC2 instances in the group. Click on "Create launch configuration" and follow the prompts to configure your launch configuration.
+
+4. **Configure Auto Scaling Group**: Once your launch configuration is created, click on "Create Auto Scaling group" to configure your Auto Scaling Group. Provide a name for your group, select the launch configuration you created in the previous step, specify the desired capacity, minimum and maximum size, and configure scaling policies based on your requirements.
+
+5. **Configure Network Settings**: Specify the VPC and subnets where you want your EC2 instances to be launched. You can also configure additional network settings such as load balancer integration, health checks, and placement groups.
+
+6. **Configure Scaling Policies**: Define scaling policies to automatically scale your Auto Scaling Group based on metrics such as CPU utilization, network traffic, or custom CloudWatch metrics. You can choose from target tracking scaling policies, step scaling policies, or simple scaling policies depending on your requirements.
+
+7. **Review and Create**: Review your Auto Scaling Group configuration settings and click on "Create Auto Scaling group" to create your group. AWS will provision the EC2 instances based on your configuration settings, and your Auto Scaling Group will be ready to use.
+
+8. **Monitor and Manage**: Once your Auto Scaling Group is created, you can monitor and manage it from the AWS Management Console. You can view metrics, adjust scaling policies, update configuration settings, and perform other management tasks as needed.
+
+Congratulations! You have successfully created an Auto Scaling Group from the AWS Management Console.
+
+For detailed information on creating and managing Auto Scaling Groups, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html).
+
+
+# Creating an Auto Scaling Group from AWS CLI
+```bash
+#!/bin/bash
+
+get_vpc_id(){
+    vpc_id=$(aws ec2 describe-vpcs --region eu-north-1 --filters Name=tag:Name,Values=devops90-vpc | grep -oP '(?<="VpcId": ")[^"]*')
+    if [ "$vpc_id" == "" ]; then
+        echo "vpc is not exist"
+        exit 1
+    fi
+    echo $vpc_id
+}
+
+get_subnets_ids(){
+    subnet_1a_id=$(aws ec2 describe-subnets --region eu-north-1 --filters Name=tag:Name,Values=sub-public-1-devops90 | grep -oP '(?<="SubnetId": ")[^"]*')
+    if [ "$subnet_1a_id" == "" ]; then
+        echo "subnet 1a not exists!"
+        exit 1
+    fi
+    subnet_2b_id=$(aws ec2 describe-subnets --region eu-north-1 --filters Name=tag:Name,Values=sub-public-2-devops90 | grep -oP '(?<="SubnetId": ")[^"]*')
+    if [ "$subnet_2b_id" == "" ]; then
+        echo "subnet 2b not exists!"
+        exit 1
+    fi
+
+    subnets_ids="${subnet_1a_id},${subnet_2b_id}"
+    subnets_ids_space="${subnet_1a_id} ${subnet_2b_id}"
+
+    echo $subnets_ids
+    echo $subnets_ids_space
+}
+
+get_security_group_id(){
+    sg_id=$(aws ec2 describe-security-groups --filters Name=tag:Name,Values=devops90-sg | grep -oP '(?<="GroupId": ")[^"]*' | uniq)
+    if [ "$sg_id" == "" ]; then
+        echo "security group is not exist"
+        exit 1
+    fi
+    echo $sg_id
+}
+
+create_elb(){
+    check_elb=$(aws elbv2 describe-load-balancers --region eu-north-1 --query "LoadBalancers[?LoadBalancerName == 'autoscaling-nlb']" | grep -oP '(?<="LoadBalancerArn": ")[^"]*')
+
+    if [ "$check_elb" == "" ]; then
+        
+        echo "elb will be created"
+        
+        elb_arn=$(aws elbv2 create-load-balancer --name autoscaling-nlb --type network --subnets $subnets_ids_space --security-groups $sg_id | grep -oP '(?<="LoadBalancerArn": ")[^"]*' )
+        if [ "$elb_arn" == "" ]; then
+            echo "Error in create the elb"
+            exit 1
+        fi
+        echo $elb_arn
+
+    else
+        echo "elb already exist"
+        elb_arn=$check_elb
+        echo $elb_arn
+    fi
+}
+
+create_target_group(){
+    check_tg=$(aws elbv2 describe-target-groups --region eu-north-1 --query "TargetGroups[?TargetGroupName == 'autoscaling-tg']" | grep -oP '(?<="TargetGroupArn": ")[^"]*')
+
+    if [ "$check_tg" == "" ]; then
+        
+        echo "target group will be created"
+
+        tg_arn=$(aws elbv2 create-target-group --name autoscaling-tg \
+            --protocol TCP --port 8002 --vpc-id $vpc_id \
+            --health-check-interval-seconds 30 \
+            --health-check-timeout-seconds 20 \
+            --healthy-threshold-count 2 \
+            --unhealthy-threshold-count 2 \
+            | grep -oP '(?<="TargetGroupArn": ")[^"]*')
+        
+        if [ "$tg_arn" == "" ]; then
+            echo "Error in create the target group"
+            exit 1
+        fi
+    else
+        echo "target group already exist"
+        tg_arn=$check_tg
+    fi
+
+    echo $tg_arn
+}
+
+create_listener(){
+    ls_arn=$(aws elbv2 create-listener --load-balancer-arn "$elb_arn" --protocol TCP --port 80 --default-actions Type=forward,TargetGroupArn="$tg_arn" | grep -oP '(?<="ListenerArn": ")[^"]*')
+    if [ "$ls_arn" == "" ]; then
+        echo "Error in create the listener"
+        exit 1
+    fi
+    echo $ls_arn
+}
+
+create_auto_scaling_group(){
+
+    check_asg=$(aws autoscaling describe-auto-scaling-groups --region eu-north-1 --query "AutoScalingGroups[?AutoScalingGroupName == 'devops-asg']" | grep -oP '(?<="AutoScalingGroupARN": ")[^"]*')
+
+    if [ "$check_asg" == "" ]; then
+        
+        echo "asg will be created!"
+        
+        aws autoscaling create-auto-scaling-group \
+            --auto-scaling-group-name devops-asg \
+            --launch-template LaunchTemplateName=srv02-template \
+            --target-group-arns $tg_arn \
+            --health-check-type ELB \
+            --health-check-grace-period 120 \
+            --min-size 2 \
+            --desired-capacity 2 \
+            --max-size 7 \
+            --vpc-zone-identifier "$subnets_ids"
+
+        echo "asg creation done. kinldy check it from the aws console!"
+
+    else
+        echo "asg already exist"
+        asg_arn=$check_asg
+        echo $asg_name
+    fi
+}
+
+attach_scaling_policy(){
+    config=$(cat << EOF
+{
+    "TargetValue": 50,
+    "PredefinedMetricSpecification": {
+         "PredefinedMetricType": "ASGAverageCPUUtilization"
+    }
+}
+EOF
+)
+    config=$( echo $config | tr -d '\n' | tr -d ' ')
+
+    aws autoscaling put-scaling-policy --auto-scaling-group-name devops-asg \
+  --policy-name cpu50-target-tracking-scaling-policy \
+  --policy-type TargetTrackingScaling \
+  --target-tracking-configuration $config
+}
+
+get_vpc_id
+get_subnets_ids
+get_security_group_id
+
+create_elb
+create_target_group
+create_listener
+
+create_auto_scaling_group
+attach_scaling_policy
+```
 
 
 [Back to main](readme.md)
