@@ -75,7 +75,7 @@ Amazon EC2 offers a flexible and cost-effective solution for running virtual ser
 - **Monitoring**: Enable detailed monitoring for the instance to collect performance metrics.
 - **Instance Termination Protection**: Enable termination protection for the instance if required.
 
-# Summary
+## Summary
 
 Creating an EC2 instance involves selecting an AMI, choosing an instance type, configuring instance details, adding storage, configuring security groups, reviewing and launching the instance, connecting to the instance, and additional configuration as needed. Follow these steps to launch an EC2 instance tailored to your specific requirements.
 
