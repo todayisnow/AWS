@@ -2,6 +2,9 @@
 
 AWS Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, IP addresses, and Lambda functions, to ensure that no single resource becomes overwhelmed. ELB helps improve the availability and fault tolerance of your applications by evenly distributing traffic and automatically scaling to meet demand.
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/3b0a4093-e1d5-425d-b63c-3e33e365826b)
+
+
 ## Features of Elastic Load Balancers
 
 - **High Availability**: ELBs are designed to be highly available and fault-tolerant, with built-in redundancy and automatic failover.
