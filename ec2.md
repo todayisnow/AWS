@@ -714,6 +714,10 @@ HPC (High Performance Computing) Optimized instances are designed for computatio
 
 Amazon EC2 offers several pricing models to accommodate different use cases and workload requirements. The pricing for EC2 instances is influenced by various factors, including instance type, region, operating system, instance size, and usage patterns. Here are the primary pricing models available for EC2 instances:
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/6c8f87e8-44dd-48c8-9eea-e88aa32a8165)
+
+
+
 ## On-Demand Instances
 
 - On-Demand Instances allow you to pay for compute capacity by the hour or by the second with no long-term commitments.
@@ -853,6 +857,86 @@ Amazon EC2 placement groups are logical groupings of instances within a single A
 ## Conclusion
 
 EC2 placement groups provide a way to control the placement of instances within a single AZ to meet specific requirements for performance, fault tolerance, and compliance. By leveraging placement groups, organizations can optimize the performance, resilience, and availability of their applications and workloads running on EC2 instances in the AWS Cloud. For more details, refer to the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
+
+
+# EC2 Monitoring
+
+Amazon EC2 provides various monitoring capabilities to help you track the performance and health of your instances. Monitoring features include basic system metrics, detailed monitoring, and custom metrics integration.
+
+## Basic Monitoring
+
+- **Metrics**: EC2 instances automatically send basic monitoring metrics, such as CPU utilization, disk I/O, and network traffic, to Amazon CloudWatch in 5-minute intervals.
+- **Granularity**: Data is aggregated at 5-minute intervals by default.
+- **Visibility**: Basic monitoring provides basic visibility into the performance of your instances but may not capture fine-grained details.
+
+## Detailed Monitoring
+
+- **Metrics**: EC2 instances can be configured to send detailed monitoring metrics, which include additional metrics such as CPU utilization, disk I/O, and network traffic, to Amazon CloudWatch in 1-minute intervals.
+- **Granularity**: Data is aggregated at 1-minute intervals for more granular monitoring.
+- **Cost**: Detailed monitoring comes with additional cost compared to basic monitoring but provides more real-time visibility into the performance of your instances.
+
+## Custom Metrics Integration
+
+- **Metrics**: In addition to default metrics, you can also send custom metrics from your instances to Amazon CloudWatch using the CloudWatch agent or custom scripts.
+- **Flexibility**: Custom metrics allow you to monitor application-specific metrics or other custom performance indicators that are important for your workloads.
+- **Integration**: Custom metrics can be integrated with CloudWatch dashboards and alarms for comprehensive monitoring and alerting.
+
+## Alarms and Notifications
+
+- **Thresholds**: You can set up CloudWatch alarms based on metric thresholds to monitor the performance of your instances and trigger notifications or automated actions when thresholds are breached.
+- **Actions**: Alarms can trigger actions such as sending notifications via Amazon SNS, invoking AWS Lambda functions, or triggering Auto Scaling policies to dynamically adjust capacity.
+
+## CloudWatch Dashboards
+
+- **Visualization**: CloudWatch dashboards allow you to create custom dashboards to visualize and monitor your EC2 metrics, custom metrics, and alarms in a single view.
+- **Customization**: You can customize dashboard layouts, widgets, and data ranges to tailor the monitoring experience to your specific needs.
+
+## Enhanced Monitoring
+
+- **OS-Level Metrics**: Enhanced Monitoring provides additional OS-level metrics, such as memory usage, disk space, and network statistics, for deeper insight into instance performance.
+- **Compatibility**: Enhanced Monitoring is available for select operating systems and instance types and requires the installation of the CloudWatch agent on instances.
+
+## Conclusion
+
+EC2 monitoring capabilities, including basic and detailed monitoring, custom metrics integration, alarms and notifications, CloudWatch dashboards, and enhanced monitoring, enable you to effectively monitor and manage the performance and health of your EC2 instances in real-time.
+
+For more information, refer to the [Amazon EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html).
+
+
+# EC2 Status Checks
+
+Amazon EC2 performs status checks on instances to monitor their health and ensure that they are running smoothly. There are two types of status checks: system status checks and instance status checks.
+
+## System Status Checks
+
+- **Purpose**: System status checks monitor the health of the underlying infrastructure that supports your instances, such as the host hardware and network connectivity.
+- **Checks**: System status checks verify that the underlying infrastructure components, including the host hardware and network, are functioning properly.
+- **Failure**: If a system status check fails, it indicates an issue with the underlying infrastructure, and the instance may be impaired or unreachable.
+- **Action**: When a system status check fails, you should investigate the underlying cause, such as network configuration issues or hardware failures, and take appropriate action to resolve the issue.(stop, terminate and recover)
+
+## Instance Status Checks
+
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/604838be-f783-4621-9d76-d42478a60053)
+
+- **Purpose**: Instance status checks monitor the health of the EC2 instance itself, including the operating system and instance-level software.
+- **Checks**: Instance status checks verify that the instance's operating system and instance-level software are functioning properly.
+- **Failure**: If an instance status check fails, it indicates an issue with the instance itself, such as a misconfigured operating system or software issue.
+- **Action**: When an instance status check fails, you should troubleshoot the instance to identify and resolve any issues affecting its health. (stop, terminate and reboot)
+
+## Monitoring and Alerts
+
+- **Automatic Checks**: EC2 automatically performs both system status checks and instance status checks on all running instances at regular intervals.
+- **Monitoring**: You can monitor the status of your instances using the AWS Management Console, CLI, or SDKs, which provide visibility into the status of system and instance status checks.
+- **Alerts**: You can configure CloudWatch alarms to receive notifications when system status checks or instance status checks fail, allowing you to take proactive action to address any issues.
+
+## Conclusion
+
+EC2 status checks are essential for monitoring the health and performance of your instances. By regularly monitoring system and instance status checks and responding promptly to any failures, you can ensure the reliability and availability of your EC2 instances.
+
+For more information, refer to the [Amazon EC2 documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html).
+
+
 
 
 
