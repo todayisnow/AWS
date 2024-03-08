@@ -2,6 +2,9 @@
 
 Amazon Elastic Block Store (EBS) provides block-level storage volumes for use with Amazon EC2 instances. It offers highly available and reliable storage volumes that can be attached to EC2 instances to meet a wide range of storage requirements.
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/37cc419d-456b-46cf-9276-35ba207f3851)
+
+
 ## Features
 
 ### Block-Level Storage
@@ -118,16 +121,19 @@ aws ec2 attach-volume --volume-id $VOL_ID --instance-id $INSTANCE_ID --device /d
 
 Amazon Elastic Block Store (EBS) provides a range of volume types designed to meet different performance and use case requirements for block-level storage in AWS. EBS volumes are categorized based on their performance characteristics, durability, and cost. Here are the main EBS volume types and categories:
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/acc1173d-a030-4c6c-9b57-9fc82f593856)
+
+
 ## 1. SSD (Solid State Drive) Based Volumes
 
 ### General Purpose SSD (gp2)
-- General Purpose SSD volumes offer a balance of price and performance for a wide variety of workloads, including boot volumes and low-latency interactive applications. They deliver a baseline of 3 IOPS (Input/Output Operations Per Second) per GB with the ability to burst to higher levels for short periods.
+- General Purpose SSD volumes offer a balance of price and performance for a wide variety of workloads, including boot volumes and low-latency interactive applications. They deliver a baseline of 3 IOPS (Input/Output Operations Per Second) per GB with the ability to burst to higher levels for short periods. Used for dev/test, small db, workloads performing small random I/O
 
 ### gp3
-- gp3 volumes are the next-generation General Purpose SSD volumes that provide a higher baseline performance level and a lower cost per gigabyte compared to gp2 volumes. They offer a baseline performance level that is configurable based on the volume size, allowing you to tailor performance and cost to your application's needs.
+- gp3 volumes are the next-generation General Purpose SSD volumes that provide a higher baseline performance level and a lower cost per gigabyte compared to gp2 volumes. They offer a baseline performance level that is configurable based on the volume size, allowing you to tailor performance and cost to your application's needs. Used for dev/test, small db, workloads performing small random I/O
 
 ### Provisioned IOPS SSD (io1/io2)
-- Provisioned IOPS SSD volumes are designed for I/O-intensive workloads that require predictable and consistent performance `NoSql` and `relational databases`, such as database workloads. They allow you to provision a specific level of IOPS (Input/Output Operations Per Second) based on your application's requirements, offering the highest performance and lowest latency among EBS volumes.
+- Provisioned IOPS SSD volumes are designed for I/O-intensive workloads that require predictable and consistent performance `NoSql` and `relational databases`, such as database workloads. They allow you to provision a specific level of IOPS (Input/Output Operations Per Second) based on your application's requirements, offering the highest performance and lowest latency among EBS volumes. Can be attached to muliple istance but it can be a root volume in this case. Used for large IOPS intensive, large db
 
 ### io2 Block Express
 - io2 Block Express volumes are designed for the most demanding storage workloads, providing ultra-low-latency, high-throughput, and consistent I/O performance. They are optimized for applications that require high-performance storage with sub-millisecond latency and the ability to scale to hundreds of terabytes in size.
@@ -138,10 +144,10 @@ Amazon Elastic Block Store (EBS) provides a range of volume types designed to me
 - Magnetic volumes, also known as Standard volumes, provide the lowest cost per GB among EBS volume types and are designed for workloads with light I/O requirements or infrequent access. They offer a baseline performance level and are suitable for low-cost storage options.
 
 ### Throughput Optimized HDD (st1)
-- Throughput Optimized HDD volumes are designed for large, sequential workloads that require high throughput at a low cost `big data`, `data warehouse` and `log prosessing`, such as big data and data warehousing applications. They deliver consistent baseline performance and are optimized for streaming workloads with high throughput.
+- Throughput Optimized HDD volumes are designed for large, sequential workloads that require high throughput at a low cost `big data`, `data warehouse` and `log prosessing`, such as big data and data warehousing applications. They deliver consistent baseline performance and are optimized for streaming workloads with high throughput. not recommendaed to be used as a boot  volume. Used for fast throughput like streaming , sequential I/O
 
 ### Cold HDD (sc1)
-- Cold HDD volumes are designed for large, sequential workloads with infrequent access that require low-cost storage. They offer the lowest cost per GB among EBS volume types but with higher latency compared to SSD-based volumes.
+- Cold HDD volumes are designed for large, sequential workloads with infrequent access that require low-cost storage. They offer the lowest cost per GB among EBS volume types but with higher latency compared to SSD-based volumes.Used for infrequently access
 
 ## Categories
 
@@ -166,6 +172,7 @@ Amazon Elastic Block Store (EBS) provides a range of volume types designed to me
 
 
 
+
 ## Conclusion
 
 Amazon EBS offers a range of volume types and categories to meet different performance, durability, and cost requirements for block-level storage in AWS. By understanding the characteristics and use cases of each volume type, you can choose the appropriate EBS volumes to optimize performance and cost-effectiveness for your workloads.
@@ -176,6 +183,9 @@ For more detailed information on Amazon EBS volume types and categories, refer t
 # Amazon EBS Snapshots
 
 Amazon Elastic Block Store (EBS) snapshots are point-in-time backups of Amazon EBS volumes, which are block-level storage devices used with Amazon EC2 instances. EBS snapshots capture the entire state of an EBS volume at the time the snapshot is taken, including all data, configurations, and metadata. Here's an overview of EBS snapshots:
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/eb0a5722-c8de-4cc9-a0a0-2eb0c91ffd48)
+
 
 ## Key Features
 
@@ -205,9 +215,49 @@ Amazon EBS snapshots are a fundamental component of data protection and disaster
 
 For more information, refer to the [AWS documentation on Amazon EBS Snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html).
 
+
+# EBS Snapshot Lifecycle Policies with Amazon Data Lifecycle Management (DLM)
+
+Amazon Data Lifecycle Management (DLM) allows you to automate the creation and retention of EBS snapshots by defining snapshot lifecycle policies. These policies enable you to manage snapshot lifecycles based on retention periods and automate the deletion of snapshots according to your specified criteria.
+
+## Purpose
+
+- **Automated Management**: DLM enables you to automate the creation, retention, and deletion of EBS snapshots, reducing manual intervention and ensuring consistent snapshot management practices.
+- **Cost Optimization**: By automatically deleting obsolete snapshots, DLM helps optimize storage costs associated with EBS snapshots.
+
+## Lifecycle Policies
+
+- **Retention Periods**: You can define retention periods for snapshots to specify how long they should be retained before they are eligible for deletion.
+- **Tags**: DLM supports tag-based lifecycle policies, allowing you to apply policies based on tags assigned to your EBS volumes.
+
+## Automated Snapshot Creation
+
+- **Frequency**: You can configure DLM to create snapshots on a regular schedule, such as daily, weekly, or monthly, to ensure regular backups of your EBS volumes.
+- **Consistency**: Automated snapshot creation ensures consistent backup schedules and eliminates the need for manual snapshot creation.
+
+## Deletion Policies
+
+- **Age-based Deletion**: DLM can automatically delete snapshots based on their age, ensuring that outdated snapshots are removed to optimize storage usage.
+- **Retention Limits**: You can set retention limits to control the maximum number of snapshots retained for each volume, ensuring that storage costs are kept in check.
+
+## Monitoring and Notifications
+
+- **Visibility**: DLM provides visibility into snapshot lifecycle policies and their associated actions, allowing you to monitor the status of snapshot management activities.
+- **Notifications**: You can configure CloudWatch Events to receive notifications when snapshot lifecycle events occur, such as snapshot creation or deletion.
+
+## Conclusion
+
+EBS snapshot lifecycle policies with Amazon Data Lifecycle Management (DLM) offer a convenient and automated way to manage the lifecycle of your EBS snapshots. By defining policies for snapshot creation, retention, and deletion, you can ensure consistent backup practices, optimize storage costs, and simplify snapshot management tasks.
+
+For more information, refer to the [Amazon Data Lifecycle Management (DLM) documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html).
+
+
 # Amazon EBS Encryption
 
 Amazon Elastic Block Store (EBS) encryption provides data-at-rest encryption for EBS volumes, ensuring that data stored on EBS volumes is encrypted and secure. EBS encryption helps protect sensitive data and ensures compliance with security and regulatory requirements. Here's an overview of EBS encryption:
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/a3abf693-2f4d-491f-9b8c-141b69cc216c)
+
 
 ## Key Features
 
@@ -235,6 +285,89 @@ Amazon Elastic Block Store (EBS) encryption provides data-at-rest encryption for
 Amazon EBS encryption provides data-at-rest encryption for EBS volumes, ensuring that data stored on EBS volumes is encrypted and secure. By leveraging EBS encryption, organizations can protect sensitive data, meet compliance requirements, and enhance data privacy and security in AWS.
 
 For more information, refer to the [AWS documentation on Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
+
+
+# Creating and Sharing/Copying EC2 Amazon Machine Images (AMIs) (Golden AMI)
+
+Amazon Machine Images (AMIs) serve as templates for launching EC2 instances. You can create, share, and copy AMIs to replicate EC2 instances across different regions or AWS accounts.  
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/97dc14f0-d70f-4dbd-8e42-2e4c9509b41b)
+
+
+## Creating AMIs
+
+### Using the AWS Management Console:
+1. Navigate to the EC2 dashboard in the AWS Management Console.
+2. Select the instance you want to create an AMI from.
+3. Click on "Actions" > "Image and templates" > "Create image".
+4. Provide a name and description for the AMI, and configure additional settings if needed.
+5. Click "Create image" to initiate the AMI creation process.
+
+### Using the AWS CLI:
+```bash
+aws ec2 create-image --instance-id <instance-id> --name <ami-name> --description <ami-description>
+```
+
+## Sharing/Copying AMIs
+### Sharing AMIs:
+
+    - Navigate to the EC2 dashboard in the AWS Management Console.
+    - Select the AMI you want to share.
+    - Click on "Actions" > "Image and templates" > "Modify permissions".
+    - Specify the AWS account IDs with which you want to share the AMI.
+    - Click "Save permissions" to apply the changes.
+
+### Copying AMIs:
+
+    - Navigate to the EC2 dashboard in the AWS Management Console.
+    - Select the AMI you want to copy.
+    - Click on "Actions" > "Image and templates" > "Copy AMI".
+    - Choose the destination region for the copied AMI.
+    - Optionally, modify the AMI name and description.
+    - Click "Copy AMI" to initiate the copying process.
+
+ ## Conclusion
+
+Creating and sharing/copying EC2 Amazon Machine Images (AMIs) allows you to create templates for EC2 instances and replicate them across regions or share them with other AWS accounts. By following the provided steps, you can easily create, share, and copy AMIs to meet your deployment and collaboration needs.
+
+
+# Setting Up EBS RAID (Redundant Array of Independent Disks) in AWS
+
+Elastic Block Store (EBS) RAID (Redundant Array of Independent Disks) allows you to combine multiple EBS volumes into a single logical volume to improve performance, reliability, and fault tolerance.
+
+## RAID Types
+
+There are several RAID levels, each offering different benefits and trade-offs:
+
+- **RAID 0**: Provides increased performance and capacity by striping data across multiple disks, but offers no redundancy.
+- **RAID 1**: Mirrors data across multiple disks for redundancy, but offers no performance improvement.
+- **RAID 5**: Distributes data and parity information across multiple disks, offering both performance and redundancy. Requires a minimum of three disks.
+- **RAID 6**: Similar to RAID 5 but with additional parity information for increased fault tolerance. Requires a minimum of four disks.
+- **RAID 10 (RAID 1+0)**: Combines mirroring (RAID 1) and striping (RAID 0) for both performance and redundancy. Requires a minimum of four disks.
+
+## Setting Up EBS RAID
+
+### Prerequisites
+- Launch multiple EC2 instances with attached EBS volumes.
+- Ensure that the EBS volumes are attached to the same instance and are of the same size and type.
+
+### Steps
+1. **Configure RAID Software**: Install and configure the appropriate RAID software on your EC2 instance. For example, you can use `mdadm` for Linux-based instances.
+   
+2. **Create RAID Array**: Use the RAID software to create a RAID array with the attached EBS volumes. Specify the RAID level (e.g., RAID 0, RAID 1, etc.) and configure any additional settings as needed.
+
+3. **Format and Mount RAID Volume**: Format the RAID volume with the desired file system (e.g., ext4, XFS) and mount it to a directory in your file system.
+
+4. **Configure Auto-mount**: Update the `/etc/fstab` file to ensure that the RAID volume is automatically mounted upon instance reboot.
+
+5. **Test and Monitor**: Test the RAID setup to ensure proper functionality and monitor its performance and health regularly.
+
+## Conclusion
+
+Setting up EBS RAID allows you to leverage multiple EBS volumes to improve performance, reliability, and fault tolerance for your EC2 instances. By choosing the appropriate RAID level and following the provided steps, you can create a robust storage solution that meets your application's requirements.
+
+For more information on RAID and EBS volume management, refer to the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html).
+
 
 
 [Back to Main](readme.md)
