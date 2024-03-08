@@ -82,7 +82,7 @@ Listeners and target groups are essential components of AWS Elastic Load Balanci
 ![image](https://github.com/todayisnow/AWS/assets/22843851/da2120a8-3191-4c44-8544-1361528de754)
 
 
-  - **Example of Listener Configuration**: For example, you can configure an HTTP listener on port 80 to forward traffic to a target group that contains web servers running on EC2 instances. Similarly, you can configure an HTTPS listener on port 443 to forward encrypted traffic to a different target group that contains secure web servers.
+    - **Example of Listener Configuration**: For example, you can configure an HTTP listener on port 80 to forward traffic to a target group that contains web servers running on EC2 instances. Similarly, you can configure an HTTPS listener on port 443 to forward encrypted traffic to a different target group that contains secure web servers.
 
    - **Target Groups**: Used to route incoming traffic to one or more registered targets, such as EC2 instances, containers, IP addresses, or Lambda functions. When you create a target group, you specify the protocol and port number that the targets will receive traffic on. The load balancer routes incoming requests to the targets in the target group based on the rules defined for the associated listener. ALB/NLB can route traffice to multiple target group. A target can be registered with a target group multiple times but using different ports.
 
