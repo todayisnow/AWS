@@ -17,6 +17,9 @@ AWS Elastic Load Balancing (ELB) automatically distributes incoming application 
 
 AWS offers several types of load balancers to suit different use cases:
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/e8355123-dc53-41a2-892d-1aaf095538b5)
+
+
 ### Application Load Balancer (ALB):
   The Application Load Balancer (ALB) is a type of load balancer offered by AWS that operates at the application layer (Layer 7) of the OSI model. It is designed to handle HTTP, HTTPS, and WebSocket traffic and provides advanced routing capabilities, content-based routing, and support for multiple protocols.
 
@@ -76,9 +79,12 @@ Listeners and target groups are essential components of AWS Elastic Load Balanci
 
    - **Listeners**:  Configured on the load balancer and define how the load balancer should handle incoming traffic. Each listener is associated with a protocol (such as HTTP, HTTPS, TCP, or UDP) and a port number. When a request is received on a specific port, the listener forwards the request to one or more target groups based on the rules defined for that listener.
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/da2120a8-3191-4c44-8544-1361528de754)
+
+
       - **Example of Listener Configuration**: For example, you can configure an HTTP listener on port 80 to forward traffic to a target group that contains web servers running on EC2 instances. Similarly, you can configure an HTTPS listener on port 443 to forward encrypted traffic to a different target group that contains secure web servers.
 
-   - **Target Groups**: Used to route incoming traffic to one or more registered targets, such as EC2 instances, containers, IP addresses, or Lambda functions. When you create a target group, you specify the protocol and port number that the targets will receive traffic on. The load balancer routes incoming requests to the targets in the target group based on the rules defined for the associated listener.
+   - **Target Groups**: Used to route incoming traffic to one or more registered targets, such as EC2 instances, containers, IP addresses, or Lambda functions. When you create a target group, you specify the protocol and port number that the targets will receive traffic on. The load balancer routes incoming requests to the targets in the target group based on the rules defined for the associated listener. ALB/NLB can route traffice to multiple target group. A target can be registered with a target group multiple times but using different ports.
 
       - **Example of Target Group Configuration**:  For example, you can create a target group for your web servers running on EC2 instances and specify that incoming HTTP traffic on port 80 should be routed to this target group. The load balancer will then distribute incoming requests among the registered EC2 instances in the target group.
 
