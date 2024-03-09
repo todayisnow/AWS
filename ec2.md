@@ -1010,9 +1010,12 @@ The Amazon EC2 Auto Scaling Lifecycle defines the stages that an EC2 instance go
 For detailed information on configuring lifecycle hooks and managing the auto scaling lifecycle, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html).
 
 
-# Amazon EC2 Auto Scaling Scaling Policies
+# Amazon EC2 Auto Scaling  Policies
 
-Amazon EC2 Auto Scaling Scaling Policies allow you to define rules and thresholds for automatically adjusting the number of EC2 instances in your Auto Scaling Group based on demand, workload patterns, and performance metrics. By configuring scaling policies, you can ensure that your application can handle varying traffic loads efficiently, maintain performance, and optimize resource utilization.
+Amazon EC2 Auto Scaling Policies allow you to define rules and thresholds for automatically adjusting the number of EC2 instances in your Auto Scaling Group based on demand, workload patterns, and performance metrics. By configuring scaling policies, you can ensure that your application can handle varying traffic loads efficiently, maintain performance, and optimize resource utilization.
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/d029cb87-fbb1-4a2e-9013-1b38f0900f30)
+
 
 ## Key Features
 
