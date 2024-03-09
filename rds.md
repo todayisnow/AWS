@@ -1,7 +1,4 @@
 # AWS RDS (Relational Database Service)
-
-## Definition
-
 AWS RDS (Relational Database Service) is a fully managed database service provided by Amazon Web Services (AWS). It offers an easy-to-use interface for setting up, operating, and scaling relational databases in the cloud. RDS supports various database engines, including MySQL, PostgreSQL, MariaDB, Oracle, and Microsoft SQL Server, allowing users to choose the one that best fits their application requirements.
 
 ## Usage
