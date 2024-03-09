@@ -67,5 +67,8 @@ Explore various AWS storage components and services.
 ### [Amazon RDS (Relational Database Service)](rds.md)
 Amazon RDS is an easy to manage relational database service optimized for total cost of ownership. It is simple to set up, operate, and scale with demand. Amazon RDS automates the undifferentiated database management tasks, such as provisioning, configuring, backups, and patching.
 
+### [Amazon Aurora](ro.md)
+mazon Aurora (Aurora) is a fully managed relational database engine that's compatible with MySQL and PostgreSQL.
+
 ### [Disaster Recovery](dr.md)
 Process of preparing for and recovering from potential disasters or disruptions that could impact the availability or functionality of your applications and data running on AWS infrastructure
