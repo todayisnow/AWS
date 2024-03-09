@@ -40,8 +40,6 @@ Learn about Amazon Route 53, a scalable and highly available Domain Name System 
 ### [Amazon CloudWatch](watch.md)
 Monitors applications, responds to performance changes, optimizes resource use, and provides insights into operational health. By collecting data across AWS resources, CloudWatch gives visibility into system-wide performance and allows users to set alarms, automatically react to changes, and gain a unified view of operational health.
 
-### [Amazon DynamoDB](ddb.md)
-Amazon DynamoDB is a fully managed NoSQL database service provided by AWS.
 
 ### [Amazon SNS (Simple Notification Service)](sns.md)
 Fully managed Pub/Sub service for A2A and A2P messaging.
@@ -69,6 +67,12 @@ Amazon RDS is an easy to manage relational database service optimized for total 
 
 ### [Amazon Aurora](ro.md)
 Amazon Aurora (Aurora) is a fully managed relational database engine that's compatible with MySQL and PostgreSQL.
+
+### [Amazon RedShift](rs.md)
+Amazon Redshift uses SQL to analyze structured and semi-structured data across data warehouses, operational databases, and data lakes, using AWS-designed hardware and machine learning to deliver the best price performance at any scale.
+
+### [Amazon DynamoDB](ddb.md)
+Amazon DynamoDB is a fully managed NoSQL database service provided by AWS.
 
 ### [Disaster Recovery](dr.md)
 Process of preparing for and recovering from potential disasters or disruptions that could impact the availability or functionality of your applications and data running on AWS infrastructure
