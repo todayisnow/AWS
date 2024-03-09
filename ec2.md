@@ -1019,11 +1019,11 @@ Amazon EC2 Auto Scaling Policies allow you to define rules and thresholds for au
 
 ## Key Features
 
-- **Dynamic Scaling**: Automatically adjust the number of EC2 instances in response to changing demand and workload patterns, ensuring that your application can handle traffic spikes and fluctuations efficiently.
 - **Scheduled Scaling**: Schedule scaling actions to occur at specific times or dates, allowing you to accommodate predictable workload fluctuations, such as daily or weekly peaks.
-- **Target Tracking Scaling**: Use target tracking scaling policies to maintain a specific target value for a chosen metric, such as average CPU utilization or request latency, by adjusting the number of instances dynamically. Cloud watch alarm will be created on your behalf 
-- **Step Scaling**: Define step scaling policies to scale EC2 instances based on predefined step adjustments, allowing you to scale out or in by a fixed number of instances or a percentage of the current capacity.
-- **Simple Scaling**: Implement simple scaling policies to increase or decrease the desired capacity of your Auto Scaling Group by a fixed number of instances in response to changing demand or workload patterns.
+- **Dynamic Scaling**: Automatically adjust the number of EC2 instances in response to changing demand and workload patterns, ensuring that your application can handle traffic spikes and fluctuations efficiently.
+   - **Target Tracking Scaling**: Use target tracking scaling policies to maintain a specific target value for a chosen metric, such as average CPU utilization or request latency, by adjusting the number of instances dynamically. Cloud watch alarm will be created on your behalf 
+   - **Step Scaling**: Define step scaling policies to scale EC2 instances based on predefined step adjustments, allowing you to scale out or in by a fixed number of instances or a percentage of the current capacity.
+   - **Simple Scaling**: Implement simple scaling policies to increase or decrease the desired capacity of your Auto Scaling Group by a fixed number of instances in response to changing demand or workload patterns.
 
 ## Use Cases
 
