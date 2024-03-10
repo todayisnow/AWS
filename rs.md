@@ -1,7 +1,7 @@
 
 # Amazon Redshift
 
-Amazon Redshift is a fully managed data warehousing service in the cloud that makes it simple and cost-effective to analyze large volumes of data using SQL queries. It is designed for analytical workloads and is optimized for high-performance data processing, scalability, and cost-effectiveness.
+Amazon Redshift is a fully managed data warehousing service in the cloud that makes it simple and cost-effective to analyze large volumes of data using SQL queries. It is designed for analytical workloads and is optimized for high-performance data processing, scalability, and cost-effectiveness.(OLAP)
 
 ![image](https://github.com/todayisnow/AWS/assets/22843851/e7bb30e2-953d-4fb5-b9cf-d233cb6bdc80)
 
@@ -46,7 +46,7 @@ Amazon Redshift is a fully managed data warehousing service in the cloud that ma
 
 ## Backup & Restore
 
-- **Automated Backups**: Redshift automatically takes snapshots of your data warehouse cluster at regular intervals and retains them for a specified retention period, ensuring data protection and enabling point-in-time recovery.
+- **Automated Backups**: Redshift automatically takes snapshots of your data warehouse cluster at regular intervals and retains them for a specified retention period, ensuring data protection and enabling point-in-time recovery. Every 5H or 5GB 
 - **Manual Snapshots**: You can also manually create snapshots of your cluster at any time, providing additional backup options and flexibility.
 - **Restore**: Redshift allows you to restore your cluster from a snapshot to a new cluster or to the same cluster, facilitating disaster recovery and data migration scenarios.
 
@@ -58,7 +58,7 @@ Amazon Redshift is a fully managed data warehousing service in the cloud that ma
 ## WLM & Enhanced VPC Routing
 
 - **Workload Management (WLM)**: Redshift's Workload Management (WLM) enables you to manage and prioritize query queues based on concurrency and service levels, ensuring optimal performance for different workloads.
-- **Enhanced VPC Routing**: Redshift supports Enhanced VPC Routing, allowing you to route Redshift traffic through your VPC for enhanced security and control over network access.
+- **Enhanced VPC Routing**: Redshift supports Enhanced VPC Routing, allowing you to route Redshift traffic through your VPC for enhanced security and control over network access. Over VPC endpoints
 
 
 ## Considerations:
