@@ -46,7 +46,7 @@ Amazon DynamoDB is composed of several key components that work together to prov
 
 ## 2. Items
 
-- **Data Records**: Items are individual data records stored within DynamoDB tables. Each item consists of one or more attributes, which are key-value pairs representing the item's data.
+- **Data Records**: Items are individual data records stored within DynamoDB tables. Each item consists of one or more attributes, which are key-value pairs representing the item's data. with max value 400KB.
 - **Flexible Attributes**: Items can have a flexible schema, allowing different items within the same table to have different sets of attributes. There are no fixed schemas or predefined attribute types in DynamoDB.
 
 ## 3. Attributes
