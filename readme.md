@@ -74,5 +74,14 @@ Amazon Redshift uses SQL to analyze structured and semi-structured data across d
 ### [Amazon DynamoDB](ddb.md)
 Amazon DynamoDB is a fully managed NoSQL database service provided by AWS.
 
+### [AWS ElastiCache](ec.md)
+Fully managed, Redis- and Memcached-compatible service.
+
+### [Amazon DocumentDB](ddd.md)
+Amazon DocumentDB (with MongoDB compatibility) is a fast, reliable, and fully managed database service. Amazon DocumentDB makes it easy to set up, operate, and scale MongoDB-compatible databases in the cloud. 
+
+### [Amazon Neptune](nep.md)
+High-performance graph analytics and serverless database for superior scalability and availability
+
 ### [Disaster Recovery](dr.md)
 Process of preparing for and recovering from potential disasters or disruptions that could impact the availability or functionality of your applications and data running on AWS infrastructure
