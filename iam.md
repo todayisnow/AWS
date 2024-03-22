@@ -285,6 +285,8 @@ IAM Role Cross-Account Access is a powerful feature that enables secure collabor
 ## Assume Role with External ID
 
 Assuming a role with an external ID is an additional security measure used when an IAM role needs to be assumed by a trusted entity in another AWS account. It adds an extra layer of security by ensuring that the entity providing the credentials has been explicitly granted permission by the trusted account owner.
+![image](https://github.com/todayisnow/AWS/assets/22843851/aae151ee-f04e-47c4-8507-fd79553043df)
+
 
 ### Key Concepts:
 1. **External ID:** An External ID is a unique identifier provided by the trusted account owner to the entity assuming the role. It serves as a "shared secret" between the trusting and trusted accounts.
