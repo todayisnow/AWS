@@ -56,10 +56,13 @@ IAM groups are collections of IAM users. You can organize users into groups to e
 
 IAM roles are entities with permissions that determine what actions can be performed by entities that assume the role. Roles are not associated with a specific IAM user or group; instead, they are meant to be assumed by entities like AWS services, applications, or EC2 instances. Roles are often used to grant temporary permissions for specific tasks.
 
+![image](https://github.com/todayisnow/AWS/assets/22843851/ba06f0e7-38b6-483b-9bf4-d7b86bef192f)
+
 ### Features:
 - **Temporary Permissions:** Roles can be assumed temporarily to perform specific tasks and then revoked.
 - **Cross-Account Access:** Roles can be used to grant access to AWS resources in different AWS accounts.
 - **Service-Linked Roles:** AWS services have pre-defined roles with permissions necessary for their specific tasks, such as accessing other AWS services on your behalf.
+![image](https://github.com/todayisnow/AWS/assets/22843851/46838794-630c-4452-a97c-bdffa521c576)
 
 ## Policies
 
@@ -222,9 +225,13 @@ IAM resource-based policies are permissions policies that you can attach directl
 - **Avoid Public Access**: Exercise caution when granting public access to AWS resources through resource-based policies, as it may lead to unintended exposure of sensitive data.
 
 
+
 # IAM Security Token Service (STS)
 
 The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for IAM users or federated users. These temporary credentials can be used to access AWS resources securely and are valid for a specified duration, typically ranging from a few minutes to several hours.
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/ec2f7152-f018-4809-ba5e-28d1b2fe90bf)
+
 
 ## Key Features:
 1. **Temporary Security Credentials:** STS issues temporary security credentials in the form of short-term AWS access keys, secret keys, and session tokens.
@@ -247,6 +254,9 @@ The AWS Security Token Service (STS) is a web service that enables you to reques
 - **Cross-Account Access:** STS facilitates secure access across AWS accounts, allowing you to centralize management and control access to shared resources.
 
 By leveraging IAM Security Token Service (STS), you can implement secure and scalable access control mechanisms for your AWS resources while adhering to the principles of least privilege and least exposure.
+
+## Considerations
+When a user with full access assumes a role, their full access privileges are temporarily overridden by the permissions and policies associated with the assumed role. This allows the user to perform actions and access resources according to the rules defined for that role, rather than their original full access permissions.
 
 
 
