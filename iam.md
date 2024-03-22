@@ -150,7 +150,8 @@ In AWS Identity and Access Management (IAM), identity-based policies are used to
 - **Policy Document**: An IAM policy document is a JSON document that defines the permissions for the associated IAM identity. It consists of one or more statements, each specifying a set of permissions.
 - **Statements**: Each statement in the policy document contains the following components:
   - **Effect**: Specifies whether the statement allows or denies access. It can be either "Allow" or "Deny".
-  - **Action**: Defines the AWS actions (API operations) that are allowed or denied.
+  - **Action**: Defines the AWS actions (API operations) that are allowed or denied depend on the Effect.
+  - **NotAction**: Defines the AWS actions (API operations) that are allowed or denied depend on the Effect .
   - **Resource**: Specifies the AWS resources to which the actions apply. It can be "*" to indicate all resources or specific resource ARNs.
   - **Condition**: Optionally, conditions can be added to the statement to further restrict access based on factors such as IP address, time, or request parameters.
 
@@ -177,7 +178,7 @@ There are two main types of identity-based policies in IAM:
 - **Separation of Duties**: Implement separation of duties by assigning different permissions to different IAM users, groups, or roles to reduce the risk of unauthorized access.
 
 ## Example Identity-based Policy
-Below is an example of an identity-based policy that allows read-only access to a specific Amazon S3 bucket:
+Below is an example of an identity-based policy that allows full access to a specific table in dynamodb:
 
 ```json
 {
@@ -185,8 +186,8 @@ Below is an example of an identity-based policy that allows read-only access to 
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::example-bucket/*"
+      "Action": "dynamodb:*",
+      "Resource": "arn:aws:dynamodb:us-east-2:123456123555:table/Books"
     }
   ]
 }
