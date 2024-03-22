@@ -222,6 +222,32 @@ IAM resource-based policies are permissions policies that you can attach directl
 - **Avoid Public Access**: Exercise caution when granting public access to AWS resources through resource-based policies, as it may lead to unintended exposure of sensitive data.
 
 
+# IAM Security Token Service (STS)
+
+The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for IAM users or federated users. These temporary credentials can be used to access AWS resources securely and are valid for a specified duration, typically ranging from a few minutes to several hours.
+
+## Key Features:
+1. **Temporary Security Credentials:** STS issues temporary security credentials in the form of short-term AWS access keys, secret keys, and session tokens.
+2. **Fine-Grained Permissions:** You can specify the permissions associated with the temporary credentials using IAM policies, allowing you to grant only the necessary permissions for a specific task.
+3. **Federation:** STS supports federated access, allowing external identities (such as users authenticated by SAML, OpenID Connect, or custom identity providers) to access AWS resources.
+4. **Cross-Account Access:** IAM users or roles from one AWS account can assume roles in another account using STS, enabling cross-account access for managing resources securely.
+5. **Role-Based Access Control:** Users or applications can assume roles temporarily to access resources, following the principle of least privilege.
+6. **Multi-Factor Authentication (MFA):** STS supports MFA for additional security when requesting temporary credentials, ensuring that users provide a second authentication factor before accessing sensitive resources.
+
+## Operations Supported by STS:
+1. **AssumeRole:** Allows IAM users, AWS services, or federated users to assume temporary roles with defined permissions. This operation is commonly used to delegate access to AWS resources across different accounts or services.
+2. **GetSessionToken:** Retrieves temporary credentials (access key, secret key, and session token) for IAM users. Users can use these credentials to make requests to AWS services.
+3. **AssumeRoleWithSAML:** Enables federated users to access AWS resources using SAML-based authentication. This operation is used in federated identity scenarios, such as single sign-on (SSO) solutions.
+4. **AssumeRoleWithWebIdentity:** Allows web identity providers, such as Amazon Cognito, to authenticate users and provide temporary credentials for accessing AWS resources.
+
+## Benefits of Using STS:
+- **Enhanced Security:** Temporary credentials reduce the exposure of long-term credentials, mitigating the risk of unauthorized access.
+- **Least Privilege Access:** You can grant temporary credentials with limited permissions, ensuring that users have only the necessary access required for their tasks.
+- **Auditing and Compliance:** STS provides detailed logging and auditing capabilities, enabling you to track the usage of temporary credentials for compliance purposes.
+- **Cross-Account Access:** STS facilitates secure access across AWS accounts, allowing you to centralize management and control access to shared resources.
+
+By leveraging IAM Security Token Service (STS), you can implement secure and scalable access control mechanisms for your AWS resources while adhering to the principles of least privilege and least exposure.
+
 
 
 [Back to main](readme.md)
