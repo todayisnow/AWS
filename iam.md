@@ -259,52 +259,125 @@ By leveraging IAM Security Token Service (STS), you can implement secure and sca
 When a user with full access assumes a role, their full access privileges are temporarily overridden by the permissions and policies associated with the assumed role. This allows the user to perform actions and access resources according to the rules defined for that role, rather than their original full access permissions.
 
 
-## IAM Role Cross-Account Access
+# IAM Role Cross-Account Access
 
 IAM Role Cross-Account Access allows entities from one AWS account to assume roles in another AWS account, enabling secure access to shared resources across accounts. This feature is commonly used in scenarios where organizations need to grant access to resources hosted in multiple AWS accounts without sharing long-term credentials.
 
-### Key Concepts:
+## Key Concepts:
 1. **Trust Relationship:** In the account that owns the resource (the "trustor" account), an IAM role is created with a trust policy specifying the trusted entity (the "trustee" account). The trust policy defines which AWS accounts or entities are allowed to assume the role.
 2. **Role Policy:** The IAM role in the trustor account has an associated IAM policy that defines the permissions granted to the assumed role.
 3. **AssumeRole API:** In the trustee account, entities use the AssumeRole API to request temporary credentials for the IAM role in the trustor account. These temporary credentials allow the entities to access resources as if they were directly authenticated in the trustor account.
 4. **Temporary Security Credentials:** The AssumeRole API returns temporary security credentials (Access Key ID, Secret Access Key, and Session Token) that are valid for a specified duration (typically between 15 minutes and 12 hours).
 
-### Benefits:
+## Benefits:
 - **Least Privilege:** With IAM Role Cross-Account Access, access permissions can be granularly defined in the trustor account's IAM policy, ensuring that entities in the trustee account have only the necessary permissions to perform their tasks.
 - **Security:** Temporary credentials obtained through AssumeRole are short-lived and automatically rotated, reducing the risk of unauthorized access and credential misuse.
 - **Centralized Control:** Organizations can centralize access control policies and manage permissions for shared resources across multiple AWS accounts.
 - **Auditing and Logging:** IAM provides comprehensive logging and auditing capabilities, allowing organizations to track and monitor access to shared resources for compliance and security purposes.
 
-### Use Cases:
+## Use Cases:
 - **Centralized Logging and Monitoring:** Aggregate logs and metrics from multiple AWS accounts into a centralized logging account for analysis and monitoring.
 - **Cross-Account Resource Management:** Allow a deployment pipeline in one account to access resources (e.g., EC2 instances, S3 buckets) in another account for deployments and testing.
 - **Managed Services Access:** Grant access to AWS managed services, such as Amazon RDS or Amazon Redshift, from a different AWS account for database management or analytics purposes.
 
 IAM Role Cross-Account Access is a powerful feature that enables secure collaboration and resource sharing across AWS accounts while maintaining granular control over access permissions and ensuring compliance with organizational security policies.
 
-## Assume Role with External ID
+# Assume Role with External ID
 
 Assuming a role with an external ID is an additional security measure used when an IAM role needs to be assumed by a trusted entity in another AWS account. It adds an extra layer of security by ensuring that the entity providing the credentials has been explicitly granted permission by the trusted account owner.
 ![image](https://github.com/todayisnow/AWS/assets/22843851/aae151ee-f04e-47c4-8507-fd79553043df)
 
 
-### Key Concepts:
+## Key Concepts:
 1. **External ID:** An External ID is a unique identifier provided by the trusted account owner to the entity assuming the role. It serves as a "shared secret" between the trusting and trusted accounts.
 2. **Trust Relationship:** The IAM role in the trusting account has a trust policy specifying the trusted account (the "trustee") and optionally the External ID that must be provided when assuming the role.
 3. **AssumeRole API:** When requesting to assume the role, the entity provides its credentials, the role ARN, and the External ID. If the trust policy requires an External ID, the AssumeRole operation succeeds only if the External ID provided matches the one specified in the trust policy.
 4. **Security:** Using an External ID helps mitigate the risk of unauthorized access and protects against certain types of attacks, such as privilege escalation or cross-account resource manipulation.
 
-### Benefits:
+## Benefits:
 - **Enhanced Security:** External IDs add an additional layer of security to IAM role assumptions, reducing the risk of unauthorized access and potential security breaches.
 - **Least Privilege:** By requiring an External ID, organizations can ensure that only authorized entities with the correct External ID can assume the role, enforcing the principle of least privilege.
 - **Granular Access Control:** The combination of IAM roles, trust policies, and External IDs allows for fine-grained control over cross-account access permissions, limiting access to specific entities and scenarios.
 
-### Use Cases:
+## Use Cases:
 - **Third-Party Access:** When granting access to external entities or third-party services, requiring an External ID ensures that only authorized entities can assume the role, providing a secure mechanism for collaboration.
 - **Cross-Account Resource Sharing:** External IDs can be used to enforce access controls when sharing resources across AWS accounts, ensuring that only trusted entities with the correct External ID can access shared resources.
 - **Compliance Requirements:** In regulated environments or industries with strict compliance requirements, using External IDs adds an extra layer of security to meet compliance standards and protect sensitive data.
 
 By leveraging External IDs in IAM role assumptions, organizations can enhance the security posture of their AWS environments and mitigate the risk of unauthorized access, helping to maintain the confidentiality, integrity, and availability of their resources.
+
+
+# IAM Permission Boundaries
+
+IAM Permission Boundaries are an advanced feature in AWS Identity and Access Management (IAM) that allow organizations to set the maximum permissions that an IAM entity (such as a user or role) can have. It helps enforce the principle of least privilege by limiting the permissions of IAM entities, even if they are granted additional permissions through policies or role assumptions.
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/dc1eae24-3140-4459-b996-b4404117ea56)
+
+## Key Concepts:
+1. **Maximum Permissions:** A permission boundary defines the maximum permissions that can be granted to an IAM entity. It acts as a firewall, preventing entities from exceeding the defined permissions.
+2. **Scope of Influence:** Permission boundaries apply to the IAM entity itself and not to the resources it interacts with. They do not affect the permissions granted directly to resources.
+3. **Granular Control:** Permission boundaries can be applied at the user or role level, allowing organizations to enforce specific permission restrictions based on user roles or organizational units.
+4. **Policy Evaluation:** When evaluating permissions, IAM considers both the permissions granted by policies attached to the entity and the permissions allowed by its permission boundary. The effective permissions are the intersection of the two sets.
+
+## Benefits:
+- **Enhanced Security:** Permission boundaries provide an additional layer of security by limiting the maximum permissions that IAM entities can have, reducing the risk of privilege escalation and unauthorized access.
+- **Least Privilege:** By setting strict permission boundaries, organizations can enforce the principle of least privilege, ensuring that IAM entities only have the permissions necessary to perform their intended tasks.
+- **Compliance Requirements:** Permission boundaries help organizations meet compliance requirements by enforcing access controls and preventing entities from exceeding defined permission levels.
+- **Granular Control:** Organizations can define custom permission boundaries for different IAM entities based on their roles, responsibilities, and trust relationships, allowing for granular control over access permissions.
+
+## Use Cases:
+- **Privilege Separation:** Permission boundaries are useful for separating duties and enforcing access controls in multi-tenant environments or organizations with diverse teams and roles.
+- **Temporary Permissions:** Organizations can use permission boundaries to temporarily grant elevated permissions to IAM entities for specific tasks or projects while ensuring that they do not exceed predefined limits.
+- **Partner Access:** When collaborating with external partners or third-party vendors, permission boundaries help organizations control and restrict the permissions granted to external entities, limiting potential security risks.
+
+## Best Practices:
+1. **Define Clear Boundaries:** Establish well-defined permission boundaries that align with organizational roles, responsibilities, and security policies.
+2. **Regular Review:** Periodically review and update permission boundaries to ensure they remain effective and aligned with changing business requirements.
+3. **Documentation:** Document permission boundary configurations and rationale to facilitate auditing, compliance, and troubleshooting efforts.
+4. **Testing:** Test permission boundaries in a non-production environment to validate their effectiveness and identify any potential issues before deployment.
+
+By leveraging IAM permission boundaries, organizations can enforce strict access controls, maintain compliance, and mitigate the risk of unauthorized access or privilege escalation in their AWS environments.
+
+
+# IAM Policy Evaluation Logic
+
+IAM (Identity and Access Management) in AWS follows a comprehensive policy evaluation logic to determine the permissions granted to IAM entities (users, groups, and roles) when they attempt to access AWS resources. Understanding this evaluation logic is essential for effectively managing access controls and ensuring the security of your AWS environment.
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/10713ad2-3058-4c8b-a7c6-1fa98f2f17c9)
+
+
+## Key Components:
+1. **Policy Evaluation Order:** IAM evaluates policies in a specific order to determine the permissions granted to an IAM entity:
+   - **Explicit Deny:** IAM checks if there are any explicit deny statements in any of the policies attached to the entity or its parent entities.
+   - **Explicit Allow:** IAM checks if there are any explicit allow statements in any of the policies attached to the entity or its parent entities.
+   - **Implicit Deny:** If there are no matching explicit allow or deny statements, IAM implicitly denies the request by default.
+
+2. **Policy Inheritance:** IAM policies can be attached directly to IAM entities or inherited from parent entities (e.g., groups or roles). Policies attached directly to an entity take precedence over inherited policies.
+
+3. **Policy Conditions:** IAM policies can include conditions that must be met for the policy to be applied. Conditions are evaluated during policy evaluation, and the policy is only applied if the conditions are satisfied.
+
+4. **Policy Evaluation for Cross-Account Access:** When IAM entities assume roles in another AWS account, IAM evaluates policies in both the caller and target accounts to determine the effective permissions.
+
+## Policy Evaluation Process:
+1. **Identifying the IAM Entity:** IAM first identifies the IAM entity (user, group, or role) attempting to access AWS resources.
+
+2. **Policy Resolution:** IAM retrieves all policies attached directly to the entity and evaluates them in the specified order (explicit deny, explicit allow, implicit deny). If the entity is a role assumed by another entity, IAM also considers policies attached to the caller entity.
+
+3. **Policy Inheritance:** If there are no explicit policies attached to the entity, IAM evaluates policies attached to parent entities (e.g., groups or roles) and applies them.
+
+4. **Policy Conditions:** IAM evaluates any conditions specified in the policies to determine if they are met based on the context of the request (e.g., time of day, IP address).
+
+5. **Effective Permissions:** Based on the policy evaluation order and conditions, IAM determines the effective permissions granted to the IAM entity for the requested action on the AWS resource.
+
+## Best Practices:
+1. **Explicit Deny:** Avoid using explicit deny statements in policies unless absolutely necessary, as they can override other permissions and lead to unintended access restrictions.
+2. **Least Privilege:** Follow the principle of least privilege by granting only the permissions necessary for users to perform their required tasks.
+3. **Regular Review:** Regularly review IAM policies and permissions to ensure they align with security requirements and organizational policies.
+4. **Testing:** Test IAM policies in a controlled environment to verify their effectiveness and identify any unintended consequences before deploying them in production.
+
+By understanding the IAM policy evaluation logic and following best practices, organizations can effectively manage access controls, enforce security policies, and maintain the integrity of their AWS environments.
+
+
 
 
 [Back to main](readme.md)
