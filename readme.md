@@ -54,8 +54,8 @@ Create, maintain, and secure APIs at any scale.
 Run code without thinking about servers or clusters, and only pay for what you use.
 
 ### Database Services:
-#### [Amazon Storage solutions](store.md)
-need revisit
+#### [AWS Storage Solutions Overview](store.md)
+AWS offers a wide range of storage solutions to cater to various use cases and requirements.
 #### [Amazon RDS (Relational Database Service)](rds.md):
 An easy-to-manage relational database service optimized for total cost of ownership.
 
