@@ -4,7 +4,7 @@ Amazon CloudTrail is a service provided by AWS that enables governance, complian
 
 ## Key Features
 
-- **API Call Logging**: CloudTrail records API calls made in your AWS account, including the identity of the caller, the time of the call, the source IP address, the request parameters, and the response elements returned by AWS.
+- **API Call Logging**: CloudTrail records API calls made in your AWS account, including the identity of the caller, the time of the call, the source IP address, the request parameters but not the meta data of the request and details, and the response elements returned by AWS.
 - **Comprehensive Coverage**: CloudTrail captures API calls for most AWS services, including compute, storage, database, networking, security, and more.
 - **Log File Delivery**: CloudTrail delivers log files containing API call records to an Amazon S3 bucket for storage and analysis.
 - **Real-Time Monitoring**: CloudTrail supports real-time monitoring of API calls using Amazon CloudWatch Events, allowing you to create alarms and trigger automated responses based on API activity.
