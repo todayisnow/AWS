@@ -6,7 +6,7 @@ Amazon Web Services (AWS) is a comprehensive and widely adopted cloud computing 
 
 ### Foundational Knowledge:
 #### [Introduction](intro.md):
-- Provides an overview of the AWS platform, highlighting its key concepts and benefits.
+ Provides an overview of the AWS platform, highlighting its key concepts and benefits.
 
 #### [Setup AWS CLI – Prerequisites and Environment](cli.md):
 - Guides users through setting up the AWS Command Line Interface (CLI), including necessary prerequisites and environment configuration.
