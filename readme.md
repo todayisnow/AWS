@@ -25,7 +25,7 @@ Discovers Amazon Simple Storage Service (S3), designed for scalable storage and 
 Gets started with Amazon Elastic Compute Cloud (EC2), offering resizable compute capacity in the cloud.
 
 #### [Amazon EBS (Elastic Block Store)](ebs.md):
-- Provides block-level storage volumes for use with EC2 instances, offering highly available and reliable storage.
+Provides block-level storage volumes for use with EC2 instances, offering highly available and reliable storage.
 
 #### [Amazon VPC (Virtual Private Cloud)](vpc.md):
 Gives full control over virtual networking environment, including resource placement, connectivity, and security.
