@@ -80,7 +80,7 @@ Amazon Route 53 supports various types of DNS records, each serving a specific p
 ## CNAME (Canonical Name) Record
 
 - **Use Case**: Creates an alias for a domain name (canonical name) to another domain name.
-- **Example**: Used to redirect one domain to another (e.g., blog.example.com to www.example.com). it cannot be used to alias the top domain `example.com`
+- **Example**: Used to redirect one domain to another (e.g., `blog.example.com` to `www.example.com`). it cannot be used to alias the top domain `example.com`
 
 ## MX (Mail Exchange) Record
 
