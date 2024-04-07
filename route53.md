@@ -420,4 +420,49 @@ Understanding the different routing policies available in Amazon Route 53 allows
 For more information on routing policies in Amazon Route 53, refer to the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html).
 
 
+# Route 53 Resolver
+
+Route 53 Resolver is a DNS resolution service provided by Amazon Route 53 that enables you to resolve DNS queries between your on-premises network and the AWS cloud, as well as between different VPCs (Virtual Private Clouds) within AWS. It simplifies DNS management and allows seamless communication across hybrid cloud environments by resolving DNS queries across AWS resources and on-premises networks.
+
+![image](https://github.com/todayisnow/AWS/assets/22843851/03584b4e-1b71-4dee-88e9-3d242735e459)
+
+
+## Key Features:
+
+- **Hybrid DNS Resolution:** Route 53 Resolver facilitates DNS resolution between on-premises networks and AWS resources, allowing seamless communication across hybrid cloud environments. It resolves DNS queries from on-premises DNS servers to AWS resources and vice versa.
+
+- **VPC DNS Resolution:** Route 53 Resolver provides VPC DNS resolution, enabling communication between resources within different VPCs without the need for public IP addresses or internet access. It resolves DNS queries between resources within the same VPC or across peered VPCs.
+
+- **Conditional Forwarding:** Route 53 Resolver supports conditional forwarding rules, allowing you to specify custom DNS resolution behavior based on domain names or namespaces. You can configure conditional forwarding to route DNS queries to specific DNS servers based on predefined criteria.
+
+- **DNS Firewall Rules:** Route 53 Resolver allows you to define DNS firewall rules to control DNS query traffic based on domain names, IP addresses, or query types. You can create allowlist or denylist rules to restrict or permit DNS query traffic according to your organization's security policies.
+
+- **Endpoint Resolver:** Route 53 Resolver offers endpoint-specific DNS resolution capabilities for AWS services, such as Amazon S3, Amazon DynamoDB, and Amazon API Gateway. It resolves DNS queries to AWS service endpoints within your VPCs, improving performance and reducing latency.
+
+- **DNS Query Logging:** Route 53 Resolver supports DNS query logging, allowing you to log DNS query traffic for analysis, troubleshooting, and compliance purposes. You can capture detailed logs of DNS query activity, including source IP addresses, query types, and response codes.
+
+## Use Cases:
+
+- **Hybrid Cloud Connectivity:** Route 53 Resolver facilitates DNS resolution between on-premises networks and AWS resources, enabling seamless communication across hybrid cloud environments. It allows you to integrate your on-premises DNS infrastructure with AWS services and resources.
+
+- **Inter-VPC Communication:** Route 53 Resolver enables DNS resolution between resources within different VPCs, including peered VPCs. It eliminates the need for public IP addresses or internet access for VPC-to-VPC communication, enhancing security and reducing complexity.
+
+- **Custom DNS Resolution Policies:** Route 53 Resolver supports conditional forwarding and DNS firewall rules, allowing you to implement custom DNS resolution policies based on domain names or IP addresses. You can enforce granular control over DNS query traffic and implement security measures to protect against DNS-based attacks.
+
+- **Endpoint-Specific Resolution:** Route 53 Resolver provides endpoint-specific DNS resolution for AWS services, ensuring efficient and optimized communication with AWS service endpoints within your VPCs. It improves performance and reduces latency for DNS queries to AWS services.
+
+## Benefits:
+
+- **Simplified DNS Management:** Route 53 Resolver simplifies DNS management across hybrid cloud environments by providing a centralized DNS resolution solution for AWS resources and on-premises networks. It eliminates the need for complex DNS configurations and manual updates.
+
+- **Enhanced Security:** Route 53 Resolver offers DNS firewall rules and conditional forwarding capabilities, allowing you to enforce security policies and control DNS query traffic based on predefined criteria. It helps protect against DNS-based attacks and unauthorized access to resources.
+
+- **Improved Performance:** Route 53 Resolver provides efficient DNS resolution for inter-VPC communication and endpoint-specific resolution for AWS services, improving performance and reducing latency for DNS queries. It ensures optimal connectivity and responsiveness for your applications and services.
+
+- **Scalability and Flexibility:** Route 53 Resolver scales with your infrastructure and offers flexible configuration options, allowing you to adapt DNS resolution policies to meet changing business requirements. You can easily configure and manage Resolver rules using the Route 53 console or API.
+
+Route 53 Resolver is a powerful DNS resolution service that enables seamless connectivity and communication across hybrid cloud environments. By leveraging Resolver, you can streamline DNS management, enhance security, and optimize performance for your applications and workloads.
+
+
+
 [Back to Main](readme.md)
